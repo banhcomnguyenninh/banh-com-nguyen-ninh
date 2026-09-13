@@ -19,3 +19,16 @@ on public.don_hang
 for insert
 to anon, authenticated
 with check (true);
+
+drop policy if exists "Admin xem don hang" on public.don_hang;
+create policy "Admin xem don hang"
+on public.don_hang for select
+to authenticated
+using (true);
+
+drop policy if exists "Admin cap nhat don hang" on public.don_hang;
+create policy "Admin cap nhat don hang"
+on public.don_hang for update
+to authenticated
+using (true)
+with check (true);

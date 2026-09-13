@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quản lý đơn hàng | Nguyên Ninh</title>
+  <link rel="stylesheet" href="don-hang.css?v=1">
+</head>
+<body>
+  <header class="topbar">
+    <div><span>NN</span><div><b>NGUYÊN NINH</b><small>Quản lý đơn hàng</small></div></div>
+    <nav><a href="admin.html">Quản lý sản phẩm</a><a href="index.html">Xem cửa hàng</a><button id="nut-dang-xuat" class="an">Đăng xuất</button></nav>
+  </header>
+
+  <main>
+    <section id="khu-dang-nhap" class="dang-nhap">
+      <form id="form-dang-nhap">
+        <span class="nhan">KHU VỰC QUẢN TRỊ</span>
+        <h1>Đăng nhập xem đơn</h1>
+        <label>Email<input id="email-admin" type="email" required autocomplete="username"></label>
+        <label>Mật khẩu<input id="mat-khau-admin" type="password" required autocomplete="current-password"></label>
+        <button type="submit">Đăng nhập</button>
+        <p id="loi-dang-nhap"></p>
+      </form>
+    </section>
+
+    <section id="khu-don-hang" class="an">
+      <div class="dau-trang">
+        <div><span class="nhan">CỬA HÀNG HÔM NAY</span><h1>Đơn hàng</h1></div>
+        <button id="nut-tai-lai">Tải lại đơn</button>
+      </div>
+      <div class="thong-ke">
+        <article><span>Đơn mới</span><b id="dem-don-moi">0</b></article>
+        <article><span>Đang xử lý</span><b id="dem-dang-xu-ly">0</b></article>
+        <article><span>Hoàn thành</span><b id="dem-hoan-thanh">0</b></article>
+      </div>
+      <div class="cong-cu">
+        <input id="tim-don" type="search" placeholder="Tìm mã đơn, tên hoặc số điện thoại…">
+        <select id="loc-trang-thai"><option value="tat-ca">Tất cả trạng thái</option><option value="moi">Đơn mới</option><option value="da_xac_nhan">Đã xác nhận</option><option value="dang_giao">Đang giao</option><option value="hoan_thanh">Hoàn thành</option><option value="da_huy">Đã hủy</option></select>
+      </div>
+      <div id="danh-sach-don" class="danh-sach-don"><p>Đang tải đơn hàng…</p></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="don-hang.js?v=1"></script>
+</body>
+</html>
