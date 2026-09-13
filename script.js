@@ -638,7 +638,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (formDatHang) {
         formDatHang.addEventListener(
             "submit",
-            function (suKien) {
+            async function (suKien) {
                 suKien.preventDefault();
 
                 if (
@@ -650,26 +650,54 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                const noiHienDon =
-                    document.getElementById(
-                        "noi-dung-don-hang"
-                    );
+                const nutDatHang = document.getElementById("nut-dat-hang-truc-tiep");
+                const thongBao = document.getElementById("thong-bao-dat-hang");
+                const tenKhach = document.getElementById("ten-khach-hang").value.trim();
+                const dienThoai = document.getElementById("dien-thoai").value.trim();
+                const diaChi = document.getElementById("dia-chi").value.trim();
+                const ghiChu = document.getElementById("ghi-chu").value.trim();
+                const tongTien = gioHang.reduce(function (tong, sanPham) {
+                    return tong + sanPham.gia * sanPham.soLuong;
+                }, 0);
+                const maDon = "NN" + Date.now().toString().slice(-8);
 
-                if (noiHienDon) {
-                    noiHienDon.textContent =
-                        taoNoiDungDonHang();
+                nutDatHang.disabled = true;
+                nutDatHang.textContent = "Đang gửi đơn...";
+                thongBao?.classList.add("an");
 
-                    noiHienDon.classList
-                        .remove("an");
+                const { error } = await supabaseSanPham
+                    .from("don_hang")
+                    .insert({
+                        ma_don: maDon,
+                        ten_khach_hang: tenKhach,
+                        so_dien_thoai: dienThoai,
+                        dia_chi: diaChi,
+                        ghi_chu: ghiChu || null,
+                        san_pham: gioHang,
+                        tong_tien: tongTien,
+                        trang_thai: "moi"
+                    });
+
+                nutDatHang.disabled = false;
+                nutDatHang.textContent = "Đặt hàng ngay";
+
+                if (error) {
+                    if (thongBao) {
+                        thongBao.textContent = "Chưa gửi được đơn. Vui lòng thử lại hoặc gọi 0985 868 317.";
+                        thongBao.className = "thong-bao-dat-hang loi";
+                    }
+                    return;
                 }
 
-                document
-                    .getElementById(
-                        "gio-hang"
-                    )
-                    ?.scrollIntoView({
-                        behavior: "smooth"
-                    });
+                if (thongBao) {
+                    thongBao.innerHTML = "<strong>Đặt hàng thành công!</strong><br>Mã đơn của bạn: <b>" + maDon + "</b><br>Cửa hàng sẽ gọi xác nhận sớm.";
+                    thongBao.className = "thong-bao-dat-hang thanh-cong";
+                }
+
+                gioHang = [];
+                luuGioHang();
+                hienThiGioHang();
+                formDatHang.reset();
             }
         );
     }

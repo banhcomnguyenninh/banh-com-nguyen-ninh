@@ -66,6 +66,24 @@ function layQuyCachSanPham(sanPham) {
     return "1 phần";
 }
 
+function boDauTiengViet(noiDung) {
+    return String(noiDung || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
+function layDanhMucSanPham(tenSanPham) {
+    const ten = boDauTiengViet(tenSanPham);
+
+    if (ten.includes("mochi")) return "mochi";
+    if (ten.includes("xu xe") || ten.includes("phu the")) return "xu-xe";
+    if (ten.includes("o mai") || ten.includes("omai") || ten.includes("mut")) return "o-mai";
+    if (ten.includes("banh com")) return "banh-com";
+    if (ten.includes("com tuoi") || ten.includes("com kho") || ten.includes("com rang")) return "com";
+    return "khac";
+}
+
 
 // ========================================
 // 5. HIỂN THỊ THÔNG BÁO
@@ -113,6 +131,10 @@ function taoTheSanPham(sanPham) {
     theSanPham.className =
         "the-san-pham san-pham-tu-admin";
 
+    if (sanPham.noi_bat === true) {
+        theSanPham.classList.add("san-pham-hot");
+    }
+
     const idSoLuong =
         "so-luong-admin-" +
         sanPham.id;
@@ -134,7 +156,17 @@ function taoTheSanPham(sanPham) {
     const gia =
         Number(sanPham.gia);
 
+    theSanPham.dataset.ten = boDauTiengViet(sanPham.ten);
+    theSanPham.dataset.gia = String(gia);
+    theSanPham.dataset.danhMuc = layDanhMucSanPham(sanPham.ten);
+    theSanPham.dataset.thuTu = String(sanPham._thuTuHienThi || 0);
+
+    const nhanHot = sanPham.noi_bat === true
+        ? '<span class="nhan-hot">HOT</span>'
+        : '';
+
     theSanPham.innerHTML = `
+        ${nhanHot}
         <img
             class="anh-san-pham"
             src="${lamSachNoiDung(
@@ -323,7 +355,8 @@ data.sort(function (sanPhamA, sanPhamB) {
     // Các sản phẩm thường giữ thứ tự hiện tại
     return 0;
 });
-    data.forEach(function (sanPham) {
+    data.forEach(function (sanPham, viTri) {
+        sanPham._thuTuHienThi = viTri;
         const theSanPham =
             taoTheSanPham(
                 sanPham
@@ -341,6 +374,57 @@ data.sort(function (sanPhamA, sanPhamB) {
             "sanPhamDaTai"
         )
     );
+
+    khoiTaoBoLocSanPham();
+}
+
+function khoiTaoBoLocSanPham() {
+    const oTim = document.getElementById("tim-san-pham");
+    const oSapXep = document.getElementById("sap-xep-san-pham");
+    const cacNutDanhMuc = document.querySelectorAll(".nut-danh-muc");
+    const luoi = document.querySelector(".luoi-san-pham");
+
+    if (!luoi || !oTim || !oSapXep || luoi.dataset.daLoc === "true") return;
+    luoi.dataset.daLoc = "true";
+    let danhMucDangChon = "tat-ca";
+
+    function capNhatSanPham() {
+        const tuKhoa = boDauTiengViet(oTim.value.trim());
+        const cacThe = Array.from(luoi.querySelectorAll(".san-pham-tu-admin"));
+
+        cacThe.sort(function (a, b) {
+            const kieu = oSapXep.value;
+            if (kieu === "ten-az") return a.dataset.ten.localeCompare(b.dataset.ten, "vi");
+            if (kieu === "ten-za") return b.dataset.ten.localeCompare(a.dataset.ten, "vi");
+            if (kieu === "gia-tang") return Number(a.dataset.gia) - Number(b.dataset.gia);
+            if (kieu === "gia-giam") return Number(b.dataset.gia) - Number(a.dataset.gia);
+            return Number(a.dataset.thuTu) - Number(b.dataset.thuTu);
+        });
+
+        let soLuongHien = 0;
+        cacThe.forEach(function (the) {
+            const dungTuKhoa = !tuKhoa || the.dataset.ten.includes(tuKhoa);
+            const dungDanhMuc = danhMucDangChon === "tat-ca" || the.dataset.danhMuc === danhMucDangChon;
+            const duocHien = dungTuKhoa && dungDanhMuc;
+            the.classList.toggle("an", !duocHien);
+            luoi.appendChild(the);
+            if (duocHien) soLuongHien += 1;
+        });
+
+        const thongBao = document.getElementById("khong-co-ket-qua");
+        if (thongBao) thongBao.classList.toggle("an", soLuongHien > 0);
+    }
+
+    oTim.addEventListener("input", capNhatSanPham);
+    oSapXep.addEventListener("change", capNhatSanPham);
+    cacNutDanhMuc.forEach(function (nut) {
+        nut.addEventListener("click", function () {
+            danhMucDangChon = nut.dataset.danhMuc;
+            cacNutDanhMuc.forEach(function (nutKhac) { nutKhac.classList.remove("dang-chon"); });
+            nut.classList.add("dang-chon");
+            capNhatSanPham();
+        });
+    });
 }
 
 

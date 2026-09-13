@@ -16,7 +16,10 @@
 
     <title>Bánh cốm Nguyên Ninh</title>
 
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23174c32'/%3E%3Cpath d='M17 38c16 1 24-8 30-23 2 18-6 31-25 32' fill='%23b8d85f'/%3E%3Cpath d='M20 45c8-10 16-17 27-24' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="editorial.css?v=1">
 </head>
 
 <body>
@@ -47,69 +50,37 @@
 
 </div>
 
-    <!-- MENU -->
+    <header class="dau-trang-moi" id="trang-chu">
+        <div class="khung-noi-dung hang-dau-trang">
+            <nav class="menu-trai" aria-label="Menu chính">
+                <a href="#trang-chu">Trang chủ</a>
+                <a href="#gioi-thieu">Giới thiệu</a>
+                <a href="#san-pham">Sản phẩm</a>
+                <a href="#quy-trinh">Quy trình</a>
+                <a href="#lien-he">Liên hệ</a>
+            </nav>
 
-    <nav class="menu menu-moi">
-        <div class="khung-noi-dung menu-ben-trong">
-
-            <a class="logo-chu" href="#trang-chu">
-                <span class="bieu-tuong-logo">🌿</span>
-
-                <span class="noi-dung-logo">
-                    <strong>BÁNH CỐM NGUYÊN NINH</strong>
-                    <small>HOTLINE: 0985868317</small>
-                </span>
+            <a class="logo-tron-moi" href="#trang-chu" aria-label="Bánh cốm Nguyên Ninh">
+                <span>NN</span>
+                <small>Từ 1865</small>
             </a>
 
-            <ul class="danh-sach-menu">
-                <li>
-                    <a href="#trang-chu">Trang chủ</a>
-                </li>
-                
-                <li>
-                    <a href="#gioi-thieu">Giới thiệu</a>
-                </li>
-                <li><a href="#quy-trinh">Quy trình</a></li>
-
-                <li>
-                    <a href="#san-pham">Sản phẩm</a>
-                </li>
-
-                <li>
-                    <a href="san-pham.html">Xem tất cả</a>
-                </li>
-
-                <li>
-                    <a href="#gio-hang">
-                        Giỏ hàng
-                        (<span id="so-luong-gio-hang">0</span>)
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#lien-he">Liên hệ</a>
-                </li>
-            </ul>
-
-            <button
-                type="button"
-                id="nut-doi-giao-dien"
-                aria-label="Đổi chế độ sáng tối"
-            >
-                🌙
-            </button>
-
+            <div class="tien-ich-dau-trang">
+                <label class="o-tim-kiem-dau-trang">
+                    <input id="tim-san-pham" type="search" placeholder="Bạn cần tìm gì?" aria-label="Tìm sản phẩm">
+                    <span>⌕</span>
+                </label>
+                <a class="bieu-tuong-gio" href="#gio-hang" aria-label="Mở giỏ hàng">
+                    ♡ <span id="so-luong-gio-hang">0</span>
+                </a>
+            </div>
         </div>
-    </nav>
-<!-- ẢNH BÌA ĐẦU TRANG -->
-<section class="anh-bia-moi" id="trang-chu">
+    </header>
 
-    <img
-        src="anh-bia.jpg"
-        alt="Bánh cốm Nguyên Ninh"
-    >
-
-</section>
+    <section class="banner-anh-moi" aria-label="Bánh cốm Nguyên Ninh">
+        <img src="anh-bia-phien-ban-moi.jpg" alt="Bánh cốm Nguyên Ninh – món quà biếu từ Thủ đô">
+        <a class="vung-goi-tren-banner" href="tel:0985868317" aria-label="Gọi 0985 868 317 để đặt hàng"></a>
+    </section>
 
 <main>
 
@@ -325,46 +296,41 @@
 
         <!-- SẢN PHẨM -->
 
-        <section
-            class="phan-noi-dung nen-xanh-nhat hieu-ung-cuon"
-            id="san-pham"
-        >
+        <section class="phan-noi-dung khu-cua-hang" id="san-pham">
             <div class="khung-noi-dung">
-
-                <h2 class="tieu-de-phan">
-                    Sản phẩm của cửa hàng
-                </h2>
-
-                <p class="mo-ta-phan">
-                    Chọn số lượng rồi thêm sản phẩm vào giỏ.
-                    Nhập thông tin đặt hàng.Rồi sao chép đơn hàng .
-                    gửi cho mình là đã đặt hàng xong nhá..
-                </p>
-
-
-                <!--
-                    san-pham.js sẽ đưa sản phẩm
-                    từ Supabase vào lưới này
-                -->
-
-                <div class="luoi-san-pham">
-
-
-
-
-
+                <div class="tieu-de-cua-hang">
+                    <div><span>Cửa hàng trực tuyến</span><h2>Sản phẩm của chúng tôi</h2></div>
+                    <p>Chọn món bạn thích và thêm trực tiếp vào giỏ hàng.</p>
                 </div>
 
+                <div class="bo-cuc-cua-hang">
+                    <aside class="danh-muc-san-pham">
+                        <h3>Danh mục sản phẩm</h3>
+                        <button class="nut-danh-muc dang-chon" type="button" data-danh-muc="tat-ca">Tất cả sản phẩm</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="banh-com">Bánh cốm</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="mochi">Mochi cốm</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="xu-xe">Bánh xu xê</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="com">Cốm tươi & cốm khô</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="o-mai">Ô mai Hà Nội</button>
+                        <button class="nut-danh-muc" type="button" data-danh-muc="khac">Sản phẩm khác</button>
+                        <div class="the-hot-ben-trai"><span>🔥</span><strong>Sản phẩm Hot</strong><small>Ưu tiên hiển thị đầu tiên</small></div>
+                    </aside>
 
-                <p class="can-giua cach-tren">
-                    <a
-                        class="nut nut-phu"
-                        href="san-pham.html"
-                    >
-                        Xem tất cả sản phẩm
-                    </a>
-                </p>
-
+                    <div class="cot-san-pham">
+                        <div class="thanh-sap-xep">
+                            <strong>Sắp xếp theo</strong>
+                            <select id="sap-xep-san-pham" aria-label="Sắp xếp sản phẩm">
+                                <option value="mac-dinh">Nổi bật</option>
+                                <option value="ten-az">Tên A–Z</option>
+                                <option value="ten-za">Tên Z–A</option>
+                                <option value="gia-tang">Giá thấp đến cao</option>
+                                <option value="gia-giam">Giá cao xuống thấp</option>
+                            </select>
+                        </div>
+                        <div class="luoi-san-pham"></div>
+                        <p id="khong-co-ket-qua" class="khong-co-ket-qua an">Không tìm thấy sản phẩm phù hợp.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -468,31 +434,9 @@
                             🗑️ Xóa giỏ hàng
                         </button>
 
-                        <button
-                            type="button"
-                            class="nut"
-                            id="nut-sao-chep-don"
-                        >
-                            📋 Sao chép đơn hàng
-                        </button>
-
-                        <a
-    class="nut nut-facebook"
-   href="https://m.me/61591610027403" 
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Gửi qua Facebook
-</a>
-
-<a
-    class="nut nut-zalo"
-    href="https://zalo.me/0985868317"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Gửi qua Zalo
-</a>
+                        <a class="nut" href="#dat-hang">
+                            Tiếp tục đặt hàng
+                        </a>
 
                     </div>
 
@@ -519,7 +463,7 @@
                 </h2>
 
                 <p class="mo-ta-phan">
-                    Điền thông tin rồi nhấn tạo đơn hàng.
+                    Điền thông tin để gửi đơn trực tiếp cho cửa hàng.
                 </p>
 
                 <form
@@ -580,11 +524,50 @@
                         ></textarea>
                     </div>
 
-                    <button class="nut" type="submit">
-                        Tạo đơn hàng
+                    <button class="nut nut-dat-hang-truc-tiep" id="nut-dat-hang-truc-tiep" type="submit">
+                        Đặt hàng ngay
                     </button>
 
+                    <div class="thong-bao-dat-hang an" id="thong-bao-dat-hang" role="status"></div>
+
                 </form>
+            </div>
+        </section>
+
+
+        <!-- HƯỚNG DẪN ĐẶT HÀNG -->
+        <section class="huong-dan-dat-hang hieu-ung-cuon" id="huong-dan-dat-hang">
+            <div class="khung-noi-dung">
+                <div class="dau-muc-huong-dan">
+                    <span>CHỈ 4 BƯỚC ĐƠN GIẢN</span>
+                    <h2>Hướng dẫn đặt hàng</h2>
+                    <p>Chọn món bánh bạn thích và gửi đơn cho cửa hàng trong vài phút.</p>
+                </div>
+
+                <div class="luoi-huong-dan">
+                    <article class="buoc-dat-hang">
+                        <b>01</b><span>Chọn bánh</span>
+                        <h3>Tìm sản phẩm yêu thích</h3>
+                        <p>Xem hình ảnh, giá và quy cách của từng sản phẩm.</p>
+                    </article>
+                    <article class="buoc-dat-hang">
+                        <b>02</b><span>Thêm vào giỏ</span>
+                        <h3>Chọn số lượng</h3>
+                        <p>Bấm “Thêm vào giỏ”, sau đó kiểm tra lại đơn hàng.</p>
+                    </article>
+                    <article class="buoc-dat-hang">
+                        <b>03</b><span>Nhập thông tin</span>
+                        <h3>Điền địa chỉ nhận bánh</h3>
+                        <p>Nhập tên, số điện thoại, địa chỉ và thời gian muốn nhận.</p>
+                    </article>
+                    <article class="buoc-dat-hang">
+                        <b>04</b><span>Gửi đơn</span>
+                        <h3>Xác nhận với cửa hàng</h3>
+                        <p>Gửi đơn qua Facebook, Zalo hoặc gọi trực tiếp để xác nhận.</p>
+                    </article>
+                </div>
+
+                <a class="nut-bat-dau-dat" href="#san-pham">Bắt đầu chọn bánh →</a>
             </div>
         </section>
 
@@ -599,16 +582,12 @@
 
                 <div class="khung-lien-he">
 
-                    <h2>Liên hệ đặt bánh</h2>
-
-                    <p>
-                        📞 Điện thoại:
-                        <strong>0985868317</strong>
-                    </p>
-
-                    <p>
-                        📍 Nhận giao hàng tại Hà Nội
-                    </p>
+                    <div class="noi-dung-lien-he-gon">
+                        <span class="nhan-lien-he">ĐẶT BÁNH NHANH</span>
+                        <h2>Thưởng thức vị cốm<br>ngay hôm nay</h2>
+                        <p>Giao nhanh, giao hỏa tốc tại Hà Nội</p>
+                        <a class="so-dien-thoai-lon" href="tel:0985868317">0985 868 317</a>
+                    </div>
 
                     <div class="nhom-nut-anh-bia">
 
@@ -708,9 +687,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="san-pham.js?v=9"></script>
+    <script src="san-pham.js?v=30"></script>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=30"></script>
 
 </body>
 
