@@ -27,11 +27,10 @@ function renderProducts() {
   const q = $("#search").value.trim().toLowerCase();
   const list = allProducts.filter(p => (filter === "all" || category(p) === filter) && (p.ten || "").toLowerCase().includes(q));
   $("#products").innerHTML = list.length ? list.map(p => `<article class="product">
-    <button class="product-image zoom-open" data-src="${safe(p.anh_url || "feature.jpg")}" data-alt="${safe(p.ten)}" aria-label="Phóng to ảnh ${safe(p.ten)}">
+    <div class="product-image">
       <img src="${safe(p.anh_url || "feature.jpg")}" alt="${safe(p.ten)}" loading="lazy">
       ${p.noi_bat ? '<span class="hot">HOT</span>' : ""}
-      <span class="zoom-hint">⌕ Xem ảnh</span>
-    </button>
+    </div>
     <h3>${safe(p.ten)}</h3>
     ${p.quy_cach ? `<p class="packing">${safe(p.quy_cach)}</p>` : ""}
     <p class="desc">${safe(p.mo_ta || "Bánh làm mới trong ngày, phù hợp thưởng thức và làm quà.")}</p>
@@ -44,7 +43,6 @@ function renderProducts() {
   document.querySelectorAll(".qty-minus").forEach(b => b.onclick = () => changeCardQty(b.dataset.id, -1));
   document.querySelectorAll(".qty-plus").forEach(b => b.onclick = () => changeCardQty(b.dataset.id, 1));
   document.querySelectorAll(".add").forEach(b => b.onclick = () => addToCart(b.dataset.id, Number(document.getElementById(`qty-${b.dataset.id}`).textContent)));
-  document.querySelectorAll(".zoom-open").forEach(b => b.onclick = () => openZoom(b.dataset.src, b.dataset.alt));
 }
 
 function changeCardQty(id, amount) {
@@ -74,27 +72,6 @@ function renderCart() {
 }
 function openCart() { $("#drawer").classList.add("show"); $("#backdrop").classList.add("show"); }
 function closeCart() { $("#drawer").classList.remove("show"); $("#backdrop").classList.remove("show"); }
-
-let zoomScale = 1, startDistance = 0, startScale = 1;
-function setZoom(value) {
-  zoomScale = Math.max(1, Math.min(4, value));
-  $("#zoomImage").style.transform = `scale(${zoomScale})`;
-  $("#zoomLevel").textContent = Math.round(zoomScale * 100) + "%";
-}
-function openZoom(src, alt) {
-  $("#zoomImage").src = src; $("#zoomImage").alt = alt; $("#imageZoom").classList.add("show");
-  document.body.classList.add("no-scroll"); setZoom(1);
-}
-function closeZoom() { $("#imageZoom").classList.remove("show"); document.body.classList.remove("no-scroll"); setZoom(1); }
-function touchDistance(touches) { return Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY); }
-
-$("#zoomClose").onclick = closeZoom;
-$("#zoomIn").onclick = () => setZoom(zoomScale + .5);
-$("#zoomOut").onclick = () => setZoom(zoomScale - .5);
-$("#imageZoom").onclick = e => { if (e.target === $("#imageZoom")) closeZoom(); };
-$("#zoomStage").addEventListener("touchstart", e => { if (e.touches.length === 2) { startDistance = touchDistance(e.touches); startScale = zoomScale; } }, { passive: true });
-$("#zoomStage").addEventListener("touchmove", e => { if (e.touches.length === 2) { e.preventDefault(); setZoom(startScale * touchDistance(e.touches) / startDistance); } }, { passive: false });
-$("#zoomStage").addEventListener("wheel", e => { e.preventDefault(); setZoom(zoomScale + (e.deltaY < 0 ? .25 : -.25)); }, { passive: false });
 
 $("#cartOpen").onclick = openCart; $("#cartClose").onclick = closeCart; $("#backdrop").onclick = closeCart; $("#search").oninput = renderProducts;
 document.querySelectorAll("#filters button").forEach(b => b.onclick = () => { document.querySelectorAll("#filters button").forEach(x => x.classList.remove("active")); b.classList.add("active"); filter = b.dataset.filter; renderProducts(); });
