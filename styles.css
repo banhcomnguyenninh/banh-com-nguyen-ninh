@@ -15,6 +15,18 @@ header{display:grid;padding:18px 5%;align-items:center;grid-template-columns:280
 @media(max-width:650px){.topbar{font-size:10px}header{display:flex;padding:13px 4%;flex-wrap:wrap;gap:10px}.logo{flex:1}.logo i{width:44px;height:44px}.logo b{font-size:13px}.cart-open span{display:none}.cart-open{width:48px}.main-search{order:3;width:100%}.nav{padding:0 4%;justify-content:flex-start;gap:24px;overflow:auto}.nav a{white-space:nowrap}.benefits{margin:14px 4% 0;grid-template-columns:1fr}.benefits div{padding:13px 18px;border-right:0;border-bottom:1px solid var(--line)}.shop-section{padding:50px 4%}.section-heading{align-items:flex-start}.deal{width:58px;height:58px}.products{grid-template-columns:1fr}.product{display:grid;grid-template-columns:42% 58%;grid-template-rows:auto auto auto 1fr auto}.product-image{grid-row:1/6;aspect-ratio:auto;min-height:230px}.product h3{margin:15px 13px 4px}.packing,.product .desc,.product-foot{margin-left:13px;margin-right:13px}.product .desc{min-height:auto;-webkit-line-clamp:3}.product-actions{margin:8px 13px 14px;flex-wrap:wrap}.quantity{height:39px}.add{min-height:39px}.promo{margin:18px 4%;grid-template-columns:1fr}.promo>div{padding:38px 25px}.promo img{min-height:230px;max-height:300px}.steps{grid-template-columns:1fr}.contact{padding:30px 5%;align-items:stretch;flex-direction:column;gap:10px}.contact div{margin:0 0 8px}.contact a{text-align:center}footer{align-items:flex-start;flex-direction:column;gap:20px}.drawer{padding:22px 16px}.cart-row{grid-template-columns:1fr}.cart-controls{width:max-content}}
 @media(max-width:390px){.product{grid-template-columns:40% 60%}.product-image{min-height:250px}.quantity button{width:30px}.add{font-size:11px}}
 
+/* Chỉ thêm phần ảnh nền, giữ nguyên các phần còn lại */
+.image-background{position:relative;overflow:hidden;width:100%;height:clamp(340px,52vw,650px);background:#173f2e}
+.background-slides{display:flex;width:400%;height:100%;animation:nenChuyen 20s infinite}
+.background-slides img{width:25%;height:100%;object-fit:cover;object-position:center}
+.image-background:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,34,23,.68),rgba(4,34,23,.08) 70%)}
+.background-caption{position:absolute;z-index:2;top:50%;left:7%;color:#fff;transform:translateY(-50%)}
+.background-caption span{font-size:12px;font-weight:800;letter-spacing:.2em}
+.background-caption h1{margin:10px 0 24px;font-family:'Playfair Display',serif;font-size:clamp(44px,7vw,86px);line-height:.95}
+.background-caption a{display:inline-block;padding:12px 18px;border-radius:7px;color:#fff;background:var(--red);font-size:13px;font-weight:800;text-decoration:none}
+@keyframes nenChuyen{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-25%)}50%,70%{transform:translateX(-50%)}75%,95%{transform:translateX(-75%)}100%{transform:translateX(0)}}
+@media(max-width:650px){.image-background{height:430px}.background-slides img{object-position:center}.image-background:after{background:linear-gradient(0deg,rgba(4,34,23,.72),transparent 68%)}.background-caption{top:auto;right:6%;bottom:34px;left:6%;transform:none}.background-caption h1{font-size:48px}}
+
 /* Nút mở và thu gọn mô tả sản phẩm */
 .description-wrap{margin:8px 16px}
 .product .description-wrap .desc{margin:0;min-height:38px}
