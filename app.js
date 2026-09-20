@@ -17,7 +17,7 @@ async function loadProducts(){
 
 function card(p,prefix){
   const key=prefix+"-"+p.id;
-  return `<article class="product"><div class="product-image"><img src="${safe(p.anh_url||"feature.jpg")}" alt="${safe(p.ten)}" loading="lazy">${p.noi_bat?'<span class="hot">BÁN CHẠY</span>':""}</div><h3>${safe(p.ten)}</h3>${p.quy_cach?`<p class="packing">${safe(p.quy_cach)}</p>`:""}<p class="desc">${safe(p.mo_ta||"Sản phẩm được làm mới, phù hợp thưởng thức và làm quà.")}</p><div class="product-foot"><span class="price">${money(p.gia)}</span></div><div class="product-actions"><div class="quantity"><button class="qty-minus" data-target="${key}">−</button><span id="${key}">1</span><button class="qty-plus" data-target="${key}">+</button></div><button class="add" data-id="${p.id}" data-target="${key}">Thêm vào giỏ</button></div></article>`;
+  return `<article class="product"><div class="product-image"><img src="${safe(p.anh_url||"feature.jpg")}" alt="${safe(p.ten)}" loading="lazy">${p.noi_bat?'<span class="hot">BÁN CHẠY</span>':""}</div><h3>${safe(p.ten)}</h3>${p.quy_cach?`<p class="packing">${safe(p.quy_cach)}</p>`:""}<div class="description-wrap"><p class="desc" id="desc-${key}">${safe(p.mo_ta||"Sản phẩm được làm mới, phù hợp thưởng thức và làm quà.")}</p><button type="button" class="desc-toggle" data-desc="desc-${key}" aria-expanded="false">Xem thêm</button></div><div class="product-foot"><span class="price">${money(p.gia)}</span></div><div class="product-actions"><div class="quantity"><button class="qty-minus" data-target="${key}">−</button><span id="${key}">1</span><button class="qty-plus" data-target="${key}">+</button></div><button class="add" data-id="${p.id}" data-target="${key}">Thêm vào giỏ</button></div></article>`;
 }
 
 function renderAll(){
@@ -34,6 +34,11 @@ function bindProductButtons(){
   document.querySelectorAll(".qty-minus").forEach(b=>b.onclick=()=>changeCardQty(b.dataset.target,-1));
   document.querySelectorAll(".qty-plus").forEach(b=>b.onclick=()=>changeCardQty(b.dataset.target,1));
   document.querySelectorAll(".add").forEach(b=>b.onclick=()=>addToCart(b.dataset.id,Number(document.getElementById(b.dataset.target).textContent)));
+  document.querySelectorAll(".desc-toggle").forEach(b=>b.onclick=()=>{
+    const desc=document.getElementById(b.dataset.desc),opened=desc.classList.toggle("open");
+    b.textContent=opened?"Thu gọn":"Xem thêm";
+    b.setAttribute("aria-expanded",String(opened));
+  });
 }
 function changeCardQty(target,amount){const el=document.getElementById(target);if(el)el.textContent=Math.max(1,Math.min(99,Number(el.textContent)+amount))}
 function save(){localStorage.setItem("nn_cart_store",JSON.stringify(cart));renderCart()}
