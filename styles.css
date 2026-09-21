@@ -27,6 +27,14 @@ header{display:grid;padding:18px 5%;align-items:center;grid-template-columns:280
 @keyframes nenChuyen{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-25%)}50%,70%{transform:translateX(-50%)}75%,95%{transform:translateX(-75%)}100%{transform:translateX(0)}}
 @media(max-width:650px){.image-background{height:430px}.background-slides img{object-position:center}.image-background:after{background:linear-gradient(0deg,rgba(4,34,23,.72),transparent 68%)}.background-caption{top:auto;right:6%;bottom:34px;left:6%;transform:none}.background-caption h1{font-size:48px}}
 
+/* Nút gọi điện và Zalo nổi */
+.floating-contact{position:fixed;z-index:70;right:18px;bottom:22px;display:flex;align-items:flex-end;flex-direction:column;gap:10px}
+.floating-contact a{display:flex;height:54px;padding:5px 13px 5px 5px;align-items:center;gap:8px;border-radius:28px;color:white;box-shadow:0 5px 18px #0004;font-size:12px;font-weight:800;text-decoration:none}
+.floating-contact img{width:44px;height:44px;object-fit:contain}
+.floating-phone{background:#d83232}.floating-zalo{background:#2879db}
+.floating-zalo img{border-radius:50%}
+@media(max-width:650px){.floating-contact{right:10px;bottom:12px}.floating-contact a{width:52px;height:52px;padding:4px;border-radius:50%;overflow:hidden}.floating-contact a span{display:none}.floating-contact img{width:44px;height:44px}}
+
 /* Nút mở và thu gọn mô tả sản phẩm */
 .description-wrap{margin:8px 16px}
 .product .description-wrap .desc{margin:0;min-height:38px}
