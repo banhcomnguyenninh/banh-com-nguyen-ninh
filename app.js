@@ -39,15 +39,15 @@ orderForm.addEventListener("submit",async event=>{
   const submit=$("#orderSubmit"),status=$("#orderStatus");
   const name=$("#orderName").value.trim(),phone=$("#orderPhone").value.trim(),details=$("#orderDetails").value.trim();
   if(!/^0\d{9}$/.test(phone)){status.textContent="Vui lòng nhập số điện thoại gồm 10 số.";return}
-  submit.disabled=true;submit.textContent="ĐANG GỬI…";status.textContent="";
+  submit.disabled=true;submit.textContent="ĐANG MỞ ZALO…";status.textContent="";
   const orderCode=makeOrderCode();
   const payload={ma_don:orderCode,ten_khach_hang:name,so_dien_thoai:phone,dia_chi:details,ghi_chu:`Đặt nhanh từ sản phẩm: ${selectedProduct.ten}`,san_pham:[{id:selectedProduct.id,ten:selectedProduct.ten,gia:Number(selectedProduct.gia||0),soLuong:1,anh_url:selectedProduct.anh_url||""}],tong_tien:Number(selectedProduct.gia||0),trang_thai:"moi"};
+  const zaloMessage=`ĐƠN ĐẶT HÀNG ${orderCode}\n\nKhách hàng: ${name}\nSố điện thoại: ${phone}\nSản phẩm: ${selectedProduct.ten}\nGiá: ${money(selectedProduct.gia)}\nSố lượng/địa chỉ/ghi chú: ${details}\n\nVui lòng xác nhận đơn giúp tôi.`;
+  try{await navigator.clipboard.writeText(zaloMessage)}catch{}
   const{error}=await db.from("don_hang").insert(payload);
-  submit.disabled=false;submit.textContent="GỬI ĐI";
-  if(error){status.textContent="Chưa gửi được đơn. Vui lòng thử lại hoặc gọi 0985 868 317.";return}
-  status.innerHTML=`Đặt hàng thành công! Mã đơn: <b>${orderCode}</b>`;
-  orderForm.reset();
-  setTimeout(closeOrder,3000);
+  submit.disabled=false;submit.textContent="GỬI QUA ZALO";
+  if(error){status.textContent="Đơn chưa lưu được nhưng nội dung đã sao chép. Đang mở Zalo…"}else{status.innerHTML=`Đã lưu đơn <b>${orderCode}</b> và sao chép nội dung. Đang mở Zalo…`;orderForm.reset()}
+  setTimeout(()=>{window.location.href=`https://zalo.me/${PHONE}`},650);
 });
 
 $("#orderClose").addEventListener("click",closeOrder);
