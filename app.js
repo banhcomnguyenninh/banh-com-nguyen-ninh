@@ -62,6 +62,20 @@ menuBackdrop.addEventListener("click",()=>setMenu(false));
 mobileMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>setMenu(false)));
 document.addEventListener("keydown",event=>{if(event.key==="Escape")setMenu(false)});
 
+const heroSlider=$("#heroSlider"),heroSlides=[...document.querySelectorAll(".hero-slide")],heroDots=[...document.querySelectorAll(".hero-dots button")];
+let heroIndex=0,heroTimer,touchStartX=0;
+function showHero(index){heroIndex=(index+heroSlides.length)%heroSlides.length;heroSlides.forEach((slide,i)=>slide.classList.toggle("active",i===heroIndex));heroDots.forEach((dot,i)=>dot.classList.toggle("active",i===heroIndex))}
+function startHero(){clearInterval(heroTimer);heroTimer=setInterval(()=>showHero(heroIndex+1),4500)}
+$(".hero-prev").addEventListener("click",()=>{showHero(heroIndex-1);startHero()});
+$(".hero-next").addEventListener("click",()=>{showHero(heroIndex+1);startHero()});
+heroDots.forEach((dot,index)=>dot.addEventListener("click",()=>{showHero(index);startHero()}));
+heroSlider.addEventListener("touchstart",event=>{touchStartX=event.changedTouches[0].clientX},{passive:true});
+heroSlider.addEventListener("touchend",event=>{const distance=event.changedTouches[0].clientX-touchStartX;if(Math.abs(distance)>45){showHero(heroIndex+(distance<0?1:-1));startHero()}},{passive:true});
+heroSlider.addEventListener("mouseenter",()=>clearInterval(heroTimer));
+heroSlider.addEventListener("mouseleave",startHero);
+document.addEventListener("visibilitychange",()=>document.hidden?clearInterval(heroTimer):startHero());
+startHero();
+
 function showNotice(message){
   let notice=document.getElementById("zaloNotice");
   if(!notice){notice=document.createElement("div");notice.id="zaloNotice";notice.setAttribute("role","status");document.body.appendChild(notice)}
