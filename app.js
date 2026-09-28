@@ -54,6 +54,14 @@ $("#orderClose").addEventListener("click",closeOrder);
 orderModal.addEventListener("click",event=>{if(event.target===orderModal)closeOrder()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeOrder()});
 
+const mobileMenu=$("#mobileMenu"),menuBackdrop=$("#menuBackdrop"),menuOpen=$("#menuOpen");
+function setMenu(open){mobileMenu.classList.toggle("show",open);menuBackdrop.classList.toggle("show",open);mobileMenu.setAttribute("aria-hidden",String(!open));menuOpen.setAttribute("aria-expanded",String(open));document.body.classList.toggle("menu-open",open)}
+menuOpen.addEventListener("click",()=>setMenu(true));
+$("#menuClose").addEventListener("click",()=>setMenu(false));
+menuBackdrop.addEventListener("click",()=>setMenu(false));
+mobileMenu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>setMenu(false)));
+document.addEventListener("keydown",event=>{if(event.key==="Escape")setMenu(false)});
+
 function showNotice(message){
   let notice=document.getElementById("zaloNotice");
   if(!notice){notice=document.createElement("div");notice.id="zaloNotice";notice.setAttribute("role","status");document.body.appendChild(notice)}
