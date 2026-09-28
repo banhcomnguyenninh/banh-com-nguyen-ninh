@@ -8,46 +8,51 @@ const money=n=>Number(n||0).toLocaleString("vi-VN")+"₫";
 const safe=s=>{const d=document.createElement("div");d.textContent=String(s??"");return d.innerHTML};
 function category(p){const t=(p.ten||"").toLowerCase();if(t.includes("mochi"))return"mochi";if(t.includes("xu xê")||t.includes("phu thê"))return"xu-xe";if(t.includes("ô mai")||t.includes("o mai"))return"o-mai";if(t.includes("cốm tươi")||t.includes("cốm khô"))return"com";if(t.includes("bánh cốm"))return"banh-com";return"other"}
 async function loadProducts(){const{data,error}=await db.from("san_pham").select("*").eq("dang_ban",true);if(error){$("#products").innerHTML=$("#bestProducts").innerHTML="<p>Chưa tải được sản phẩm.</p>";return}allProducts=(data||[]).sort((a,b)=>(b.noi_bat===true)-(a.noi_bat===true)||(Number(a.thu_tu_hot)||999)-(Number(b.thu_tu_hot)||999));renderAll()}
-function card(p,prefix){const key=prefix+"-"+p.id;return `<article class="product"><div class="product-image"><img src="${safe(p.anh_url||"feature.jpg")}" alt="${safe(p.ten)}" loading="lazy">${p.noi_bat?'<span class="hot">BÁN CHẠY</span>':""}</div><h3>${safe(p.ten)}</h3>${p.quy_cach?`<p class="packing">${safe(p.quy_cach)}</p>`:""}<div class="description-wrap"><p class="desc" id="desc-${key}">${safe(p.mo_ta||"Sản phẩm làm mới trong ngày, phù hợp thưởng thức và làm quà.")}</p><button class="desc-toggle" data-desc="desc-${key}">Xem thêm</button></div><div class="product-foot"><span class="price">${money(p.gia)}</span></div><div class="product-actions"><button class="call-buy zalo-buy" type="button" data-product-id="${safe(p.id)}">Gửi qua Zalo</button></div></article>`}
+function card(p,prefix){const key=prefix+"-"+p.id;return `<article class="product"><div class="product-image"><img src="${safe(p.anh_url||"feature.jpg")}" alt="${safe(p.ten)}" loading="lazy">${p.noi_bat?'<span class="hot">BÁN CHẠY</span>':""}</div><h3>${safe(p.ten)}</h3>${p.quy_cach?`<p class="packing">${safe(p.quy_cach)}</p>`:""}<div class="description-wrap"><p class="desc" id="desc-${key}">${safe(p.mo_ta||"Sản phẩm làm mới trong ngày, phù hợp thưởng thức và làm quà.")}</p><button class="desc-toggle" data-desc="desc-${key}">Xem thêm</button></div><div class="product-foot"><span class="price">${money(p.gia)}</span></div><div class="product-actions"><button class="call-buy order-buy" type="button" data-product-id="${safe(p.id)}">Mua ngay</button></div></article>`}
 
-async function imageFile(url,name){
-  try{
-    const response=await fetch(url,{mode:"cors"});
-    if(!response.ok)return null;
-    const blob=await response.blob();
-    if(!blob.type.startsWith("image/"))return null;
-    const extension=(blob.type.split("/")[1]||"jpg").replace("jpeg","jpg");
-    return new File([blob],`${String(name||"san-pham").replace(/[^a-zA-Z0-9\u00C0-\u024F]+/g,"-")}.${extension}`,{type:blob.type});
-  }catch{return null}
+let selectedProduct=null;
+const orderModal=$("#orderModal");
+const orderForm=$("#quickOrderForm");
+
+function openOrder(product){
+  selectedProduct=product;
+  $("#orderProduct").textContent=`${product.ten} — ${money(product.gia)}`;
+  $("#orderStage").style.backgroundImage=`linear-gradient(#0005,#0005),url("${String(product.anh_url||"feature.jpg").replace(/["\\]/g,"")}")`;
+  $("#orderStatus").textContent="";
+  orderModal.classList.add("show");
+  orderModal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modal-open");
+  setTimeout(()=>$("#orderName").focus(),100);
 }
 
-async function orderByZalo(product,button){
-  const original=button.textContent;
-  const text=`Tôi muốn đặt sản phẩm:\n• ${product.ten}\n• Giá: ${money(product.gia)}${product.quy_cach?`\n• Quy cách: ${product.quy_cach}`:""}\n\nVui lòng tư vấn giúp tôi.`;
-  button.disabled=true;
-  button.textContent="Đang chuẩn bị…";
-  try{
-    const file=await imageFile(product.anh_url||"feature.jpg",product.ten);
-    const shareData={title:`Đặt ${product.ten}`,text};
-    if(file&&navigator.canShare&&navigator.canShare({files:[file]}))shareData.files=[file];
-    if(navigator.share){
-      await navigator.share(shareData);
-      showNotice("Hãy chọn Zalo và người nhận để gửi đơn hàng.");
-      return;
-    }
-    await navigator.clipboard.writeText(text);
-    showNotice("Đã sao chép nội dung đơn. Đang mở Zalo…");
-    window.open(`https://zalo.me/${PHONE}`,"_blank","noopener");
-  }catch(error){
-    if(error&&error.name==="AbortError")return;
-    try{await navigator.clipboard.writeText(text)}catch{}
-    showNotice("Đã chuẩn bị nội dung đơn. Hãy mở Zalo và gửi cho cửa hàng.");
-    window.open(`https://zalo.me/${PHONE}`,"_blank","noopener");
-  }finally{
-    button.disabled=false;
-    button.textContent=original;
-  }
+function closeOrder(){
+  orderModal.classList.remove("show");
+  orderModal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
 }
+
+function makeOrderCode(){return "NN"+Date.now().toString().slice(-8)}
+
+orderForm.addEventListener("submit",async event=>{
+  event.preventDefault();
+  if(!selectedProduct)return;
+  const submit=$("#orderSubmit"),status=$("#orderStatus");
+  const name=$("#orderName").value.trim(),phone=$("#orderPhone").value.trim(),details=$("#orderDetails").value.trim();
+  if(!/^0\d{9}$/.test(phone)){status.textContent="Vui lòng nhập số điện thoại gồm 10 số.";return}
+  submit.disabled=true;submit.textContent="ĐANG GỬI…";status.textContent="";
+  const orderCode=makeOrderCode();
+  const payload={ma_don:orderCode,ten_khach_hang:name,so_dien_thoai:phone,dia_chi:details,ghi_chu:`Đặt nhanh từ sản phẩm: ${selectedProduct.ten}`,san_pham:[{id:selectedProduct.id,ten:selectedProduct.ten,gia:Number(selectedProduct.gia||0),soLuong:1,anh_url:selectedProduct.anh_url||""}],tong_tien:Number(selectedProduct.gia||0),trang_thai:"moi"};
+  const{error}=await db.from("don_hang").insert(payload);
+  submit.disabled=false;submit.textContent="GỬI ĐI";
+  if(error){status.textContent="Chưa gửi được đơn. Vui lòng thử lại hoặc gọi 0985 868 317.";return}
+  status.innerHTML=`Đặt hàng thành công! Mã đơn: <b>${orderCode}</b>`;
+  orderForm.reset();
+  setTimeout(closeOrder,3000);
+});
+
+$("#orderClose").addEventListener("click",closeOrder);
+orderModal.addEventListener("click",event=>{if(event.target===orderModal)closeOrder()});
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeOrder()});
 
 function showNotice(message){
   let notice=document.getElementById("zaloNotice");
@@ -57,7 +62,7 @@ function showNotice(message){
   clearTimeout(showNotice.timer);
   showNotice.timer=setTimeout(()=>notice.classList.remove("show"),3500);
 }
-function renderAll(){const q=$("#search").value.trim().toLowerCase(),visible=allProducts.filter(p=>(filter==="all"||category(p)===filter)&&(p.ten||"").toLowerCase().includes(q)),hot=allProducts.filter(p=>p.noi_bat===true).slice(0,6),best=hot.length?hot:allProducts.slice(0,6);$("#bestProducts").innerHTML=best.length?best.map(p=>card(p,"best")).join(""):"<p>Chưa có sản phẩm nổi bật.</p>";$("#products").innerHTML=visible.length?visible.map(p=>card(p,"all")).join(""):"<p>Không tìm thấy sản phẩm.</p>";document.querySelectorAll(".desc-toggle").forEach(b=>b.onclick=()=>{const d=document.getElementById(b.dataset.desc),open=d.classList.toggle("open");b.textContent=open?"Thu gọn":"Xem thêm"});document.querySelectorAll(".zalo-buy").forEach(b=>b.onclick=()=>{const product=allProducts.find(p=>String(p.id)===String(b.dataset.productId));if(product)orderByZalo(product,b)})}
+function renderAll(){const q=$("#search").value.trim().toLowerCase(),visible=allProducts.filter(p=>(filter==="all"||category(p)===filter)&&(p.ten||"").toLowerCase().includes(q)),hot=allProducts.filter(p=>p.noi_bat===true).slice(0,6),best=hot.length?hot:allProducts.slice(0,6);$("#bestProducts").innerHTML=best.length?best.map(p=>card(p,"best")).join(""):"<p>Chưa có sản phẩm nổi bật.</p>";$("#products").innerHTML=visible.length?visible.map(p=>card(p,"all")).join(""):"<p>Không tìm thấy sản phẩm.</p>";document.querySelectorAll(".desc-toggle").forEach(b=>b.onclick=()=>{const d=document.getElementById(b.dataset.desc),open=d.classList.toggle("open");b.textContent=open?"Thu gọn":"Xem thêm"});document.querySelectorAll(".order-buy").forEach(b=>b.onclick=()=>{const product=allProducts.find(p=>String(p.id)===String(b.dataset.productId));if(product)openOrder(product)})}
 $("#search").oninput=renderAll;
 document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;renderAll()});
 loadProducts();
