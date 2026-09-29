@@ -1136,3 +1136,113 @@ oChonAnhPhu.addEventListener("change", function () {
     hienAnhPhuXemTruoc(cacDuongDanAnhPhuTam.length ? cacDuongDanAnhPhuTam : anhPhuHienTai);
     thongBaoSanPham.textContent = "";
 });
+
+// Luồng lưu trực tiếp cho nút quản trị. Tách khỏi submit của trình duyệt
+// để nút luôn phản hồi và mọi lỗi đều hiện ngay trên màn hình.
+async function taiMotAnhLenKho(tepAnh, thuMuc) {
+    const duoiAnh = layDuoiAnh(tepAnh);
+    const ma = typeof crypto.randomUUID === "function"
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2);
+    const duongDan = thuMuc + "/" + Date.now() + "-" + ma + "." + duoiAnh;
+    const { error } = await supabaseClient.storage
+        .from("anh-san-pham")
+        .upload(duongDan, tepAnh, { contentType: tepAnh.type, upsert: false });
+    if (error) throw new Error("Không tải được ảnh: " + error.message);
+    const { data } = supabaseClient.storage
+        .from("anh-san-pham")
+        .getPublicUrl(duongDan);
+    return data.publicUrl;
+}
+
+async function luuSanPhamTrucTiep() {
+    thongBaoSanPham.textContent = "Đang kiểm tra thông tin...";
+    thongBaoSanPham.style.color = "#555555";
+    nutLuuSanPham.disabled = true;
+    nutLuuSanPham.textContent = "Đang xử lý...";
+
+    try {
+        const idSua = formSanPham.dataset.idSua || "";
+        const ten = document.getElementById("ten-san-pham").value.trim();
+        const gia = Number(document.getElementById("gia-san-pham").value);
+        const quyCach = document.getElementById("quy-cach").value.trim();
+        const moTa = document.getElementById("mo-ta-san-pham").value.trim();
+        const tepAnhDaiDien = oChonAnh.files[0];
+        const cacTepAnhPhu = Array.from(oChonAnhPhu.files || []);
+
+        if (!ten) throw new Error("Vui lòng nhập tên sản phẩm.");
+        if (!Number.isFinite(gia) || gia <= 0) throw new Error("Giá sản phẩm phải lớn hơn 0.");
+        if (!quyCach) throw new Error("Vui lòng nhập số lượng hoặc quy cách.");
+        if (!idSua && !tepAnhDaiDien) throw new Error("Vui lòng chọn ảnh đại diện.");
+        if (cacTepAnhPhu.length > 8) throw new Error("Chỉ được chọn tối đa 8 ảnh quảng cáo.");
+
+        const tatCaAnh = [tepAnhDaiDien, ...cacTepAnhPhu].filter(Boolean);
+        const anhLoi = tatCaAnh.find(function (tep) {
+            return !tep.type.startsWith("image/") || tep.size > 5 * 1024 * 1024;
+        });
+        if (anhLoi) throw new Error("Mỗi ảnh phải là tệp ảnh và nhỏ hơn 5 MB.");
+
+        thongBaoSanPham.textContent = "Đang tải ảnh lên...";
+        let anhDaiDienMoi = "";
+        if (tepAnhDaiDien) {
+            anhDaiDienMoi = await taiMotAnhLenKho(tepAnhDaiDien, "san-pham");
+        }
+
+        let cacAnhPhuMoi = anhPhuHienTai;
+        if (cacTepAnhPhu.length) {
+            cacAnhPhuMoi = [];
+            for (let i = 0; i < cacTepAnhPhu.length; i += 1) {
+                thongBaoSanPham.textContent = "Đang tải ảnh quảng cáo " + (i + 1) + "/" + cacTepAnhPhu.length + "...";
+                cacAnhPhuMoi.push(await taiMotAnhLenKho(cacTepAnhPhu[i], "san-pham/anh-phu"));
+            }
+        }
+
+        const laHot = document.getElementById("noi-bat-san-pham").checked;
+        const thuTuHot = Number(document.getElementById("thu-tu-hot").value);
+        const duLieu = {
+            ten: ten,
+            gia: gia,
+            quy_cach: quyCach,
+            mo_ta: moTa,
+            so_banh: 1,
+            noi_bat: laHot,
+            thu_tu_hot: laHot ? (thuTuHot || 999) : null,
+            anh_phu: cacAnhPhuMoi
+        };
+        if (anhDaiDienMoi) duLieu.anh_url = anhDaiDienMoi;
+
+        thongBaoSanPham.textContent = "Đang lưu sản phẩm...";
+        let ketQua;
+        if (idSua) {
+            ketQua = await supabaseClient.from("san_pham").update(duLieu).eq("id", idSua).select("id");
+        } else {
+            ketQua = await supabaseClient.from("san_pham").insert({ ...duLieu, dang_ban: true }).select("id");
+        }
+        if (ketQua.error) throw new Error("Không lưu được sản phẩm: " + ketQua.error.message);
+        if (!ketQua.data || ketQua.data.length === 0) throw new Error("Không lưu được sản phẩm. Hãy kiểm tra quyền INSERT/UPDATE trong Supabase.");
+
+        thongBaoSanPham.textContent = idSua
+            ? "Đã sửa sản phẩm thành công."
+            : "Đã thêm sản phẩm thành công.";
+        thongBaoSanPham.style.color = "#176b3a";
+        formSanPham.reset();
+        delete formSanPham.dataset.idSua;
+        nutHuySua.classList.add("an");
+        xoaAnhXemTruoc();
+        xoaAnhPhuXemTruoc();
+        await taiDanhSachSanPham();
+    } catch (loi) {
+        hienLoiSanPham(loi && loi.message ? loi.message : "Có lỗi xảy ra khi lưu sản phẩm.");
+    } finally {
+        nutLuuSanPham.disabled = false;
+        nutLuuSanPham.textContent = "💾 Lưu sản phẩm";
+    }
+}
+
+nutLuuSanPham.addEventListener("click", luuSanPhamTrucTiep);
+
+window.addEventListener("unhandledrejection", function (suKien) {
+    const loi = suKien.reason;
+    hienLoiSanPham("Lỗi hệ thống: " + (loi && loi.message ? loi.message : String(loi)));
+    ketThucLuuSanPham();
+});
