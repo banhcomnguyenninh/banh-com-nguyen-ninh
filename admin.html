@@ -11,7 +11,7 @@
 
     <title>Quản trị - Bánh cốm Nguyên Ninh</title>
 
-    <link rel="stylesheet" href="admin.css?v=7">
+    <link rel="stylesheet" href="admin.css?v=8">
 </head>
 
 <body>
@@ -359,6 +359,17 @@
 
                         </div>
 
+                        <div class="nhom-o">
+                            <label for="anh-phu-san-pham">Ảnh quảng cáo bổ sung</label>
+                            <input id="anh-phu-san-pham" type="file" accept="image/*" multiple>
+                            <small>Được chọn nhiều ảnh cùng lúc, tối đa 8 ảnh. Khi sửa sản phẩm, chọn ảnh mới sẽ thay danh sách ảnh quảng cáo cũ; để trống sẽ giữ nguyên.</small>
+                        </div>
+
+                        <div class="khung-xem-truoc">
+                            <p><strong>Xem trước ảnh quảng cáo</strong></p>
+                            <div id="danh-sach-anh-phu-xem-truoc" class="luoi-anh-phu"><p class="goi-y-anh-phu">Chưa có ảnh bổ sung.</p></div>
+                        </div>
+
 
                         <div class="nhom-nut-form">
 
@@ -486,7 +497,7 @@
     <!-- Phải đặt thư viện Supabase trước admin.js -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="admin.js?v=7"></script>
+    <script src="admin.js?v=8"></script>
 
 </body>
 

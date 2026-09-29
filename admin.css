@@ -673,3 +673,5 @@ img {
         width: 100%;
     }
 }
+
+.luoi-anh-phu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.luoi-anh-phu figure{margin:0;padding:6px;border:1px solid #d9e3dc;border-radius:10px;background:#fff}.luoi-anh-phu img{display:block;width:100%;aspect-ratio:1/1;border-radius:7px;object-fit:cover}.luoi-anh-phu figcaption{padding:5px 2px 0;color:#66736b;font-size:11px;text-align:center}.goi-y-anh-phu{grid-column:1/-1;margin:0;padding:18px;color:#777;background:#f6f8f6;text-align:center}@media(max-width:600px){.luoi-anh-phu{grid-template-columns:repeat(3,minmax(0,1fr))}}

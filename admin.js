@@ -52,6 +52,12 @@ const oChonAnh =
 const anhXemTruoc =
     document.getElementById("anh-xem-truoc");
 
+const oChonAnhPhu =
+    document.getElementById("anh-phu-san-pham");
+
+const danhSachAnhPhuXemTruoc =
+    document.getElementById("danh-sach-anh-phu-xem-truoc");
+
 const danhSachQuanLy =
     document.getElementById("danh-sach-quan-ly");
 
@@ -223,12 +229,17 @@ kiemTraDangNhap();
 // ========================================
 
 let duongDanAnhTam = null;
+let cacDuongDanAnhPhuTam = [];
+let anhPhuHienTai = [];
 
 oChonAnh.addEventListener(
     "change",
     function () {
         const tepAnh =
             oChonAnh.files[0];
+
+        const cacTepAnhPhu =
+            Array.from(oChonAnhPhu.files || []);
 
         if (duongDanAnhTam) {
             URL.revokeObjectURL(
@@ -361,6 +372,18 @@ formSanPham.addEventListener(
             return;
         }
 
+        if (cacTepAnhPhu.length > 8) {
+            hienLoiSanPham("Chỉ được chọn tối đa 8 ảnh quảng cáo.");
+            return;
+        }
+
+        if (cacTepAnhPhu.some(function (tep) {
+            return !tep.type.startsWith("image/") || tep.size > 5 * 1024 * 1024;
+        })) {
+            hienLoiSanPham("Mỗi ảnh quảng cáo phải là tệp ảnh và nhỏ hơn 5 MB.");
+            return;
+        }
+
         batDauLuuSanPham(
             idSua
                 ? "Đang cập nhật sản phẩm..."
@@ -390,6 +413,7 @@ const duLieuSanPham = {
 };
 
         let duongDanAnhMoi = null;
+        let cacDuongDanAnhMoi = [];
 
         // Tải ảnh mới nếu đã chọn ảnh
         if (tepAnh) {
@@ -446,6 +470,36 @@ const duLieuSanPham = {
                 duLieuAnh.publicUrl;
         }
 
+        if (cacTepAnhPhu.length > 0) {
+            for (const tepAnhPhu of cacTepAnhPhu) {
+                const duoiAnh = layDuoiAnh(tepAnhPhu);
+                const maNgauNhien = typeof crypto.randomUUID === "function"
+                    ? crypto.randomUUID()
+                    : Math.random().toString(36).slice(2);
+                const duongDan = "san-pham/anh-phu/" + Date.now() + "-" + maNgauNhien + "." + duoiAnh;
+                const { error: loiTaiAnhPhu } = await supabaseClient.storage
+                    .from("anh-san-pham")
+                    .upload(duongDan, tepAnhPhu, { contentType: tepAnhPhu.type, upsert: false });
+
+                if (loiTaiAnhPhu) {
+                    if (cacDuongDanAnhMoi.length) {
+                        await supabaseClient.storage.from("anh-san-pham").remove(cacDuongDanAnhMoi.map(function (anh) { return anh.path; }));
+                    }
+                    hienLoiSanPham("Không tải được ảnh quảng cáo: " + loiTaiAnhPhu.message);
+                    ketThucLuuSanPham();
+                    return;
+                }
+
+                const { data: duLieuAnhPhu } = supabaseClient.storage
+                    .from("anh-san-pham")
+                    .getPublicUrl(duongDan);
+                cacDuongDanAnhMoi.push({ path: duongDan, url: duLieuAnhPhu.publicUrl });
+            }
+            duLieuSanPham.anh_phu = cacDuongDanAnhMoi.map(function (anh) { return anh.url; });
+        } else if (idSua) {
+            duLieuSanPham.anh_phu = anhPhuHienTai;
+        }
+
         let loiLuu = null;
         let daSuaDuLieu = true;
 
@@ -488,6 +542,12 @@ const duLieuSanPham = {
                     ]);
             }
 
+            if (cacDuongDanAnhMoi.length) {
+                await supabaseClient.storage
+                    .from("anh-san-pham")
+                    .remove(cacDuongDanAnhMoi.map(function (anh) { return anh.path; }));
+            }
+
             if (
                 idSua &&
                 !loiLuu &&
@@ -522,6 +582,7 @@ const duLieuSanPham = {
         nutHuySua.classList.add("an");
 
         xoaAnhXemTruoc();
+        xoaAnhPhuXemTruoc();
         ketThucLuuSanPham();
 
         await taiDanhSachSanPham();
@@ -579,6 +640,27 @@ function xoaAnhXemTruoc() {
 
     anhXemTruoc.src = "";
     anhXemTruoc.classList.add("an");
+}
+
+function hienAnhPhuXemTruoc(danhSachAnh) {
+    const danhSach = Array.isArray(danhSachAnh) ? danhSachAnh.filter(Boolean) : [];
+    if (!danhSach.length) {
+        danhSachAnhPhuXemTruoc.innerHTML = '<p class="goi-y-anh-phu">Chưa có ảnh bổ sung.</p>';
+        return;
+    }
+    danhSachAnhPhuXemTruoc.innerHTML = danhSach.map(function (url, viTri) {
+        return '<figure><img src="' + lamSachVanBan(url) + '" alt="Ảnh quảng cáo ' + (viTri + 1) + '"><figcaption>Ảnh ' + (viTri + 1) + '</figcaption></figure>';
+    }).join("");
+}
+
+function xoaAnhPhuXemTruoc() {
+    cacDuongDanAnhPhuTam.forEach(function (url) {
+        URL.revokeObjectURL(url);
+    });
+    cacDuongDanAnhPhuTam = [];
+    anhPhuHienTai = [];
+    oChonAnhPhu.value = "";
+    hienAnhPhuXemTruoc([]);
 }
 
 
@@ -842,7 +924,13 @@ async function suaSanPham(id) {
         anhXemTruoc.classList.remove("an");
     }
 
+    anhPhuHienTai = Array.isArray(sanPham.anh_phu)
+        ? sanPham.anh_phu.filter(Boolean)
+        : [];
+    hienAnhPhuXemTruoc(anhPhuHienTai);
+
     oChonAnh.value = "";
+    oChonAnhPhu.value = "";
 
     thongBaoSanPham.textContent =
         "Đang sửa sản phẩm. Để trống ảnh nếu muốn giữ ảnh cũ.";
@@ -867,6 +955,7 @@ function huyCheDoSua() {
     delete formSanPham.dataset.idSua;
 
     xoaAnhXemTruoc();
+    xoaAnhPhuXemTruoc();
 
     thongBaoSanPham.textContent = "";
 
@@ -1016,3 +1105,34 @@ oLocTrangThai.addEventListener(
     "change",
     locDanhSachSanPham
 );
+
+oChonAnhPhu.addEventListener("change", function () {
+    const danhSachTep = Array.from(oChonAnhPhu.files || []);
+    cacDuongDanAnhPhuTam.forEach(function (url) {
+        URL.revokeObjectURL(url);
+    });
+    cacDuongDanAnhPhuTam = [];
+
+    if (danhSachTep.length > 8) {
+        hienLoiSanPham("Chỉ được chọn tối đa 8 ảnh quảng cáo.");
+        oChonAnhPhu.value = "";
+        hienAnhPhuXemTruoc(anhPhuHienTai);
+        return;
+    }
+
+    const tepKhongHopLe = danhSachTep.find(function (tep) {
+        return !tep.type.startsWith("image/") || tep.size > 5 * 1024 * 1024;
+    });
+    if (tepKhongHopLe) {
+        hienLoiSanPham("Mỗi ảnh quảng cáo phải là tệp ảnh và nhỏ hơn 5 MB.");
+        oChonAnhPhu.value = "";
+        hienAnhPhuXemTruoc(anhPhuHienTai);
+        return;
+    }
+
+    cacDuongDanAnhPhuTam = danhSachTep.map(function (tep) {
+        return URL.createObjectURL(tep);
+    });
+    hienAnhPhuXemTruoc(cacDuongDanAnhPhuTam.length ? cacDuongDanAnhPhuTam : anhPhuHienTai);
+    thongBaoSanPham.textContent = "";
+});
