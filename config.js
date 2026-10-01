@@ -1,26 +1,28 @@
-// =========================================================
-// CONFIG.JS - BÁNH CỐM NGUYÊN NINH (PHIÊN BẢN CHUẨN DỮ LIỆU)
-// =========================================================
+/**
+ * CẤU HÌNH TRANG WEB & DỮ LIỆU SẢN PHẨM - BÁNH CỐM NGUYÊN NINH
+ * File này chứa toàn bộ thông tin cửa hàng, banner slider và danh sách 12 sản phẩm.
+ */
 
-// 1. CẤU HÌNH THƯƠNG HIỆU & BANNER SLIDER
-var SITE_CONFIG = {
+// 1. THÔNG TIN CỬA HÀNG & CẤU HÌNH SLIDER BANNER
+const SITE_CONFIG = {
   storeName: "Bánh Cốm Nguyên Ninh",
   subTitle: "Dốc Hàng Than - Hà Nội",
   tagline: "Gia truyền từ năm 1865 - Chuẩn vị cốm Hà Thành",
-  hotline: "0968.68.68.68",
+  hotline: "0985868317",
   address: "Số 11 Hàng Than, Ba Đình, Hà Nội",
   email: "banhcomnguyenninh@gmail.com",
   workingHours: "07:30 - 21:30 (Hàng ngày)",
-  
+
   socials: {
-    facebook: "https://facebook.com",
-    zalo: "https://zalo.me/0968686868"
+    facebook: "https://facebook.com/banhcomnguyenninh",
+    zalo: "https://zalo.me/0985868317"
   },
 
+  // Banner slide đầu trang
   heroBanners: [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop",
+      image: "images/banner.jpg",
       title: "Bánh Cốm Gia Truyền Hàng Than",
       subtitle: "Giữ trọn hương vị truyền thống Hà Nội từ năm 1865"
     },
@@ -32,14 +34,15 @@ var SITE_CONFIG = {
     }
   ],
 
+  // Cấu hình giao hàng
   shipping: {
     innerCityFee: 25000,
-    freeShipThreshold: 500000
+    freeShipThreshold: 500000 // Miễn phí giao hàng cho đơn từ 500.000đ trở lên
   }
 };
 
 // 2. DANH MỤC SẢN PHẨM
-var CATEGORIES = [
+const CATEGORIES = [
   { id: "all", name: "Tất cả sản phẩm" },
   { id: "banh-com", name: "Bánh Cốm" },
   { id: "banh-cuoi", name: "Bánh Cưới Hỏi (Xu Xê)" },
@@ -48,8 +51,8 @@ var CATEGORIES = [
   { id: "qua-bieu", name: "Set Quà Biếu" }
 ];
 
-// 3. DANH SÁCH 12 SẢN PHẨM CHUẨN
-var PRODUCTS = [
+// 3. DANH SÁCH CHI TIẾT 12 SẢN PHẨM
+const PRODUCTS = [
   {
     id: 1,
     name: "Bánh Cốm Nguyên Ninh (Hộp 1 chiếc)",
@@ -208,7 +211,7 @@ var PRODUCTS = [
   }
 ];
 
-// NỐI CÁC BIẾN VÀO WINDOW ĐỂ TRÁNH LỖI SCOPE
+// 4. KHAI BÁO BIẾN TOÀN CỤC CHO TRÌNH DUYỆT (Đảm bảo index.html luôn đọc được)
 if (typeof window !== 'undefined') {
   window.SITE_CONFIG = SITE_CONFIG;
   window.CATEGORIES = CATEGORIES;
