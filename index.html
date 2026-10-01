@@ -1,942 +1,934 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bánh Cốm Nguyên Ninh - Dốc Hàng Than Gia Truyền 1865</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- ==================== 1. SEO META & OPEN GRAPH ==================== -->
+  <title>Bánh Cốm Nguyên Ninh Hàng Than Gốc | Đặc Sản Hà Nội Làm Quà</title>
+  <meta name="description" content="Bánh cốm Nguyên Ninh Hàng Than gia truyền hơn 150 năm. Bánh tươi dẻo thơm, không chất bảo quản, chuẩn đặc sản Hà Nội làm quà & mâm tráp cưới hỏi. Đặt giao hỏa tốc!">
+  <meta name="keywords" content="bánh cốm nguyên ninh, bánh cốm hàng than, đặc sản hà nội làm quà, bánh phu thê, cốm hà nội">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nguyenninhhangthan.com.vn/">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            red: '#991B1B',      /* Đỏ truyền thống */
-                            reddark: '#7F1D1D',
-                            gold: '#D97706',     /* Vàng ánh kim */
-                            green: '#15803D',    /* Xanh cốm */
-                            greenlight: '#DCFCE7',
-                            cream: '#FEF3C7'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Merriweather', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
-                    }
-                }
-            }
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nguyenninhhangthan.com.vn/">
+  <meta property="og:title" content="Bánh Cốm Nguyên Ninh Hàng Than Gốc | Đặc Sản Hà Nội Làm Quà">
+  <meta property="og:description" content="Thương hiệu Bánh Cốm Nguyên Ninh gia truyền tại Dốc Hàng Than. Hương vị mộc mạc, dẻo thơm nguyên hạt cốm thu Hà Nội. Giao hàng toàn quốc.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Bánh Cốm Nguyên Ninh">
+
+  <!-- ==================== 2. SCHEMA MARKUP (JSON-LD) ==================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Bakery",
+        "@id": "https://nguyenninhhangthan.com.vn/#store",
+        "name": "Bánh Cốm Nguyên Ninh",
+        "image": "images/banner-chinh.jpg",
+        "url": "https://nguyenninhhangthan.com.vn/",
+        "telephone": "0985868317",
+        "priceRange": "7.000đ - 150.000đ",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dốc Phố Hàng Than",
+          "addressLocality": "Ba Đình",
+          "addressRegion": "Hà Nội",
+          "addressCountry": "VN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 21.0435,
+          "longitude": 105.8485
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "21:00"
         }
-    </script>
-    <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+      },
+      {
+        "@type": "Product",
+        "@id": "https://nguyenninhhangthan.com.vn/#product",
+        "name": "Bánh Cốm Nguyên Ninh Hàng Than Gốc",
+        "image": "images/banh-com.jpg",
+        "description": "Bánh cốm Nguyên Ninh gia truyền làm từ cốm nếp cái hoa vàng, nhân đậu xanh dừa nạo thanh ngọt. Đặc sản Hà Nội làm quà chuẩn vị truyền thống.",
+        "sku": "BCNN-01",
+        "brand": {
+          "@type": "Brand",
+          "name": "Nguyên Ninh"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://nguyenninhhangthan.com.vn/",
+          "priceCurrency": "VND",
+          "price": "70000",
+          "priceValidUntil": "2026-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@id": "https://nguyenninhhangthan.com.vn/#store"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "184"
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Merriweather & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            com: {
+              DEFAULT: '#4A7C59',
+              dark: '#386044',
+              light: '#F2F7F4',
+            },
+            doSon: {
+              DEFAULT: '#9E2A2B',
+              hover: '#802122',
+            },
+            vangCo: '#E5BA73',
+            trangNga: '#FFFDF9',
+            thanGoc: '#2B2B2B'
+          },
+          fontFamily: {
+            serif: ['Merriweather', 'serif'],
+            sans: ['Be Vietnam Pro', 'sans-serif'],
+          }
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-        @keyframes toastIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .animate-toast {
-            animation: toastIn 0.3s ease-out forwards;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --color-call: #d90429;
+      --color-zalo: #0068ff;
+      --color-com: #4a7c59;
+    }
+
+    .mobile-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: rgba(255, 253, 249, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 8px 12px;
+      padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(74, 124, 89, 0.15);
+      gap: 8px;
+    }
+
+    .bar-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 8px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .bar-btn:active { transform: scale(0.95); }
+    .btn-call { background-color: var(--color-call); box-shadow: 0 3px 10px rgba(217, 4, 41, 0.3); }
+    .btn-zalo { background-color: var(--color-zalo); box-shadow: 0 3px 10px rgba(0, 104, 255, 0.3); }
+    .btn-cart { background-color: var(--color-com); box-shadow: 0 3px 10px rgba(74, 124, 89, 0.3); }
+
+    @keyframes softShake {
+      0%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(-6deg) scale(1.03); }
+      30% { transform: rotate(5deg) scale(1.03); }
+      45% { transform: rotate(-4deg); }
+      60% { transform: rotate(2deg); }
+      75% { transform: rotate(0deg); }
+    }
+    .shake-anim { animation: softShake 3.5s infinite ease-in-out; }
+
+    /* Custom Scrollbar cho danh sách ảnh phụ */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @media (min-width: 768px) {
+      .mobile-bottom-bar { display: none !important; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col antialiased relative">
+<body class="bg-trangNga text-thanGoc font-sans antialiased selection:bg-com selection:text-white pb-20 md:pb-0">
 
-    <!-- TOAST NOTIFICATION CONTAINER -->
-    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-50 bg-trangNga/95 backdrop-blur-md border-b border-com/10 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Thương Hiệu -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-full bg-com flex items-center justify-center text-vangCo font-serif font-bold text-xl border-2 border-vangCo shadow-md transition group-hover:scale-105">
+            N
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-lg sm:text-xl text-com uppercase tracking-wider leading-tight">Nguyên Ninh</span>
+            <span class="text-[10px] sm:text-xs text-doSon font-medium tracking-widest uppercase">Hàng Than Từ 1875</span>
+          </div>
+        </a>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-brand-red text-amber-100 text-xs md:text-sm py-2 px-4">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <span><i class="fa-solid fa-clock mr-1.5"></i> <span id="top-working-hours">07:30 - 21:30</span></span>
-                <span class="hidden md:inline">|</span>
-                <span class="hidden md:inline"><i class="fa-solid fa-location-dot mr-1.5"></i> <span id="top-address">11 Hàng Than, Ba Đình, Hà Nội</span></span>
-            </div>
-            <div class="flex items-center space-x-4 font-semibold">
-                <a id="top-hotline-link" href="tel:0968686868" class="hover:text-white transition-colors">
-                    <i class="fa-solid fa-phone mr-1"></i> Hotline: <span id="top-hotline">0968.68.68.68</span>
-                </a>
-            </div>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+          <a href="#" class="text-com font-semibold transition">Trang Chủ</a>
+          <a href="#products" class="hover:text-com transition">Sản Phẩm Hot</a>
+          <a href="#quickOrderForm" class="hover:text-com transition">Đặt Bánh Nhanh</a>
+          <a href="#reviews" class="hover:text-com transition">Đánh Giá</a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center space-x-3 sm:space-x-4">
+          <a href="tel:0985868317" class="hidden sm:flex items-center gap-2 bg-com/10 hover:bg-com/20 text-com text-xs sm:text-sm font-semibold px-3 py-2 rounded-full transition">
+            <svg class="w-4 h-4 text-com animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>0985.868.317</span>
+          </a>
+
+          <a href="#quickOrderForm" class="relative p-2.5 rounded-full text-thanGoc hover:bg-com/10 transition" aria-label="Giỏ hàng">
+            <svg class="w-6 h-6 stroke-com" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span class="absolute top-1 right-1 bg-doSon text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center" id="cartCountDisplay">1</span>
+          </a>
+
+          <button id="menu-btn" class="md:hidden p-2 text-thanGoc hover:text-com focus:outline-none" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </div>
+
+      </div>
     </div>
 
-    <!-- MAIN HEADER / NAVBAR -->
-    <header class="bg-white shadow-md sticky top-0 z-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- BRAND LOGO -->
-                <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-12 h-12 rounded-full bg-brand-red text-amber-300 flex items-center justify-center font-serif text-2xl font-bold shadow-md group-hover:bg-brand-reddark transition-all">
-                        NN
-                    </div>
-                    <div>
-                        <h1 id="brand-name" class="font-serif text-xl sm:text-2xl font-bold text-brand-red leading-tight">
-                            Bánh Cốm Nguyên Ninh
-                        </h1>
-                        <p id="brand-tagline" class="text-xs text-gray-500 font-medium tracking-wide">
-                            Gia truyền từ năm 1865
-                        </p>
-                    </div>
-                </a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-trangNga border-b border-com/10 px-4 pt-2 pb-6 space-y-3">
+      <a href="#" class="block py-2 text-com font-bold">Trang Chủ</a>
+      <a href="#products" class="block py-2 hover:text-com">Sản Phẩm Hot</a>
+      <a href="#quickOrderForm" class="block py-2 hover:text-com">Đặt Bánh Nhanh</a>
+      <a href="#reviews" class="block py-2 hover:text-com">Đánh Giá</a>
+      <a href="tel:0985868317" class="flex items-center justify-center gap-2 bg-doSon text-white py-2.5 rounded-lg font-semibold text-sm">
+        <span>Hotline: 0985.868.317</span>
+      </a>
+    </div>
+  </header>
 
-                <!-- SEARCH BAR (Desktop) -->
-                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
-                    <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="Tìm kiếm bánh cốm, cốm tươi, mứt sen..." 
-                        class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-red/50 focus:border-brand-red text-sm transition">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400"></i>
-                </div>
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative bg-gradient-to-b from-com/10 via-trangNga to-trangNga pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 bg-vangCo/20 border border-vangCo/40 text-com text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-doSon"></span>
+            Dốc Phố Hàng Than - Ba Đình - Hà Nội
+          </div>
 
-                <!-- ACTIONS (Cart & Social) -->
-                <div class="flex items-center space-x-3 sm:space-x-4">
-                    <a id="zalo-link" href="#" target="_blank" class="hidden sm:flex items-center space-x-1 text-sm bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full hover:bg-blue-100 transition font-medium">
-                        <i class="fa-solid fa-comment-dots"></i>
-                        <span>Zalo Đặt Hàng</span>
-                    </a>
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-com leading-tight">
+            Hương vị Hà Nội <br class="hidden sm:inline"/>
+            <span class="text-doSon italic font-normal">lưu giữ hơn một thế kỷ</span>
+          </h1>
 
-                    <!-- CART BUTTON -->
-                    <button onclick="toggleCartDrawer(true)" class="relative p-2.5 text-gray-700 hover:text-brand-red transition rounded-full hover:bg-gray-100">
-                        <i class="fa-solid fa-basket-shopping text-2xl"></i>
-                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-red text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow">
-                            0
-                        </span>
-                    </button>
-                </div>
-            </div>
+          <p class="text-stone-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Từ lá dong xanh mướt, hạt nếp cái hoa vàng quện cùng nhân đậu xanh dừa nạo dẻo thơm. Bánh cốm Nguyên Ninh giữ nguyên công thức mộc truyền thống từ năm 1875.
+          </p>
 
-            <!-- SEARCH BAR (Mobile) -->
-            <div class="pb-3 md:hidden">
-                <div class="relative">
-                    <input type="text" id="search-input-mobile" onkeyup="handleSearchMobile()" placeholder="Tìm sản phẩm..." 
-                        class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-red/50 text-sm">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-gray-400"></i>
-                </div>
-            </div>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#quickOrderForm" class="w-full sm:w-auto bg-doSon hover:bg-doSon-hover text-white text-base font-bold px-8 py-4 rounded-lg shadow-lg shadow-doSon/30 hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center">
+              ĐẶT MUA NGAY
+            </a>
+            <a href="#products" class="w-full sm:w-auto bg-white hover:bg-com/5 text-com border border-com/30 text-base font-semibold px-8 py-4 rounded-lg transition text-center">
+              Xem Sản Phẩm
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- HERO SLIDER / BANNER -->
-    <section class="relative bg-gray-900 overflow-hidden">
-        <div id="slider-container" class="relative min-h-[280px] sm:min-h-[380px] md:min-h-[440px] flex items-center">
-            <img id="slider-img" src="" alt="Banner" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-700">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-            
-            <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 text-white z-10">
-                <span class="inline-block bg-brand-gold/90 text-white text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-sm mb-3">
-                    Đặc Sản Hà Thành
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none group cursor-pointer" onclick="openLightbox(document.getElementById('heroImage').src, 'Bánh Cốm Nguyên Ninh Hàng Than Gia Truyền')">
+            <div class="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-vangCo via-com to-doSon opacity-30 blur-lg"></div>
+            <div class="relative rounded-2xl overflow-hidden border-4 border-white shadow-2xl bg-white">
+              <img 
+                id="heroImage"
+                src="images/banner-chinh.jpg" 
+                alt="Bánh Cốm Nguyên Ninh Hàng Than Gia Truyền" 
+                class="w-full h-[380px] sm:h-[460px] object-cover group-hover:scale-105 transition duration-700"
+              />
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <span class="bg-white/90 text-com text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                  🔍 Bấm xem ảnh phóng to
                 </span>
-                <h2 id="slider-title" class="font-serif text-2xl sm:text-4xl md:text-5xl font-bold mb-3 max-w-2xl leading-tight">
-                    <!-- Title injected via JS -->
-                </h2>
-                <p id="slider-subtitle" class="text-sm sm:text-lg text-gray-200 mb-6 max-w-xl">
-                    <!-- Subtitle injected via JS -->
-                </p>
-                <a href="#product-section" class="inline-flex items-center bg-brand-red hover:bg-brand-reddark text-white font-semibold px-6 py-3 rounded-md transition shadow-lg space-x-2">
-                    <span>Xem Danh Sách Bánh</span>
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
+              </div>
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white pointer-events-none">
+                <p class="font-serif text-lg font-bold">Bánh Cốm Mộc Nguyên Ninh</p>
+                <p class="text-xs text-stone-300">Được làm mới mỗi sáng - Dẻo thơm chuẩn vị cổ truyền</p>
+              </div>
             </div>
-
-            <!-- Slider Controls -->
-            <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition z-20">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition z-20">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
+          </div>
         </div>
-    </section>
 
-    <!-- MAIN CONTENT AREA -->
-    <main id="product-section" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTS SECTION ==================== -->
+  <section id="products" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-doSon font-semibold text-sm uppercase tracking-widest">Đặc Sản Chọn Lọc</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-com mt-2">Danh Sách Món Hot</h2>
+        <p class="text-xs text-stone-500 mt-1">💡 Bấm vào từng ảnh nhỏ bên dưới mỗi sản phẩm để đổi góc xem, bấm ảnh lớn để phóng to</p>
+        <div class="w-16 h-1 bg-vangCo mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         
-        <!-- SECTION HEADING & CATEGORY FILTERS -->
-        <div class="mb-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
-                <div>
-                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 flex items-center space-x-2">
-                        <span class="w-2 h-8 bg-brand-red rounded-full inline-block"></span>
-                        <span>Danh Mục Sản Phẩm</span>
-                    </h2>
-                    <p class="text-gray-500 text-sm mt-1">Bánh sản xuất trong ngày, giao nhanh tận nơi tại Hà Nội & Toàn Quốc</p>
-                </div>
+        <!-- SAN PHAM 1 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p1-main').src, 'Bánh Cốm Mộc Nguyên Ninh - Hộp 10 Chiếc')">
+            <span class="absolute top-3 left-3 z-10 bg-doSon text-white text-xs font-bold px-2.5 py-1 rounded shadow">Bán Chạy Số 1</span>
+            <img id="p1-main" src="images/banh-com.jpg" alt="Bánh Cốm Mộc Nguyên Ninh" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
             </div>
+          </div>
 
-            <!-- CATEGORY TABS -->
-            <div id="category-bar" class="flex items-center space-x-2 overflow-x-auto pb-2 custom-scrollbar">
-                <!-- Dynamically generated buttons -->
-            </div>
-        </div>
-
-        <!-- PRODUCT GRID -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Dynamic product cards rendered here -->
-        </div>
-
-        <!-- EMPTY STATE -->
-        <div id="empty-state" class="hidden text-center py-16 bg-white rounded-xl shadow-sm my-6 border border-gray-100">
-            <i class="fa-solid fa-box-open text-5xl text-gray-300 mb-4"></i>
-            <h3 class="text-lg font-bold text-gray-700 mb-1">Không tìm thấy sản phẩm phù hợp</h3>
-            <p class="text-sm text-gray-500 mb-4">Vui lòng thử lại với từ khóa hoặc danh mục khác.</p>
-            <button onclick="filterCategory('all')" class="bg-brand-red text-white text-sm px-4 py-2 rounded-md hover:bg-brand-reddark transition">
-                Xem Tất Cả Sản Phẩm
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p1-main', 'images/banh-com.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/banh-com.jpg" alt="Bánh Cốm 1" class="w-full h-full object-cover"/>
             </button>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-300 mt-16 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Col 1: Store info -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-brand-red text-amber-300 flex items-center justify-center font-serif text-xl font-bold">
-                            NN
-                        </div>
-                        <h3 id="footer-store-name" class="font-serif text-lg font-bold text-white">Bánh Cốm Nguyên Ninh</h3>
-                    </div>
-                    <p id="footer-tagline" class="text-sm text-gray-400 mb-4 leading-relaxed">
-                        Thương hiệu bánh cốm gia truyền số 11 Dốc Hàng Than, Hà Nội. Giữ trọn hương vị mùa thu Hà Thành qua hàng trăm năm.
-                    </p>
-                    <div class="flex space-x-3">
-                        <a id="footer-facebook" href="#" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-red text-white flex items-center justify-center transition">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a id="footer-zalo" href="#" target="_blank" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition font-bold text-xs">
-                            Zalo
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Col 2: Contact Info -->
-                <div>
-                    <h4 class="text-white font-bold text-base mb-4 font-serif border-b border-gray-800 pb-2">Thông Tin Liên Hệ</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-start space-x-3">
-                            <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
-                            <span id="footer-address">Số 11 Hàng Than, Ba Đình, Hà Nội</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-phone text-brand-gold"></i>
-                            <span>Hotline/Zalo: <a id="footer-hotline" href="#" class="text-white font-semibold hover:underline">0968.68.68.68</a></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-envelope text-brand-gold"></i>
-                            <span id="footer-email">banhcomnguyenninh@gmail.com</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-clock text-brand-gold"></i>
-                            <span id="footer-hours">07:30 - 21:30 (Mỗi ngày)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Quality Guarantee -->
-                <div>
-                    <h4 class="text-white font-bold text-base mb-4 font-serif border-b border-gray-800 pb-2">Cam Kết Chất Lượng</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-circle-check text-brand-green"></i>
-                            <span>100% Nguyên liệu cốm mộc tự nhiên</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-circle-check text-brand-green"></i>
-                            <span>Không chất bảo quản phẩm màu độc hại</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-circle-check text-brand-green"></i>
-                            <span>Sản xuất tươi mới liên tục trong ngày</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <i class="fa-solid fa-circle-check text-brand-green"></i>
-                            <span>Phục vụ tráp cưới hỏi trọn gói chuẩn chỉnh</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mt-12 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
-                &copy; <span id="current-year"></span> Bánh Cốm Nguyên Ninh. Bản quyền thuộc về thương hiệu gia truyền Dốc Hàng Than.
-            </div>
-        </div>
-    </footer>
-
-    <!-- CART DRAWER / MODAL -->
-    <div id="cart-drawer-overlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity"></div>
-    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
-        
-        <!-- Drawer Header -->
-        <div class="p-4 bg-brand-red text-white flex justify-between items-center shadow-sm">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-basket-shopping text-xl"></i>
-                <h3 class="font-bold text-lg font-serif">Giỏ Hàng Của Bạn</h3>
-            </div>
-            <button onclick="toggleCartDrawer(false)" class="text-amber-200 hover:text-white p-1">
-                <i class="fa-solid fa-xmark text-2xl"></i>
+            <button onclick="switchCardImage('p1-main', 'images/banh-com-goc-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-com-goc-2.jpg" alt="Bánh Cốm 2" class="w-full h-full object-cover"/>
             </button>
-        </div>
-
-        <!-- Free Ship Status -->
-        <div class="bg-amber-50 p-3 text-xs border-b border-amber-200 text-amber-900">
-            <div id="freeship-status" class="font-medium flex items-center justify-between">
-                <!-- Injected via JS -->
-            </div>
-            <div class="w-full bg-amber-200 h-1.5 rounded-full mt-2 overflow-hidden">
-                <div id="freeship-bar" class="bg-brand-gold h-full transition-all duration-300" style="width: 0%"></div>
-            </div>
-        </div>
-
-        <!-- Cart Items List -->
-        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
-            <!-- Dynamic Cart Items -->
-        </div>
-
-        <!-- Cart Summary & Checkout Button -->
-        <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
-            <div class="flex justify-between text-sm text-gray-600">
-                <span>Tạm tính:</span>
-                <span id="cart-subtotal" class="font-semibold text-gray-800">0đ</span>
-            </div>
-            <div class="flex justify-between text-sm text-gray-600">
-                <span>Phí vận chuyển:</span>
-                <span id="cart-shipping" class="font-semibold text-gray-800">Tính khi đặt</span>
-            </div>
-            <div class="flex justify-between text-base font-bold text-gray-900 pt-2 border-t border-gray-200">
-                <span>Tổng tiền:</span>
-                <span id="cart-total" class="text-brand-red text-lg">0đ</span>
-            </div>
-
-            <button onclick="openCheckoutModal()" class="w-full bg-brand-red hover:bg-brand-reddark text-white font-bold py-3 rounded-lg transition shadow-md flex items-center justify-center space-x-2">
-                <span>Tiến Hành Đặt Hàng</span>
-                <i class="fa-solid fa-arrow-right"></i>
+            <button onclick="switchCardImage('p1-main', 'images/banh-com-goc-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-com-goc-3.jpg" alt="Bánh Cốm 3" class="w-full h-full object-cover"/>
             </button>
+            <button onclick="switchCardImage('p1-main', 'images/banh-com-goc-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-com-goc-4.jpg" alt="Bánh Cốm 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(184)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Bánh Cốm Mộc Nguyên Ninh</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Vỏ cốm dẻo thơm nguyên hạt quện nhân đậu xanh dừa nạo béo ngậy. Hạn dùng 3-5 ngày.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Hộp 10 chiếc</span>
+                <span class="font-bold text-lg text-doSon">60.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- SAN PHAM 2 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p2-main').src, 'Bánh Phu Thê (Xu Xê) Cưới Hỏi')">
+            <span class="absolute top-3 left-3 z-10 bg-com text-white text-xs font-bold px-2.5 py-1 rounded shadow">Cưới Hỏi / Cỗ</span>
+            <img id="p2-main" src="images/banh-phu-the.jpg" alt="Bánh Phu Thê Cưới Hỏi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
+            </div>
+          </div>
+
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p2-main', 'images/banh-phu-the.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/banh-phu-the.jpg" alt="Bánh Phu Thê 1" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p2-main', 'images/banh-phu-the-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-phu-the-2.jpg" alt="Bánh Phu Thê 2" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p2-main', 'images/banh-phu-the-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-phu-the-3.jpg" alt="Bánh Phu Thê 3" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p2-main', 'images/banh-phu-the-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/banh-phu-the-4.jpg" alt="Bánh Phu Thê 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(94)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Bánh Phu Thê (Xu Xê)</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Vỏ bột lọc trong suốt giòn sần sật nhân đậu xanh đu đủ. Biểu tượng cho hạnh phúc lứa đôi.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Hộp 10 chiếc</span>
+                <span class="font-bold text-lg text-doSon">80.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAN PHAM 3 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p3-main').src, 'Mochi Cốm Tươi Kem Dừa')">
+            <span class="absolute top-3 left-3 z-10 bg-vangCo text-thanGoc text-xs font-bold px-2.5 py-1 rounded shadow">Cách Tân</span>
+            <img id="p3-main" src="images/mochi-com.jpg" alt="Mochi Cốm Tươi Kem Dừa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
+            </div>
+          </div>
+
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p3-main', 'images/mochi-com.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/mochi-com.jpg" alt="Mochi Cốm 1" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p3-main', 'images/mochi-com-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/mochi-com-2.jpg" alt="Mochi Cốm 2" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p3-main', 'images/mochi-com-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/mochi-com-3.jpg" alt="Mochi Cốm 3" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p3-main', 'images/mochi-com-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/mochi-com-4.jpg" alt="Mochi Cốm 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(86)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Mochi Cốm Tươi Kem Dừa</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Sự kết hợp độc đáo giữa vỏ mochi Nhật Bản dẻo mềm và hương vị cốm thu Hà Nội.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Hộp 6 chiếc</span>
+                <span class="font-bold text-lg text-doSon">95.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAN PHAM 4 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p4-main').src, 'Xôi Cốm Dừa Hạt Sen')">
+            <img id="p4-main" src="images/xoi-com.jpg" alt="Xôi Cốm Dừa Hạt Sen" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
+            </div>
+          </div>
+
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p4-main', 'images/xoi-com.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/xoi-com.jpg" alt="Xôi Cốm 1" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p4-main', 'images/xoi-com-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/xoi-com-2.jpg" alt="Xôi Cốm 2" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p4-main', 'images/xoi-com-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/xoi-com-3.jpg" alt="Xôi Cốm 3" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p4-main', 'images/xoi-com-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/xoi-com-4.jpg" alt="Xôi Cốm 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(210)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Xôi Cốm Dừa Hạt Sen</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Cốm tươi đồ xôi quện hạt sen bùi bở, dừa sợi béo ngọt ngào thanh lịch.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Đĩa 500g</span>
+                <span class="font-bold text-lg text-doSon">110.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAN PHAM 5 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p5-main').src, 'Ô Mai Sấu Bao Tử Gừng')">
+            <img id="p5-main" src="images/o-mai-sau.jpg" alt="Ô Mai Sấu Bao Tử Gừng" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
+            </div>
+          </div>
+
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p5-main', 'images/o-mai-sau.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/o-mai-sau.jpg" alt="Ô Mai Sấu 1" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p5-main', 'images/o-mai-sau-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/o-mai-sau-2.jpg" alt="Ô Mai Sấu 2" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p5-main', 'images/o-mai-sau-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/o-mai-sau-3.jpg" alt="Ô Mai Sấu 3" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p5-main', 'images/o-mai-sau-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/o-mai-sau-4.jpg" alt="Ô Mai Sấu 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(75)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Ô Mai Sấu Bao Tử Gừng</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Sấu giòn giòn chua ngọt xào gừng tươi cay nhẹ. Quà biếu đặc sản Hà Thành đậm vị.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Hộp 300g</span>
+                <span class="font-bold text-lg text-doSon">65.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAN PHAM 6 -->
+        <div class="group bg-trangNga rounded-xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <!-- Ảnh Chính -->
+          <div class="relative overflow-hidden aspect-square cursor-pointer" onclick="openLightbox(document.getElementById('p6-main').src, 'Trà Sen / Trà Nhài Hà Nội')">
+            <span class="absolute top-3 left-3 z-10 bg-com text-white text-xs font-bold px-2.5 py-1 rounded shadow">Combo Ăn Bánh</span>
+            <img id="p6-main" src="images/tra-sen.jpg" alt="Trà Sen Trà Nhài Hà Nội" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+              <span class="bg-white/90 text-com text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-1">
+                🔍 Xem phóng to
+              </span>
+            </div>
+          </div>
+
+          <!-- Danh sách ảnh phụ (Thumbnails) -->
+          <div class="flex gap-2 p-2.5 bg-stone-50 border-b border-stone-200/60 overflow-x-auto no-scrollbar">
+            <button onclick="switchCardImage('p6-main', 'images/tra-sen.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-com opacity-100 transition focus:outline-none">
+              <img src="images/tra-sen.jpg" alt="Trà Sen 1" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p6-main', 'images/tra-sen-2.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/tra-sen-2.jpg" alt="Trà Sen 2" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p6-main', 'images/tra-sen-3.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/tra-sen-3.jpg" alt="Trà Sen 3" class="w-full h-full object-cover"/>
+            </button>
+            <button onclick="switchCardImage('p6-main', 'images/tra-sen-4.jpg', this)" class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition focus:outline-none">
+              <img src="images/tra-sen-4.jpg" alt="Trà Sen 4" class="w-full h-full object-cover"/>
+            </button>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-1">★ ★ ★ ★ ★ <span class="text-stone-400 ml-1">(150)</span></div>
+              <h3 class="font-serif text-lg font-bold text-com group-hover:text-doSon transition">Trà Sen / Trà Nhài Hà Nội</h3>
+              <p class="text-stone-500 text-xs mt-1.5 line-clamp-2">Trà mạn Tân Cương ướp hoa tự nhiên. Thức uống tuyệt hảo khi thưởng thức cùng bánh cốm.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-200/60">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-stone-500">Gói 200g</span>
+                <span class="font-bold text-lg text-doSon">120.000đ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="#quickOrderForm" class="border border-com text-com hover:bg-com hover:text-white font-semibold py-2 px-3 rounded text-xs transition text-center">Thêm giỏ</a>
+                <a href="#quickOrderForm" class="bg-doSon hover:bg-doSon-hover text-white font-bold py-2 px-3 rounded text-xs transition text-center shadow">Mua Ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- PRODUCT DETAIL MODAL -->
-    <div id="product-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full overflow-hidden relative max-h-[90vh] flex flex-col md:flex-row">
-            <button onclick="closeProductModal()" class="absolute top-3 right-3 bg-gray-100 hover:bg-gray-200 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center z-10">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="md:w-1/2 h-64 md:h-auto bg-gray-100 relative">
-                <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
-            </div>
-            <div class="md:w-1/2 p-6 flex flex-col justify-between overflow-y-auto">
-                <div>
-                    <span id="modal-category" class="text-xs uppercase font-bold text-brand-red tracking-wider">Danh mục</span>
-                    <h3 id="modal-title" class="font-serif text-xl font-bold text-gray-900 mt-1 mb-2">Tên sản phẩm</h3>
-                    <div id="modal-price" class="text-2xl font-bold text-brand-red mb-4">0đ</div>
-                    <p id="modal-desc" class="text-gray-600 text-sm leading-relaxed mb-6">Mô tả sản phẩm...</p>
-                </div>
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="text-sm font-medium text-gray-700">Số lượng:</span>
-                        <div class="flex items-center border border-gray-300 rounded-md">
-                            <button onclick="adjustModalQty(-1)" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold">-</button>
-                            <span id="modal-qty" class="px-4 py-1 text-sm font-semibold">1</span>
-                            <button onclick="adjustModalQty(1)" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold">+</button>
-                        </div>
-                    </div>
-                    <button id="modal-add-btn" class="w-full bg-brand-red hover:bg-brand-reddark text-white font-bold py-3 rounded-lg transition shadow flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>Thêm Vào Giỏ Hàng</span>
-                    </button>
-                </div>
-            </div>
+  <!-- ==================== GALLERY CHI TIẾT SẢN PHẨM CHÍNH ==================== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white p-6 sm:p-8 rounded-2xl border border-stone-200/80 shadow-sm">
+      
+      <!-- Thư viện ảnh đổi góc & Phóng toàn màn hình -->
+      <div class="lg:col-span-6 space-y-4">
+        <div class="relative aspect-square rounded-xl overflow-hidden bg-stone-100 border border-stone-200 group cursor-pointer" onclick="openLightbox(document.getElementById('mainImage').src, 'Bánh Cốm Mộc Nguyên Ninh - Chi Tiết')">
+          <span class="absolute top-3 left-3 z-10 bg-doSon text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+            150 Năm Gia Truyền
+          </span>
+          <img id="mainImage" src="images/banh-com.jpg" alt="Bánh Cốm Mộc Nguyên Ninh" class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"/>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <span class="bg-white/90 text-com text-xs font-bold px-4 py-2 rounded-full shadow flex items-center gap-2">
+              🔍 Bấm phóng to ảnh này
+            </span>
+          </div>
         </div>
-    </div>
 
-    <!-- CHECKOUT MODAL -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden max-h-[90vh] flex flex-col">
-            <div class="bg-brand-red text-white p-4 flex justify-between items-center">
-                <h3 class="font-serif font-bold text-lg"><i class="fa-solid fa-file-invoice mr-2"></i> Thông Tin Đặt Hàng</h3>
-                <button onclick="closeCheckoutModal()" class="text-amber-200 hover:text-white">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-            
-            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="p-6 overflow-y-auto space-y-4 text-sm">
-                <div>
-                    <label class="block font-medium text-gray-700 mb-1">Họ và tên người nhận <span class="text-red-500">*</span></label>
-                    <input type="text" id="cust-name" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-red/50 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block font-medium text-gray-700 mb-1">Số điện thoại liên hệ <span class="text-red-500">*</span></label>
-                    <input type="tel" id="cust-phone" required placeholder="Ví dụ: 0912345678" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-red/50 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block font-medium text-gray-700 mb-1">Địa chỉ nhận hàng chi tiết <span class="text-red-500">*</span></label>
-                    <textarea id="cust-address" required rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-red/50 focus:outline-none"></textarea>
-                </div>
-                <div>
-                    <label class="block font-medium text-gray-700 mb-1">Ghi chú đơn hàng (Nếu có)</label>
-                    <input type="text" id="cust-note" placeholder="Lời nhắn, ngày giờ nhận bánh mong muốn..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-red/50 focus:outline-none">
-                </div>
-
-                <div class="border-t border-gray-200 pt-3">
-                    <label class="block font-medium text-gray-700 mb-2">Hình thức đặt hàng:</label>
-                    <div class="grid grid-cols-2 gap-3">
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                            <input type="radio" name="order-type" value="zalo" checked class="text-brand-red focus:ring-brand-red">
-                            <span class="ml-2 font-medium text-gray-700">Gửi qua Zalo</span>
-                        </label>
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                            <input type="radio" name="order-type" value="phone" class="text-brand-red focus:ring-brand-red">
-                            <span class="ml-2 font-medium text-gray-700">Gọi Hotline</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full bg-brand-red hover:bg-brand-reddark text-white font-bold py-3 rounded-lg transition shadow-lg mt-4">
-                    Xác Nhận Đặt Hàng
-                </button>
-            </form>
+        <!-- 4 Ảnh góc nhỏ -->
+        <div class="grid grid-cols-4 gap-3">
+          <button onclick="changeImage('images/banh-com.jpg', this)" class="thumb-btn border-2 border-com rounded-lg overflow-hidden aspect-square focus:outline-none transition">
+            <img src="images/banh-com.jpg" alt="Góc 1" class="w-full h-full object-cover"/>
+          </button>
+          <button onclick="changeImage('images/banh-com-goc-2.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-com/50 rounded-lg overflow-hidden aspect-square focus:outline-none transition">
+            <img src="images/banh-com-goc-2.jpg" alt="Góc 2" class="w-full h-full object-cover"/>
+          </button>
+          <button onclick="changeImage('images/banh-com-goc-3.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-com/50 rounded-lg overflow-hidden aspect-square focus:outline-none transition">
+            <img src="images/banh-com-goc-3.jpg" alt="Góc 3" class="w-full h-full object-cover"/>
+          </button>
+          <button onclick="changeImage('images/banh-com-goc-4.jpg', this)" class="thumb-btn border-2 border-transparent hover:border-com/50 rounded-lg overflow-hidden aspect-square focus:outline-none transition">
+            <img src="images/banh-com-goc-4.jpg" alt="Góc 4" class="w-full h-full object-cover"/>
+          </button>
         </div>
+      </div>
+
+      <!-- Thông tin sản phẩm -->
+      <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
+        <div>
+          <span class="text-xs font-bold text-doSon uppercase tracking-wider bg-doSon/10 px-2.5 py-1 rounded">Đặc Sản Cổ Truyền</span>
+          <h1 class="font-serif text-2xl sm:text-3xl font-bold text-com mt-2">Bánh Cốm Mộc Nguyên Ninh Hàng Than</h1>
+          
+          <div class="flex items-center gap-3 mt-3 text-sm">
+            <div class="flex items-center text-amber-500">★ ★ ★ ★ ★ <span class="font-bold text-thanGoc ml-1">4.9</span></div>
+            <span class="text-stone-300">|</span>
+            <span class="text-stone-500">184 Đánh giá</span>
+            <span class="text-stone-300">|</span>
+            <span class="text-stone-500">Đã bán 2.5k+</span>
+          </div>
+
+          <div class="mt-4 p-4 rounded-xl bg-com/5 border border-com/10 flex items-baseline gap-3">
+            <span class="text-3xl font-bold text-doSon" id="unitPriceDisplay">70.000đ</span>
+            <span class="text-stone-400 line-through text-sm">85.000đ</span>
+            <span class="text-xs font-bold bg-doSon text-white px-2 py-0.5 rounded">-18%</span>
+            <span class="text-xs text-stone-500 ml-auto">(Hộp 10 chiếc)</span>
+          </div>
+
+          <div class="mt-6 space-y-3 text-xs sm:text-sm text-stone-600 border-t border-b border-stone-100 py-4">
+            <div class="flex"><span class="w-32 font-semibold text-thanGoc flex-shrink-0">🌿 Thành phần:</span><span>Cốm nếp cái hoa vàng, nhân đậu xanh, dừa nạo tươi, đường kính.</span></div>
+            <div class="flex"><span class="w-32 font-semibold text-thanGoc flex-shrink-0">⏳ Hạn sử dụng:</span><span>3 - 5 ngày (Không chứa chất bảo quản, ăn ngon nhất trong 3 ngày đầu).</span></div>
+            <div class="flex"><span class="w-32 font-semibold text-thanGoc flex-shrink-0">📦 Quy cách:</span><span>Đóng gói màng thực phẩm + Hộp giấy đỏ hoa văn di sản (Hộp 10 bánh).</span></div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-4">
+            <span class="font-semibold text-sm">Số lượng hộp:</span>
+            <div class="flex items-center border border-stone-300 rounded-lg overflow-hidden bg-stone-50">
+              <button onclick="updateQuantity(-1)" class="px-3 py-1.5 text-stone-600 hover:bg-stone-200 transition font-bold text-lg">-</button>
+              <input type="number" id="quantityInput" value="1" min="1" readonly class="w-12 text-center bg-transparent text-sm font-bold focus:outline-none" />
+              <button onclick="updateQuantity(1)" class="px-3 py-1.5 text-stone-600 hover:bg-stone-200 transition font-bold text-lg">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-100 flex gap-3">
+          <a href="#quickOrderForm" class="flex-1 bg-doSon hover:bg-doSon-hover text-white text-center font-bold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            Điền Form Đặt Nhanh
+          </a>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- OPTIONAL EXTERNAL CONFIG LINK -->
-    <script src="config.js" onerror="console.log('Chưa tìm thấy file config.js bên ngoài, ứng dụng sử dụng cấu hình mặc định sẵn có.')"></script>
+  <!-- ==================== FORM ĐẶT HÀNG NHANH ==================== -->
+  <section id="quickOrderForm" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="bg-trangNga border-2 border-com/30 rounded-2xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+      
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-doSon font-semibold text-xs uppercase tracking-widest">Giao Bánh Tươi Tận Lò</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-com mt-1">Form Đặt Hàng Nhanh</h2>
+        <p class="text-xs sm:text-sm text-stone-500 mt-1">Nhà lò Nguyên Ninh sẽ gọi điện xác nhận và giao bánh nóng mới đúc trong ngày.</p>
+      </div>
 
-    <script>
-        /* EMBEDDED DEFAULT CONFIGURATION (Guarantees zero-error execution) */
-        if (typeof SITE_CONFIG === 'undefined') {
-            window.SITE_CONFIG = {
-                storeName: "Bánh Cốm Nguyên Ninh - Dốc Hàng Than",
-                tagline: "Gia truyền từ năm 1865",
-                address: "11 Hàng Than, Ba Đình, Hà Nội",
-                hotline: "0968.68.68.68",
-                workingHours: "07:30 - 21:30",
-                email: "banhcomnguyenninh@gmail.com",
-                socials: {
-                    facebook: "https://facebook.com",
-                    zalo: "https://zalo.me/0968686868"
-                },
-                shipping: {
-                    freeShipThreshold: 500000
-                },
-                heroBanners: [
-                    {
-                        title: "Bánh Cốm Gia Truyền Dốc Hàng Than 1865",
-                        subtitle: "Giữ trọn hương vị mùa thu Hà Thành qua hơn 150 năm lịch sử",
-                        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
-                    },
-                    {
-                        title: "Tráp Cưới Hỏi & Mứt Sen Trà Cốm",
-                        subtitle: "Tinh hoa quà tặng văn hóa thủ đô cho dịp trọng đại",
-                        image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=1200&q=80"
-                    }
-                ]
-            };
-        }
+      <form id="orderForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-700 mb-1">Họ và Tên *</label>
+            <input type="text" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-com focus:border-com outline-none text-sm transition" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-700 mb-1">Số Điện Thoại *</label>
+            <input type="tel" required pattern="[0-9]{10}" placeholder="Ví dụ: 0985868317" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-com focus:border-com outline-none text-sm transition" />
+          </div>
+        </div>
 
-        if (typeof CATEGORIES === 'undefined') {
-            window.CATEGORIES = [
-                { id: 'all', name: 'Tất Cả' },
-                { id: 'banh-com', name: 'Bánh Cốm' },
-                { id: 'banh-phu-the', name: 'Bánh Phu Thê' },
-                { id: 'com-tuoi', name: 'Cốm Tươi Mộc' },
-                { id: 'trap-cuoi', name: 'Tráp Cưới Hỏi' }
-            ];
-        }
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">Địa Chỉ Nhận Hàng *</label>
+          <input type="text" required placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-com focus:border-com outline-none text-sm transition" />
+        </div>
 
-        if (typeof PRODUCTS === 'undefined') {
-            window.PRODUCTS = [
-                {
-                    id: 1,
-                    name: "Bánh Cốm Nguyên Ninh Hàng Than (Hộp 1 chiếc)",
-                    category: "banh-com",
-                    categoryName: "Bánh Cốm",
-                    price: 7000,
-                    priceFormatted: "7.000đ",
-                    unit: "Cái",
-                    isFeatured: true,
-                    description: "Bánh cốm dẻo thơm nguyên vị cốm mộc tự nhiên, nhân đậu xanh dừa ngậy truyền thống 11 Hàng Than.",
-                    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                    id: 2,
-                    name: "Bánh Cốm Hộp 10 Chiếc Sang Trọng",
-                    category: "banh-com",
-                    categoryName: "Bánh Cốm",
-                    price: 70000,
-                    priceFormatted: "70.000đ",
-                    unit: "Hộp 10 cái",
-                    isFeatured: true,
-                    description: "Hộp bánh cốm 10 chiếc đóng gói đẹp mắt, thích hợp làm quà biếu đặc sản Hà Nội.",
-                    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                    id: 3,
-                    name: "Bánh Phu Thê (Xu Xê) Truyền Thống",
-                    category: "banh-phu-the",
-                    categoryName: "Bánh Phu Thê",
-                    price: 7000,
-                    priceFormatted: "7.000đ",
-                    unit: "Cái",
-                    isFeatured: false,
-                    description: "Bánh xu xê dẻo trong, nhân đậu xanh đu đủ sợi giòn ngọt thanh lịch.",
-                    image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                    id: 4,
-                    name: "Cốm Tươi Làng Vòng Mộc Mạc",
-                    category: "com-tuoi",
-                    categoryName: "Cốm Tươi Mộc",
-                    price: 280000,
-                    priceFormatted: "280.000đ",
-                    unit: "Kg",
-                    isFeatured: true,
-                    description: "Cốm mộc thu hoạch từ lúa nếp non dẻo ngọt tự nhiên, gói lá sen thơm lừng.",
-                    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                    id: 5,
-                    name: "Tráp Cưới Hỏi Bánh Cốm - 105 Bánh",
-                    category: "trap-cuoi",
-                    categoryName: "Tráp Cưới Hỏi",
-                    price: 850000,
-                    priceFormatted: "850.000đ",
-                    unit: "Bộ tráp",
-                    isFeatured: true,
-                    description: "Tráp bánh cốm hỏi lễ ăn hỏi xếp tháp rồng phụng chuẩn phong tục cưới hỏi miền Bắc.",
-                    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
-                }
-            ];
-        }
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-2">Hình Thức Giao Hàng</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-3 p-3 rounded-lg border border-com bg-com/5 cursor-pointer">
+              <input type="radio" name="shipping" value="30000" checked onchange="calculateTotal()" class="text-com focus:ring-com" />
+              <div>
+                <p class="text-xs font-bold text-com">Hỏa Tốc 2H Nội Thành Hà Nội</p>
+                <p class="text-[11px] text-stone-500">Phí giao: 30.000đ (Bánh mới ra lò)</p>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 p-3 rounded-lg border border-stone-200 bg-white cursor-pointer hover:border-com/40">
+              <input type="radio" name="shipping" value="40000" onchange="calculateTotal()" class="text-com focus:ring-com" />
+              <div>
+                <p class="text-xs font-bold text-stone-700">Chuyển Phát Các Tỉnh / Xe Khách</p>
+                <p class="text-[11px] text-stone-500">Phí giao: 40.000đ (Gửi trong ngày)</p>
+              </div>
+            </label>
+          </div>
+        </div>
 
-        // Global State variables
-        let cart = [];
-        let activeCategory = 'all';
-        let currentSlideIndex = 0;
-        let slideInterval = null;
-        let modalProduct = null;
-        let modalQuantity = 1;
+        <div class="bg-stone-100 p-4 rounded-xl border border-stone-200 space-y-2 text-xs sm:text-sm">
+          <div class="flex justify-between text-stone-600">
+            <span>Tiền bánh (<span id="summaryQty">1</span> hộp):</span>
+            <span id="subtotalDisplay">70.000đ</span>
+          </div>
+          <div class="flex justify-between text-stone-600">
+            <span>Phí vận chuyển:</span>
+            <span id="shippingFeeDisplay">30.000đ</span>
+          </div>
+          <div class="flex justify-between font-bold text-base text-doSon pt-2 border-t border-stone-200">
+            <span>TỔNG THANH TOÁN (COD):</span>
+            <span id="grandTotalDisplay" class="text-xl">100.000đ</span>
+          </div>
+        </div>
 
-        // Initialize application on DOM ready
-        document.addEventListener('DOMContentLoaded', () => {
-            initApp();
+        <button type="submit" class="w-full bg-doSon hover:bg-doSon-hover text-white font-bold py-4 rounded-xl text-base shadow-lg hover:shadow-xl transition transform active:scale-95">
+          XÁC NHẬN ĐẶT HÀNG (THANH TOÁN KHI NHẬN)
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-com text-trangNga py-10 border-t border-vangCo/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-stone-200 space-y-2">
+      <p class="font-serif font-bold text-lg text-vangCo">Bánh Cốm Nguyên Ninh Hàng Than</p>
+      <p>📍 Địa chỉ: Dốc Phố Hàng Than, Ba Đình, Hà Nội | 📞 Hotline: 0985.868.317</p>
+      <p>© 2026 Bánh Cốm Nguyên Ninh. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING BOTTOM BAR (MOBILE ONLY) ==================== -->
+  <div class="mobile-bottom-bar" id="mobileBottomBar">
+    <a href="tel:0985868317" class="bar-btn btn-call">
+      <span>Gọi ngay</span>
+    </a>
+    <a href="https://zalo.me/0985868317" target="_blank" class="bar-btn btn-zalo">
+      <span>Chat Zalo</span>
+    </a>
+    <button type="button" class="bar-btn btn-cart shake-anim" id="quickBuyBtn">
+      <span>Mua Nhanh</span>
+    </button>
+  </div>
+
+  <!-- ==================== LIGHTBOX MODAL (XEM ẢNH PHÓNG TO) ==================== -->
+  <div id="imageModal" class="fixed inset-0 bg-black/90 z-[10000] hidden flex flex-col items-center justify-center p-4 backdrop-blur-md cursor-pointer transition-all duration-300" onclick="closeLightbox()">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-8 text-white bg-white/20 hover:bg-doSon w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold transition shadow-lg">
+      ✕
+    </button>
+    
+    <div class="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <img id="modalImage" src="" alt="Sản phẩm phóng to" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/20" />
+      <p id="modalCaption" class="text-white text-center mt-3 font-serif text-sm sm:text-base font-semibold bg-black/50 px-4 py-1.5 rounded-full border border-white/10"></p>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    const UNIT_PRICE = 70000;
+
+    // 1. CHUYỂN ĐỔI ẢNH THUMBNAIL CHO TỪNG SẢN PHẨM Ở DANH SÁCH
+    function switchCardImage(mainImgId, newSrc, btnElement) {
+      const mainImg = document.getElementById(mainImgId);
+      if (mainImg) {
+        mainImg.src = newSrc;
+      }
+      
+      if (btnElement && btnElement.parentElement) {
+        const buttons = btnElement.parentElement.querySelectorAll('button');
+        buttons.forEach(btn => {
+          btn.classList.remove('border-com', 'opacity-100');
+          btn.classList.add('border-transparent', 'opacity-60');
         });
+        btnElement.classList.remove('border-transparent', 'opacity-60');
+        btnElement.classList.add('border-com', 'opacity-100');
+      }
+    }
 
-        function initApp() {
-            // Populate Site Header & Footer Information
-            document.getElementById('brand-name').innerText = SITE_CONFIG.storeName.split('-')[0].trim();
-            document.getElementById('brand-tagline').innerText = SITE_CONFIG.tagline;
-            document.getElementById('top-working-hours').innerText = SITE_CONFIG.workingHours;
-            document.getElementById('top-address').innerText = SITE_CONFIG.address;
-            document.getElementById('top-hotline').innerText = SITE_CONFIG.hotline;
-            document.getElementById('top-hotline-link').href = `tel:${SITE_CONFIG.hotline.replace(/\./g, '')}`;
-            document.getElementById('zalo-link').href = SITE_CONFIG.socials.zalo;
+    // 2. LIGHTBOX MODAL LOGIC (Xem ảnh phóng to)
+    function openLightbox(src, altText) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+      
+      if (modal && modalImg) {
+        modalImg.src = src;
+        modalCaption.innerText = altText || 'Bánh Cốm Nguyên Ninh';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
 
-            document.getElementById('footer-store-name').innerText = SITE_CONFIG.storeName;
-            document.getElementById('footer-tagline').innerText = SITE_CONFIG.tagline;
-            document.getElementById('footer-address').innerText = SITE_CONFIG.address;
-            document.getElementById('footer-hotline').innerText = SITE_CONFIG.hotline;
-            document.getElementById('footer-hotline').href = `tel:${SITE_CONFIG.hotline.replace(/\./g, '')}`;
-            document.getElementById('footer-email').innerText = SITE_CONFIG.email;
-            document.getElementById('footer-hours').innerText = SITE_CONFIG.workingHours;
-            document.getElementById('footer-facebook').href = SITE_CONFIG.socials.facebook;
-            document.getElementById('footer-zalo').href = SITE_CONFIG.socials.zalo;
-            document.getElementById('current-year').innerText = new Date().getFullYear();
+    function closeLightbox() {
+      const modal = document.getElementById('imageModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
 
-            // Init Components
-            initSlider();
-            renderCategories();
-            renderProducts(PRODUCTS);
-            loadCartFromStorage();
-            updateCartUI();
-        }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
 
-        // ================= HERO SLIDER LOGIC =================
-        function initSlider() {
-            if (!SITE_CONFIG.heroBanners || SITE_CONFIG.heroBanners.length === 0) return;
-            updateSlideView();
-            startAutoSlide();
-        }
+    // 3. Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
 
-        function updateSlideView() {
-            const banner = SITE_CONFIG.heroBanners[currentSlideIndex];
-            document.getElementById('slider-img').src = banner.image;
-            document.getElementById('slider-title').innerText = banner.title;
-            document.getElementById('slider-subtitle').innerText = banner.subtitle;
-        }
+    // 4. Switch Gallery Image Cho Khung Sản Phẩm Chi Tiết Bên Dưới
+    function changeImage(src, btnElement) {
+      const mainImg = document.getElementById('mainImage');
+      if (mainImg) mainImg.src = src;
+      document.querySelectorAll('.thumb-btn').forEach(btn => {
+        btn.classList.remove('border-com');
+        btn.classList.add('border-transparent');
+      });
+      if (btnElement) {
+        btnElement.classList.remove('border-transparent');
+        btnElement.classList.add('border-com');
+      }
+    }
 
-        function nextSlide() {
-            currentSlideIndex = (currentSlideIndex + 1) % SITE_CONFIG.heroBanners.length;
-            updateSlideView();
-            resetAutoSlide();
-        }
+    // 5. Quantity Counter
+    function updateQuantity(change) {
+      const input = document.getElementById('quantityInput');
+      let currentVal = parseInt(input.value) || 1;
+      currentVal += change;
+      if (currentVal < 1) currentVal = 1;
+      if (currentVal > 50) currentVal = 50;
+      input.value = currentVal;
+      
+      const cartBadge = document.getElementById('cartCountDisplay');
+      if (cartBadge) cartBadge.innerText = currentVal;
 
-        function prevSlide() {
-            currentSlideIndex = (currentSlideIndex - 1 + SITE_CONFIG.heroBanners.length) % SITE_CONFIG.heroBanners.length;
-            updateSlideView();
-            resetAutoSlide();
-        }
+      calculateTotal();
+    }
 
-        function startAutoSlide() {
-            slideInterval = setInterval(() => {
-                currentSlideIndex = (currentSlideIndex + 1) % SITE_CONFIG.heroBanners.length;
-                updateSlideView();
-            }, 5000);
-        }
+    // 6. Calculate Total Price
+    function calculateTotal() {
+      const qtyInput = document.getElementById('quantityInput');
+      let qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+      let subtotal = qty * UNIT_PRICE;
+      
+      const shippingRadio = document.querySelector('input[name="shipping"]:checked');
+      let shippingFee = shippingRadio ? parseInt(shippingRadio.value) : 30000;
+      let grandTotal = subtotal + shippingFee;
 
-        function resetAutoSlide() {
-            clearInterval(slideInterval);
-            startAutoSlide();
-        }
+      const summaryQty = document.getElementById('summaryQty');
+      const subtotalDisplay = document.getElementById('subtotalDisplay');
+      const shippingFeeDisplay = document.getElementById('shippingFeeDisplay');
+      const grandTotalDisplay = document.getElementById('grandTotalDisplay');
 
-        // ================= CATEGORY & PRODUCT RENDER =================
-        function renderCategories() {
-            const container = document.getElementById('category-bar');
-            if (typeof CATEGORIES === 'undefined') return;
+      if (summaryQty) summaryQty.innerText = qty;
+      if (subtotalDisplay) subtotalDisplay.innerText = subtotal.toLocaleString('vi-VN') + 'đ';
+      if (shippingFeeDisplay) shippingFeeDisplay.innerText = shippingFee.toLocaleString('vi-VN') + 'đ';
+      if (grandTotalDisplay) grandTotalDisplay.innerText = grandTotal.toLocaleString('vi-VN') + 'đ';
+    }
 
-            container.innerHTML = CATEGORIES.map(cat => `
-                <button onclick="filterCategory('${cat.id}')" 
-                    id="cat-btn-${cat.id}"
-                    class="category-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition border ${
-                        activeCategory === cat.id 
-                            ? 'bg-brand-red text-white border-brand-red shadow-sm' 
-                            : 'bg-white text-gray-700 border-gray-200 hover:border-brand-red hover:text-brand-red'
-                    }">
-                    ${cat.name}
-                </button>
-            `).join('');
-        }
+    // 7. Smooth Scroll Mobile Button
+    document.addEventListener('DOMContentLoaded', function () {
+      const quickBuyBtn = document.getElementById('quickBuyBtn');
+      if (quickBuyBtn) {
+        quickBuyBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetSection = document.getElementById('quickOrderForm');
+          if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
 
-        function filterCategory(catId) {
-            activeCategory = catId;
-            renderCategories();
-
-            const filtered = (catId === 'all') 
-                ? PRODUCTS 
-                : PRODUCTS.filter(p => p.category === catId);
-
-            renderProducts(filtered);
-        }
-
-        function renderProducts(productList) {
-            const container = document.getElementById('product-grid');
-            const emptyState = document.getElementById('empty-state');
-
-            if (productList.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
-            }
-
-            emptyState.classList.add('hidden');
-            container.innerHTML = productList.map(prod => `
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group flex flex-col justify-between">
-                    <div>
-                        <!-- Product Image -->
-                        <div class="relative overflow-hidden aspect-square bg-gray-100 cursor-pointer" onclick="openProductModal(${prod.id})">
-                            <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            ${prod.isFeatured ? `
-                                <span class="absolute top-2 left-2 bg-brand-gold text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded shadow">
-                                    Nổi bật
-                                </span>
-                            ` : ''}
-                        </div>
-
-                        <!-- Product Content -->
-                        <div class="p-4">
-                            <span class="text-xs font-semibold text-brand-green uppercase tracking-wide">${prod.categoryName || 'Bánh cốm'}</span>
-                            <h3 onclick="openProductModal(${prod.id})" class="font-serif font-bold text-gray-900 text-base mt-1 line-clamp-2 hover:text-brand-red cursor-pointer transition">
-                                ${prod.name}
-                            </h3>
-                            <p class="text-xs text-gray-500 mt-1 line-clamp-2">${prod.description}</p>
-                        </div>
-                    </div>
-
-                    <!-- Price & Add Button -->
-                    <div class="p-4 pt-0">
-                        <div class="flex items-center justify-between mt-2 pt-3 border-t border-gray-100">
-                            <div>
-                                <span class="text-lg font-bold text-brand-red">${prod.priceFormatted}</span>
-                                ${prod.unit ? `<span class="text-xs text-gray-400 block">/ ${prod.unit}</span>` : ''}
-                            </div>
-                            <button onclick="addToCart(${prod.id})" class="bg-brand-red/10 hover:bg-brand-red text-brand-red hover:text-white px-3 py-2 rounded-lg font-semibold text-xs transition flex items-center space-x-1">
-                                <i class="fa-solid fa-cart-plus"></i>
-                                <span>Thêm</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // ================= SEARCH FUNCTIONALITY =================
-        function handleSearch() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            executeSearch(query);
-        }
-
-        function handleSearchMobile() {
-            const query = document.getElementById('search-input-mobile').value.toLowerCase().trim();
-            executeSearch(query);
-        }
-
-        function executeSearch(query) {
-            if (!query) {
-                filterCategory(activeCategory);
-                return;
-            }
-            const filtered = PRODUCTS.filter(p => 
-                p.name.toLowerCase().includes(query) || 
-                p.description.toLowerCase().includes(query)
-            );
-            renderProducts(filtered);
-        }
-
-        // ================= CART MANAGEMENT =================
-        function addToCart(productId, qty = 1) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-            if (existingItem) {
-                existingItem.quantity += qty;
-            } else {
-                cart.push({ ...product, quantity: qty });
-            }
-
-            saveCartToStorage();
-            updateCartUI();
-            showToast(`Đã thêm "${product.name}" vào giỏ hàng!`);
-        }
-
-        function updateQuantity(productId, delta) {
-            const item = cart.find(i => i.id === productId);
-            if (!item) return;
-
-            item.quantity += delta;
-            if (item.quantity <= 0) {
-                cart = cart.filter(i => i.id !== productId);
-            }
-
-            saveCartToStorage();
-            updateCartUI();
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(i => i.id !== productId);
-            saveCartToStorage();
-            updateCartUI();
-            showToast("Đã xóa sản phẩm khỏi giỏ hàng", "info");
-        }
-
-        function updateCartUI() {
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-badge').innerText = totalCount;
-
-            const container = document.getElementById('cart-items-container');
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12 text-gray-400">
-                        <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
-                        <p class="text-sm">Giỏ hàng của bạn đang trống</p>
-                    </div>
-                `;
-            } else {
-                container.innerHTML = cart.map(item => `
-                    <div class="flex items-center space-x-3 bg-gray-50 p-2.5 rounded-lg border border-gray-100">
-                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
-                        <div class="flex-1 min-w-0">
-                            <h4 class="text-xs font-bold text-gray-800 truncate">${item.name}</h4>
-                            <p class="text-xs text-brand-red font-semibold mt-0.5">${item.priceFormatted}</p>
-                            <div class="flex items-center space-x-2 mt-1">
-                                <button onclick="updateQuantity(${item.id}, -1)" class="w-5 h-5 bg-white border rounded text-xs font-bold text-gray-600 hover:bg-gray-200 flex items-center justify-center">-</button>
-                                <span class="text-xs font-bold px-1">${item.quantity}</span>
-                                <button onclick="updateQuantity(${item.id}, 1)" class="w-5 h-5 bg-white border rounded text-xs font-bold text-gray-600 hover:bg-gray-200 flex items-center justify-center">+</button>
-                            </div>
-                        </div>
-                        <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-1">
-                            <i class="fa-solid fa-trash-can text-sm"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('cart-subtotal').innerText = formatCurrency(subtotal);
-            document.getElementById('cart-total').innerText = formatCurrency(subtotal);
-
-            const threshold = SITE_CONFIG.shipping.freeShipThreshold;
-            const statusElem = document.getElementById('freeship-status');
-            const barElem = document.getElementById('freeship-bar');
-
-            if (subtotal >= threshold) {
-                statusElem.innerHTML = `<span><i class="fa-solid fa-circle-check text-green-600 mr-1"></i> Bạn đã được <b>Miễn phí vận chuyển</b>!</span>`;
-                barElem.style.width = '100%';
-            } else {
-                const diff = threshold - subtotal;
-                const percentage = Math.min((subtotal / threshold) * 100, 100);
-                statusElem.innerHTML = `<span>Mua thêm <b>${formatCurrency(diff)}</b> để được Miễn phí vận chuyển</span>`;
-                barElem.style.width = `${percentage}%`;
-            }
-        }
-
-        function toggleCartDrawer(open) {
-            const drawer = document.getElementById('cart-drawer');
-            const overlay = document.getElementById('cart-drawer-overlay');
-
-            if (open) {
-                drawer.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-            } else {
-                drawer.classList.add('translate-x-full');
-                overlay.classList.add('hidden');
-            }
-        }
-
-        function saveCartToStorage() {
-            localStorage.setItem('banhcom_cart', JSON.stringify(cart));
-        }
-
-        function loadCartFromStorage() {
-            const saved = localStorage.getItem('banhcom_cart');
-            if (saved) {
-                try {
-                    cart = JSON.parse(saved);
-                } catch (e) {
-                    cart = [];
-                }
-            }
-        }
-
-        // ================= PRODUCT MODAL =================
-        function openProductModal(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            modalProduct = product;
-            modalQuantity = 1;
-
-            document.getElementById('modal-img').src = product.image;
-            document.getElementById('modal-category').innerText = product.categoryName || 'Bánh Cốm';
-            document.getElementById('modal-title').innerText = product.name;
-            document.getElementById('modal-price').innerText = product.priceFormatted;
-            document.getElementById('modal-desc').innerText = product.description;
-            document.getElementById('modal-qty').innerText = modalQuantity;
-
-            document.getElementById('modal-add-btn').onclick = () => {
-                addToCart(product.id, modalQuantity);
-                closeProductModal();
-            };
-
-            document.getElementById('product-modal').classList.remove('hidden');
-        }
-
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
-        }
-
-        function adjustModalQty(delta) {
-            modalQuantity = Math.max(1, modalQuantity + delta);
-            document.getElementById('modal-qty').innerText = modalQuantity;
-        }
-
-        // ================= CHECKOUT & ORDER SUBMIT =================
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                showToast("Giỏ hàng của bạn đang trống! Vui lòng chọn bánh trước khi đặt.", "warning");
-                return;
-            }
-            toggleCartDrawer(false);
-            document.getElementById('checkout-modal').classList.remove('hidden');
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkout-modal').classList.add('hidden');
-        }
-
-        function handleCheckoutSubmit(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
-            const address = document.getElementById('cust-address').value.trim();
-            const note = document.getElementById('cust-note').value.trim();
-            const orderType = document.querySelector('input[name="order-type"]:checked').value;
-
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            let orderText = `*ĐƠN HÀNG BÁNH CỐM NGUYÊN NINH*\n`;
-            orderText += `👤 Khách hàng: ${name}\n`;
-            orderText += `📞 Số điện thoại: ${phone}\n`;
-            orderText += `🏠 Địa chỉ nhận: ${address}\n`;
-            if (note) orderText += `📝 Ghi chú: ${note}\n`;
-            orderText += `\n*CHI TIẾT ĐƠN HÀNG:*\n`;
-            cart.forEach((item, index) => {
-                orderText += `${index + 1}. ${item.name} x${item.quantity} = ${formatCurrency(item.price * item.quantity)}\n`;
-            });
-            orderText += `\n👉 *Tổng tiền hàng:* ${formatCurrency(subtotal)}`;
-
-            if (orderType === 'zalo') {
-                const zaloUrl = `${SITE_CONFIG.socials.zalo}`;
-                showToast("Cảm ơn quý khách! Đang mở Zalo để gửi đơn hàng...", "success");
-                setTimeout(() => window.open(zaloUrl, '_blank'), 1000);
-            } else {
-                showToast(`Cảm ơn quý khách! Vui lòng gọi trực tiếp Hotline ${SITE_CONFIG.hotline} để hoàn tất.`, "success");
-                setTimeout(() => window.location.href = `tel:${SITE_CONFIG.hotline.replace(/\./g, '')}`, 1000);
-            }
-
-            cart = [];
-            saveCartToStorage();
-            updateCartUI();
-            closeCheckoutModal();
-        }
-
-        // Helper Utility
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
-                .format(amount)
-                .replace('₫', 'đ');
-        }
-
-        // Non-blocking Toast Notification Component
-        function showToast(message, type = "success") {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            
-            const bgColor = type === 'warning' ? 'bg-amber-600' : type === 'info' ? 'bg-blue-600' : 'bg-green-700';
-            const icon = type === 'warning' ? 'fa-triangle-exclamation' : type === 'info' ? 'fa-circle-info' : 'fa-circle-check';
-
-            toast.className = `${bgColor} text-white text-sm font-medium px-4 py-3 rounded-lg shadow-lg flex items-center space-x-2 pointer-events-auto animate-toast min-w-[250px]`;
-            toast.innerHTML = `
-                <i class="fa-solid ${icon} text-lg"></i>
-                <span class="flex-1">${message}</span>
-            `;
-
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-    </script>
+    // 8. Form Submit
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Cảm ơn bạn đã đặt bánh! Nhà lò Nguyên Ninh Hàng Than sẽ gọi điện xác nhận đơn hàng ngay.');
+    }
+  </script>
 </body>
 </html>
