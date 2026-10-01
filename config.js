@@ -1,60 +1,55 @@
-// =========================================================================
-// HƯỚNG DẪN THAY CẤU HÌNH & HÌNH ẢNH:
-// 1. Nếu dùng ảnh trong máy: Tạo thư mục "images" nằm cùng chỗ với file index.html
-//    Copy ảnh vào thư mục đó và sửa tên đường dẫn bên dưới thành: "images/ten-file.jpg"
-// 2. Nếu dùng link ảnh trên mạng: Dán trực tiếp link "https://..." vào mục image.
-// =========================================================================
+// =========================================================
+// CONFIG.JS - BÁNH CỐM NGUYÊN NINH (PHIÊN BẢN CHUẨN DỮ LIỆU)
+// =========================================================
 
-// 1. THÔNG TIN CỬA HÀNG & SLIDER BANNER
-const SITE_CONFIG = {
+// 1. CẤU HÌNH THƯƠNG HIỆU & BANNER SLIDER
+var SITE_CONFIG = {
   storeName: "Bánh Cốm Nguyên Ninh",
   subTitle: "Dốc Hàng Than - Hà Nội",
   tagline: "Gia truyền từ năm 1865 - Chuẩn vị cốm Hà Thành",
-  hotline: "0985868317",
+  hotline: "0968.68.68.68",
   address: "Số 11 Hàng Than, Ba Đình, Hà Nội",
   email: "banhcomnguyenninh@gmail.com",
   workingHours: "07:30 - 21:30 (Hàng ngày)",
   
   socials: {
     facebook: "https://facebook.com",
-    zalo: "https://zalo.me/0985868317"
+    zalo: "https://zalo.me/0968686868"
   },
 
-  // THAY BANNER TRÊN CÙNG TẠI ĐÂY (Khuyên dùng ảnh kích thước 1200x500 px)
   heroBanners: [
     {
       id: 1,
-      image: "images/banner.jpg", // Tương đương: thư mục images/banner.jpg
-      title: "Bánh Cốm Gia Truyền 11 Hàng Than",
+      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop",
+      title: "Bánh Cốm Gia Truyền Hàng Than",
       subtitle: "Giữ trọn hương vị truyền thống Hà Nội từ năm 1865"
     },
     {
       id: 2,
-      image: "images/11.jpg", // Tương đương: thư mục images/banner-2.jpg
-      title: "Cốm Tươi & chả cốm",
+      image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1200&auto=format&fit=crop",
+      title: "Cốm Tươi & Bánh Cưới Hỏi",
       subtitle: "Sản xuất mới mỗi ngày - Phục vụ tráp cưới hỏi trọn gói"
     }
   ],
 
-  // CẤU HÌNH PHÍ GIAO HÀNG
   shipping: {
     innerCityFee: 25000,
-    freeShipThreshold: 500000 // Miễn phí giao hàng cho đơn từ 500.000đ trở lên
+    freeShipThreshold: 500000
   }
 };
 
 // 2. DANH MỤC SẢN PHẨM
-const CATEGORIES = [
+var CATEGORIES = [
   { id: "all", name: "Tất cả sản phẩm" },
   { id: "banh-com", name: "Bánh Cốm" },
-  { id: "banh-cuoi", name: "Bánh Cưới Hỏi(phu thê)" },
-  { id: "com-tuoi", name: "Cốm Tươi & chả cốm" },
+  { id: "banh-cuoi", name: "Bánh Cưới Hỏi (Xu Xê)" },
+  { id: "com-tuoi", name: "Cốm Tươi & Xào" },
   { id: "mut-tra", name: "Trà & Mứt Sen" },
   { id: "qua-bieu", name: "Set Quà Biếu" }
 ];
 
-// 3. DANH SÁCH CHI TIẾT 12 SẢN PHẨM (Khuyên dùng ảnh vuông 600x600 px)
-const PRODUCTS = [
+// 3. DANH SÁCH 12 SẢN PHẨM CHUẨN
+var PRODUCTS = [
   {
     id: 1,
     name: "Bánh Cốm Nguyên Ninh (Hộp 1 chiếc)",
@@ -63,7 +58,7 @@ const PRODUCTS = [
     price: 7000,
     priceFormatted: "7.000đ",
     unit: "Chiếc",
-    image: "images/banh-com.jpg", // Thay tên file ảnh của bạn vào đây
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop",
     description: "Bánh cốm truyền thống Dốc Hàng Than. Vỏ cốm mộc dẻo quánh, nhân đậu xanh dừa nạo ngọt thanh.",
     isFeatured: true,
     inStock: true
@@ -76,7 +71,7 @@ const PRODUCTS = [
     price: 70000,
     priceFormatted: "70.000đ",
     unit: "Hộp 10 chiếc",
-    image: "images/banh-com-10.jpg",
+    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop",
     description: "Hộp 10 chiếc bánh cốm tươi làm mới trong ngày. Thích hợp mua thưởng thức hoặc làm quà biếu nhẹ nhàng.",
     isFeatured: true,
     inStock: true
@@ -89,7 +84,7 @@ const PRODUCTS = [
     price: 7000,
     priceFormatted: "7.000đ",
     unit: "Chiếc",
-    image: "images/banh-phu-the.jpg",
+    image: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=600&auto=format&fit=crop",
     description: "Bánh phu thê màu đỏ tượng trưng cho sự may mắn, vỏ giòn sần sật, nhân đậu xanh dừa ngọt ngào.",
     isFeatured: false,
     inStock: true
@@ -102,7 +97,7 @@ const PRODUCTS = [
     price: 100000,
     priceFormatted: "100.000đ",
     unit: "Hộp 10 bánh",
-    image: "images/banh-com-hop-sang.jpg",
+    image: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=600&auto=format&fit=crop",
     description: "Bao bì đỏ ép kim vàng sang trọng, gồm 10 chiếc bánh cốm chọn lọc loại 1. Món quà biếu đối tác đậm nét Hà Nội.",
     isFeatured: true,
     inStock: true
@@ -115,7 +110,7 @@ const PRODUCTS = [
     price: 35000,
     priceFormatted: "35.000đ",
     unit: "Đĩa 200g",
-    image: "images/com-xao.jpg",
+    image: "https://images.unsplash.com/photo-1514517521153-1be72277b32f?q=80&w=600&auto=format&fit=crop",
     description: "Cốm mộc được xào tỉ mỉ với nước dừa và đường kính, dẻo quánh, vị ngọt ngậy quyến rũ.",
     isFeatured: false,
     inStock: true
@@ -128,7 +123,7 @@ const PRODUCTS = [
     price: 50000,
     priceFormatted: "50.000đ",
     unit: "Gói 200g",
-    image: "images/com-tuoi.jpg",
+    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=600&auto=format&fit=crop",
     description: "Cốm mộc Làng Vòng chuẩn dẻo, thơm hương lúa mới, bọc trong lá sen giữ trọn nét tinh tế.",
     isFeatured: true,
     inStock: true
@@ -141,7 +136,7 @@ const PRODUCTS = [
     price: 85000,
     priceFormatted: "85.000đ",
     unit: "Hũ 300g",
-    image: "images/mut-sen.jpg",
+    image: "https://images.unsplash.com/photo-1599785209707-a456fc1337cc?q=80&w=600&auto=format&fit=crop",
     description: "Hạt sen trần bở tơi, ngọt nhẹ vừa phải, dùng nhâm nhi cùng tách trà nóng vào ngày thu.",
     isFeatured: false,
     inStock: true
@@ -154,7 +149,7 @@ const PRODUCTS = [
     price: 120000,
     priceFormatted: "120.000đ",
     unit: "Gói 200g",
-    image: "images/tra-thai-nguyen.jpg",
+    image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=600&auto=format&fit=crop",
     description: "Trà tân cương chọn lọc, nước chát dịu hậu ngọt sâu. Sự kết hợp hoàn hảo khi thưởng thức cùng bánh cốm.",
     isFeatured: false,
     inStock: true
@@ -167,7 +162,7 @@ const PRODUCTS = [
     price: 380000,
     priceFormatted: "380.000đ",
     unit: "Tháp 50 bánh",
-    image: "images/thap-banh-com.jpg",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
     description: "Xếp tháp nghệ thuật cao 5-7 tầng, thắt nơ may mắn, chuẩn bị chuyên nghiệp cho các mâm tráp cưới hỏi.",
     isFeatured: true,
     inStock: true
@@ -180,7 +175,7 @@ const PRODUCTS = [
     price: 380000,
     priceFormatted: "380.000đ",
     unit: "Tháp 50 bánh",
-    image: "images/thap-banh-phu-the.jpg",
+    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop",
     description: "Tháp bánh xu xê vuông vắn kết duyên, mang thông điệp trăm năm hạnh phúc cho ngày trọng đại.",
     isFeatured: false,
     inStock: true
@@ -193,7 +188,7 @@ const PRODUCTS = [
     price: 250000,
     priceFormatted: "250.000đ",
     unit: "Set đầy đủ",
-    image: "images/set-qua-bieu.jpg",
+    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600&auto=format&fit=crop",
     description: "Gồm: 10 bánh cốm tươi + 1 hũ mứt sen trần + 1 gói trà Thái Nguyên 100g, đính kèm hộp quà thiết kế tinh tế.",
     isFeatured: true,
     inStock: true
@@ -206,14 +201,14 @@ const PRODUCTS = [
     price: 30000,
     priceFormatted: "30.000đ",
     unit: "Chiếc 150g",
-    image: "images/banh-deo-com.jpg",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop",
     description: "Vỏ bánh dẻo mịn thơm hương hoa hòe, bao bọc nhân cốm xào đậu xanh dẻo mịn thơm lừng.",
     isFeatured: false,
     inStock: true
   }
 ];
 
-// 4. XUẤT BIẾN RA HỆ THỐNG
+// NỐI CÁC BIẾN VÀO WINDOW ĐỂ TRÁNH LỖI SCOPE
 if (typeof window !== 'undefined') {
   window.SITE_CONFIG = SITE_CONFIG;
   window.CATEGORIES = CATEGORIES;
