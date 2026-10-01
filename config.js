@@ -24,7 +24,7 @@ const SITE_CONFIG = {
   heroBanners: [
     {
       id: 1,
-      image: "images/banner.jpg", // Tương đương: thư mục images/banner-1.jpg
+      image: "images/banner.jpg", // Tương đương: thư mục images/banner.jpg
       title: "Bánh Cốm Gia Truyền 11 Hàng Than",
       subtitle: "Giữ trọn hương vị truyền thống Hà Nội từ năm 1865"
     },
