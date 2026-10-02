@@ -249,6 +249,18 @@ src="https://www.facebook.com/tr?id=1536909141797544&ev=PageView&noscript=1"
         const response=await fetch(SUPABASE_URL+'/rest/v1/don_hang',{method:'POST',headers:{apikey:SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(payload),signal:controller.signal});
         if(!response.ok){const result=await response.json().catch(()=>({}));if(response.status===401||response.status===403||result.code==='42501')throw new Error('Chưa gửi được đơn: cần kiểm tra quyền INSERT và chính sách RLS của bảng don_hang trong Supabase.');if(result.code==='23505')throw new Error('Mã đơn đã tồn tại. Lần gửi trước có thể đã được lưu. Vui lòng liên hệ cửa hàng với mã '+payload.ma_don+' trước khi tạo đơn khác.');throw new Error('Chưa gửi được đơn. '+(result.message||'Vui lòng thử lại hoặc gọi cửa hàng.'))}
         // Chỉ xóa giỏ và báo thành công khi máy chủ chấp nhận đơn.
+        try {
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'Purchase', {
+      value: total,
+      currency: 'VND'
+    }, {
+      eventID: 'purchase_' + payload.ma_don
+    });
+  }
+} catch (error) {
+  console.warn('Không gửi được sự kiện Pixel.');
+}
         cart=[];persistCart();$('#orderText').value=lines.join('\n');$('#orderStatus').textContent='Đã gửi đơn '+payload.ma_don+'. Cửa hàng sẽ liên hệ xác nhận.';$('#orderOutput').hidden=false;pendingOrder=null;savePending();$('#orderForm').reset();updateDelivery();toast('Đã gửi đơn '+payload.ma_don+'. Cửa hàng sẽ liên hệ xác nhận.');
       }catch(error){const uncertain=error instanceof TypeError||error.name==='AbortError';const status=uncertain?'Chưa xác nhận được kết quả gửi. Giữ mã '+(payload?.ma_don||'')+' và liên hệ cửa hàng trước khi gửi lại.':error.message;$('#orderStatus').textContent=status;$('#orderText').value='CHƯA XÁC NHẬN GỬI THÀNH CÔNG\n\n'+lines.join('\n');$('#orderOutput').hidden=false;toast(status)}
       finally{clearTimeout(timer);sendingOrder=false;$('#orderFields').disabled=false;button.disabled=!cart.length;button.innerHTML=originalButton;$('#cartItems').querySelectorAll('button').forEach(b=>b.disabled=false);$('#orderForm').removeAttribute('aria-busy');if($('#cartDialog').open)$('#orderOutput').scrollIntoView({behavior:motion(),block:'nearest'})}
