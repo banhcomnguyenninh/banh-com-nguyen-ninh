@@ -1,41 +1,1751 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bánh cốm Nguyên Ninh — Quà Hà Nội</title>
-<!-- Tailwind CDN phục vụ bản mẫu. Khi triển khai thật, biên dịch Tailwind thành CSS tĩnh. -->
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script>tailwind.config={theme:{extend:{colors:{com:'#426B38',cream:'#FFFCF5',red:'#A52E32',ink:'#332D26'},fontFamily:{serif:['Georgia','serif']}}}}</script>
-<style>button:disabled{opacity:.45;cursor:not-allowed}input,select,textarea{font-size:16px}dialog{max-height:90dvh}dialog::backdrop{background:rgb(0 0 0 / .45)}html{scroll-behavior:smooth;scroll-padding-top:110px}body{background:#FFFCF5;color:#332D26}button,a{touch-action:manipulation}button:focus-visible,a:focus-visible{outline:3px solid #426B38;outline-offset:4px}dialog::backdrop{background:rgba(25,35,22,.55)}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Hiệu bánh cốm Nguyên Ninh – 11 Hàng Than, Hà Nội. Liên hệ đặt bánh: 0985868317.">
+  <meta name="theme-color" content="#28563b">
+  <title>Hiệu bánh cốm Nguyên Ninh – 11 Hàng Than</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf8ef;
+      --surface: #fffef9;
+      --text: #243e30;
+      --muted: #69776c;
+      --green: #28563b;
+      --button-text: #fff;
+      --soft: #edf1e4;
+      --border: #dce3d6;
+      --gold: #a77d3e;
+    }
+
+    html.dark {
+      --bg: #13231b;
+      --surface: #1c3023;
+      --text: #f0f3e9;
+      --muted: #b5c2b7;
+      --green: #b5d89a;
+      --button-text: #15251c;
+      --soft: #263b2b;
+      --border: #3b5040;
+      --gold: #dfb66d;
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 105px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Be Vietnam Pro", sans-serif;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: "Playfair Display", serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button, a {
+      touch-action: manipulation;
+    }
+
+    img {
+      display: block;
+      object-fit: cover;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .container-custom {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .soft {
+      background: var(--soft);
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.2;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px #16352415;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--button-text);
+      border-color: var(--green);
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .field {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      margin-top: 7px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .field:focus {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .product-card, .feature-card {
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .product-card:hover, .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #15372312;
+    }
+
+    .filter-btn {
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .filter-btn.active {
+      background: var(--green);
+      color: var(--button-text);
+      border-color: var(--green);
+    }
+
+    #mobileMenu {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s;
+    }
+
+    #mobileMenu.open {
+      grid-template-rows: 1fr;
+    }
+
+    #mobileMenu > div {
+      overflow: hidden;
+    }
+
+    .hero-thumbnail {
+      transition: transform .2s, border-color .2s;
+    }
+
+    .hero-thumbnail:hover {
+      transform: translateY(-3px);
+      border-color: var(--green);
+    }
+
+    dialog {
+      width: min(640px, calc(100% - 24px));
+      max-height: 88vh;
+      padding: 26px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    dialog::backdrop {
+      background: #10291cb3;
+      backdrop-filter: blur(5px);
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: max-content;
+      max-width: calc(100% - 28px);
+      padding: 15px 22px;
+      border-radius: 16px;
+      background: var(--text);
+      color: var(--bg);
+      box-shadow: 0 10px 30px #0003;
+      font-size: 14px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .container-custom {
+        width: calc(100% - 32px);
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      dialog {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans pb-20 md:pb-0">
-<div class="bg-com px-4 py-2 text-center text-xs tracking-wide text-white">Thức quà truyền thống · Nhận giao hàng trong Hà Nội</div>
-<header class="sticky top-0 z-30 border-b border-com/15 bg-cream/95 backdrop-blur">
- <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 lg:px-8">
-  <a href="#" aria-label="Nguyên Ninh — Trang chủ" class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-full border border-com font-serif text-xl text-com" aria-hidden="true">NN</span><span><span class="block text-[10px] tracking-[.25em]">BÁNH CỐM TRUYỀN THỐNG</span><span class="font-serif text-xl font-bold text-com sm:text-2xl">Nguyên Ninh</span></span></a>
-  <nav aria-label="Điều hướng chính" class="hidden items-center gap-6 text-sm lg:flex"><a href="#" class="text-com">Trang chủ</a><a href="#cau-chuyen">Giới thiệu</a><a href="#san-pham">Sản phẩm</a><a href="#lien-he">Liên hệ</a></nav>
-  <div class="flex items-center gap-3"><a href="tel:0985868317" class="hidden text-sm font-bold text-red md:block">0985 868 317</a><button id="cart-open" class="min-h-11 rounded-full border border-com/25 px-4 text-sm font-semibold" aria-haspopup="dialog">Giỏ hàng <span id="cart-count" class="ml-1 rounded-full bg-com px-2 py-1 text-xs text-white">0</span></button><button id="menu-toggle" class="min-h-11 min-w-11 rounded-lg border border-com/20 lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Mở menu">☰</button></div>
- </div>
- <nav id="mobile-menu" hidden aria-label="Điều hướng điện thoại" class="border-t border-com/10 px-5 py-3 lg:hidden"><a class="block py-3" href="#">Trang chủ</a><a class="block py-3" href="#cau-chuyen">Giới thiệu</a><a class="block py-3" href="#san-pham">Sản phẩm</a><a class="block py-3" href="#lien-he">Liên hệ</a></nav>
-</header>
-<main><p id="store-message" role="status" aria-live="polite" class="mx-auto max-w-6xl px-5 py-3 text-red"></p>
-<section id="hero" class="relative overflow-hidden bg-[#F1ECDD]" aria-labelledby="hero-title">
- <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 py-10 md:grid-cols-2 md:py-16 lg:gap-16 lg:px-8">
-  <div><p class="mb-5 text-xs font-semibold uppercase tracking-[.22em] text-com">Thức quà thanh nhã của Hà thành</p><h1 id="hero-title" class="font-serif text-4xl leading-tight text-com sm:text-5xl lg:text-6xl">Hương vị Hà Nội<br><span class="italic">lưu giữ hơn<br>một thế kỷ.</span></h1><p class="mt-6 max-w-md text-base leading-7 text-ink/75">Bánh cốm dẻo thơm, vị ngọt dịu cùng những thức quà truyền thống. Một chút hương xưa, gửi trọn tình thân trong từng hộp bánh.</p><a href="#san-pham" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-lg bg-red px-7 py-3 text-sm font-bold tracking-wide text-white transition hover:bg-[#86252A]">ĐẶT MUA NGAY <span class="ml-3" aria-hidden="true">→</span></a><p class="mt-4 text-sm text-com">Thưởng thức · Biếu tặng · Cưới hỏi</p></div>
-  <figure class="relative"><div class="overflow-hidden rounded-t-[120px] rounded-b-2xl border border-com/15 bg-[#E6EEDB] p-3"><img id="hero-image" src="anh-bia.jpg" alt="Minh họa khay bánh cốm truyền thống" width="800" height="700" class="aspect-[8/7] w-full rounded-t-[110px] rounded-b-xl object-cover" fetchpriority="high"></div><figcaption class="mt-3 text-center font-serif text-sm italic text-com">Một thức quà nhỏ, một miền ký ức.</figcaption></figure>
- </div>
-</section>
-<section id="san-pham" class="mx-auto max-w-7xl px-5 py-12 lg:px-8" aria-labelledby="products-title">
- <div class="mb-8 flex flex-wrap items-end justify-between gap-4"><div><p class="mb-2 text-xs font-semibold uppercase tracking-[.2em] text-red">Thức quà được yêu thích</p><h2 id="products-title" class="font-serif text-3xl text-com sm:text-4xl">Sản phẩm nổi bật</h2></div><p class="max-w-sm text-sm leading-6 text-ink/70">Chọn một món bánh cho buổi trà chiều,<br class="hidden sm:block"> hoặc một hộp quà gửi người thương.</p></div>
- <label class="mb-2 block text-sm font-semibold" for="product-search">Tìm kiếm sản phẩm</label><input id="product-search" type="search" placeholder="Tìm bánh, cốm, ô mai…" class="mb-6 min-h-12 w-full rounded-lg border border-com/25 p-3"><div id="products" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
-</section>
-<section id="cau-chuyen" class="bg-[#E6EEDB] px-5 py-12"><div class="mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-2"><img src="images/cua-hang.jpg" alt="Cửa hàng bánh cốm" width="800" height="600" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover"><div><p class="text-sm text-com">CÂU CHUYỆN THƯƠNG HIỆU</p><h2 class="mt-3 font-serif text-3xl text-com">Giữ hương vị, gửi tình thân</h2><p class="mt-5 leading-7">Bánh cốm là một thức quà thân quen của Hà Nội. Từ buổi trà chiều đến những dịp biếu tặng, cưới hỏi, mỗi hộp bánh mang theo sự trân trọng và nét thanh nhã của ẩm thực truyền thống.</p><a href="#san-pham" class="mt-5 inline-flex min-h-12 items-center rounded-lg bg-com px-6 font-semibold text-white">Chọn một thức quà</a></div></div></section>
-<section class="mx-auto max-w-7xl px-5 py-12"><h2 class="font-serif text-3xl text-com">Đặt bánh thật dễ</h2><div class="mt-6 grid gap-5 md:grid-cols-3"><div class="rounded-xl border border-com/20 p-5"><h3 class="font-bold text-com">01 · Chọn sản phẩm</h3><p class="mt-2 text-sm leading-6">Chọn món bánh và số lượng phù hợp.</p></div><div class="rounded-xl border border-com/20 p-5"><h3 class="font-bold text-com">02 · Gửi thông tin</h3><p class="mt-2 text-sm leading-6">Điền thông tin nhận hàng và gửi đơn trực tiếp trên website.</p></div><div class="rounded-xl border border-com/20 p-5"><h3 class="font-bold text-com">03 · Xác nhận nhận hàng</h3><p class="mt-2 text-sm leading-6">Cửa hàng xác nhận sản phẩm, phí giao và thời gian nhận.</p></div></div><h2 class="mt-10 font-serif text-3xl text-com">Thông tin trước khi đặt</h2><details class="mt-5 border-b border-com/20 py-4"><summary class="cursor-pointer font-semibold">Giao hàng ở đâu?</summary><p class="mt-3 text-sm leading-6">Nhận giao trong Hà Nội. Phí và thời gian giao được xác nhận khi tư vấn.</p></details><details class="border-b border-com/20 py-4"><summary class="cursor-pointer font-semibold">Bảo quản bánh như thế nào?</summary><p class="mt-3 text-sm leading-6">Xem hạn dùng và hướng dẫn trên bao bì của từng sản phẩm. Liên hệ cửa hàng nếu cần tư vấn.</p></details><details class="border-b border-com/20 py-4"><summary class="cursor-pointer font-semibold">Có đặt bánh số lượng lớn không?</summary><p class="mt-3 text-sm leading-6">Gọi 0985 868 317 hoặc nhắn Zalo để trao đổi quy cách đóng gói và thời gian nhận.</p></details></section></main>
-<footer id="lien-he" class="border-t border-com/15 bg-[#E6EEDB] px-5 py-8"><div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5"><div><p class="font-serif text-2xl text-com">Bánh cốm Nguyên Ninh</p><p class="mt-2 text-sm">Liên hệ để xác nhận sản phẩm, phí giao và thời gian nhận hàng.</p></div><a href="tel:0985868317" class="font-bold text-red">0985 868 317</a><a href="https://zalo.me/0985868317" target="_blank" rel="noopener noreferrer" class="font-bold text-com">Chat Zalo</a></div></footer>
 
-<nav aria-label="Liên hệ và mua nhanh" class="fixed inset-x-3 bottom-3 z-20 mx-auto grid max-w-md grid-cols-3 gap-2 rounded-2xl border border-com/20 bg-cream p-2 shadow-lg md:hidden" style="bottom:calc(12px + env(safe-area-inset-bottom,0px))"><a href="tel:0985868317" class="flex min-h-14 flex-col items-center justify-center rounded-xl bg-red p-2 text-xs font-bold text-white"><span class="mb-1 text-xl" aria-hidden="true">☎</span>Gọi ngay</a><a href="https://zalo.me/0985868317" target="_blank" rel="noopener noreferrer" class="flex min-h-14 flex-col items-center justify-center rounded-xl bg-blue-700 p-2 text-xs font-bold text-white"><span class="mb-1" aria-hidden="true">Zalo</span>Chat tư vấn</a><button type="button" onclick="document.querySelector('#cart-open').click()" class="flex min-h-14 flex-col items-center justify-center rounded-xl bg-com p-2 text-xs font-bold text-white"><span class="mb-1 text-xl" aria-hidden="true">▣</span>Giỏ hàng</button></nav><p id="notice" role="status" aria-live="polite" class="pointer-events-none fixed bottom-24 left-1/2 z-50 hidden w-max max-w-[90vw] -translate-x-1/2 rounded-lg bg-com px-5 py-3 text-center text-sm text-white md:bottom-6"></p>
+<body>
+  <!-- THANH THÔNG BÁO -->
+  <div class="text-center py-2 px-4 text-xs btn-primary">
+    Bánh cốm Nguyên Ninh · 11 Hàng Than · Giao hàng trong Hà Nội
+  </div>
 
+  <!-- MENU -->
+  <header class="sticky top-0 z-30 panel border-x-0 border-t-0">
+    <div class="container-custom flex items-center justify-between gap-3 py-4">
+      <a href="#home"
+         class="flex items-center gap-3"
+         aria-label="Nguyên Ninh, về trang chủ">
+        <span class="w-10 h-10 rounded-full btn-primary flex items-center justify-center">
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        </span>
 
-<dialog id="cart" aria-labelledby="cart-heading" class="w-[calc(100%_-_2rem)] max-w-lg rounded-2xl bg-cream p-5"><div class="flex justify-between"><h2 id="cart-heading" class="font-serif text-2xl text-com">Giỏ hàng</h2><button id="cart-close" class="h-11 w-11" aria-label="Đóng giỏ">×</button></div><div id="cart-items" class="max-h-[50vh] overflow-auto"></div><p class="mt-5 flex justify-between font-bold">Tạm tính <span id="cart-total">0 ₫</span></p><p class="mt-3 text-xs">Phí giao được xác nhận sau. Thanh toán khi nhận hàng.</p><button id="checkout-open" class="mt-5 min-h-12 w-full rounded-lg bg-red font-bold text-white">ĐẶT ĐƠN TRÊN WEB</button></dialog>
-<dialog id="checkout" aria-labelledby="checkout-heading" class="w-[calc(100%_-_2rem)] max-w-xl rounded-2xl bg-cream p-5"><div class="flex justify-between"><h2 id="checkout-heading" class="font-serif text-2xl text-com">Thông tin nhận hàng</h2><button id="checkout-close" class="h-11 w-11" aria-label="Đóng form">×</button></div><form id="checkout-form" class="mt-5 space-y-4"><div><label for="fullname">Họ tên *</label><input id="fullname" required maxlength="100" autocomplete="name" class="mt-2 w-full rounded-lg border p-3"></div><div><label for="phone">Số điện thoại *</label><input id="phone" type="tel" required maxlength="20" autocomplete="tel" class="mt-2 w-full rounded-lg border p-3"></div><div><label for="delivery">Hình thức nhận</label><select id="delivery" class="mt-2 w-full rounded-lg border p-3"><option value="ship">Giao tại Hà Nội</option><option value="pickup">Nhận tại cửa hàng</option></select></div><div id="address-row"><label for="address">Địa chỉ tại Hà Nội *</label><input id="address" required maxlength="300" autocomplete="street-address" class="mt-2 w-full rounded-lg border p-3"></div><div><label for="note">Ghi chú</label><textarea id="note" maxlength="1000" rows="2" class="mt-2 w-full rounded-lg border p-3"></textarea></div><p class="font-bold">Tạm tính: <span id="checkout-total"></span></p><p class="text-sm">Thanh toán khi nhận hàng. Phí giao sẽ được cửa hàng xác nhận. Thông tin liên hệ được lưu để xử lý đơn.</p><button id="submit-order" class="min-h-12 w-full rounded-lg bg-red font-bold text-white">GỬI ĐƠN HÀNG</button></form><p id="order-status" role="status" aria-live="polite" class="mt-4 whitespace-pre-line text-sm leading-6 text-com"></p></dialog><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="shop.js"></script></body>
+        <span>
+          <strong class="serif text-xl md:text-2xl">Nguyên Ninh</strong>
+          <span class="block text-[9px] tracking-[.2em] muted">
+            11 HÀNG THAN · HÀ NỘI
+          </span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex gap-7 text-sm" aria-label="Menu chính">
+        <a href="#home">Trang chủ</a>
+        <a href="#products">Sản phẩm</a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="searchToggle"
+                class="icon-btn"
+                aria-label="Mở tìm kiếm"
+                aria-expanded="false"
+                aria-controls="searchPanel">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+
+        <button id="themeToggle"
+                class="icon-btn"
+                aria-label="Bật chế độ tối"
+                aria-pressed="false">
+          <i class="fa-regular fa-moon" aria-hidden="true"></i>
+        </button>
+
+        <button id="cartOpen"
+                class="icon-btn relative"
+                aria-label="Mở giỏ hàng">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span id="cartCount"
+                class="absolute -top-1 -right-1 rounded-full px-1.5 text-[10px] btn-primary">
+            0
+          </span>
+        </button>
+
+        <a href="#products" class="btn btn-primary hidden md:inline-flex">
+          Đặt hàng
+        </a>
+
+        <button id="menuToggle"
+                class="icon-btn lg:hidden"
+                aria-label="Mở menu"
+                aria-expanded="false"
+                aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="lg:hidden">
+      <div>
+        <nav class="container-custom flex flex-col gap-4 pb-5 text-sm"
+             aria-label="Menu di động">
+          <a href="#home">Trang chủ</a>
+          <a href="#products">Sản phẩm</a>
+          <a href="#about">Giới thiệu</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+      </div>
+    </div>
+
+    <div id="searchPanel" hidden class="container-custom pb-5">
+      <label for="searchInput">Tìm sản phẩm</label>
+      <input id="searchInput"
+             type="search"
+             class="field"
+             placeholder="Bánh cốm, mochi, xu xê…">
+    </div>
+  </header>
+
+  <main>
+    <!-- PHẦN ĐẦU: CHỮ BÊN TRÁI, 4 ẢNH BÊN PHẢI -->
+    <section id="home"
+             class="container-custom grid lg:grid-cols-2 items-center gap-12 py-12 md:py-20">
+
+      <div>
+        <p class="eyebrow mb-4">HIỆU BÁNH CỐM</p>
+
+        <h1 class="text-[32px] sm:text-[42px] xl:text-[48px] leading-[1.2] font-bold">
+          NGUYÊN NINH
+          <span class="block mt-2" style="color:var(--green)">
+            11 HÀNG THAN
+          </span>
+        </h1>
+
+        <div class="mt-6 space-y-4 text-[14px] sm:text-[15px] leading-7 sm:leading-8">
+          <p class="muted">
+            <strong style="color:var(--text)">
+              Hiệu bánh cốm Nguyên Ninh – 11 Hàng Than
+            </strong>
+            là một thương hiệu lâu đời của Hà Nội, khởi nguồn từ năm
+            <strong style="color:var(--text)">1865</strong>
+            khi cụ tổ dòng họ
+            <strong style="color:var(--text)">Nguyễn Duy</strong>
+            mở cửa hàng đầu tiên trên phố Hàng Than và sáng tạo nên
+            hương vị bánh cốm riêng biệt. Được làm từ
+            <strong style="color:var(--text)">cốm</strong>
+            và
+            <strong style="color:var(--text)">đậu xanh</strong>
+            tuyển chọn, bánh cốm Nguyên Ninh mang vị
+            <strong style="color:var(--text)">
+              dẻo thơm, ngọt thanh, mộc mạc mà tinh tế.
+            </strong>
+            Bánh không dùng phụ gia, không chất bảo quản,
+            vì vậy luôn giữ được nét tươi ngon truyền thống.
+          </p>
+
+          <p class="muted">
+            Trải qua hơn 150 năm, giữa phố Hàng Than với nhiều hàng bánh cốm,
+            <strong style="color:var(--text)">Nguyên Ninh</strong>
+            vẫn là cái tên được nhiều người nhắc nhớ như một
+            <strong style="color:var(--text)">đặc sản Hà Nội</strong>
+            giàu giá trị truyền thống.
+          </p>
+        </div>
+
+        <blockquote
+          class="serif my-6 pl-5 text-xl sm:text-2xl italic leading-relaxed"
+          style="border-left:3px solid var(--gold);color:var(--green)">
+          <p>“Hoà khí xuân vô tận</p>
+          <p>Bình tâm lộc tự nhiên”</p>
+        </blockquote>
+
+        <div class="pt-5" style="border-top:1px solid var(--border)">
+          <p class="text-sm sm:text-base font-semibold leading-7">
+            Quý khách vui lòng liên hệ đặt bánh qua
+            <a href="tel:0985868317"
+               class="inline-flex items-center gap-2 underline underline-offset-4"
+               style="color:var(--green)">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              0985868317
+            </a>
+          </p>
+
+          <p class="text-sm font-semibold leading-7 mt-2">
+            Hiệu bánh cốm Nguyên Ninh – 11 Hàng Than, Hà Nội
+          </p>
+
+          <p class="muted text-sm leading-7">
+            Chúng tôi rất hân hạnh được phục vụ!
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="#products" class="btn btn-primary">
+            Chọn bánh ngay
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+
+          <a href="tel:0985868317" class="btn">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            Gọi đặt bánh
+          </a>
+        </div>
+      </div>
+
+      <div class="min-w-0">
+        <div class="relative overflow-hidden rounded-3xl panel">
+          <img id="heroMainImage"
+               src="anh-bia-1.jpg"
+               alt="Bánh cốm Nguyên Ninh – 11 Hàng Than, ảnh 1"
+               class="w-full h-[300px] sm:h-[420px] lg:h-[480px]"
+               fetchpriority="high">
+
+          <span id="heroImageCounter"
+                class="absolute bottom-4 right-4 panel rounded-full px-4 py-2 text-xs">
+            1 / 4
+          </span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-3">
+          <button type="button"
+                  class="hero-thumbnail panel rounded-2xl overflow-hidden"
+                  data-image-index="1"
+                  aria-label="Xem ảnh 2">
+            <img src="anh-bia-2.jpg"
+                 alt="Bánh cốm Nguyên Ninh, ảnh 2"
+                 class="w-full h-[90px] sm:h-[120px]"
+                 loading="lazy">
+          </button>
+
+          <button type="button"
+                  class="hero-thumbnail panel rounded-2xl overflow-hidden"
+                  data-image-index="2"
+                  aria-label="Xem ảnh 3">
+            <img src="anh-bia-3.jpg"
+                 alt="Bánh cốm Nguyên Ninh, ảnh 3"
+                 class="w-full h-[90px] sm:h-[120px]"
+                 loading="lazy">
+          </button>
+
+          <button type="button"
+                  class="hero-thumbnail panel rounded-2xl overflow-hidden"
+                  data-image-index="3"
+                  aria-label="Xem ảnh 4">
+            <img src="anh-bia-4.jpg"
+                 alt="Bánh cốm Nguyên Ninh, ảnh 4"
+                 class="w-full h-[90px] sm:h-[120px]"
+                 loading="lazy">
+          </button>
+        </div>
+
+        <p class="muted text-xs text-center mt-4">
+          Bấm vào ảnh nhỏ để xem thêm hình ảnh
+        </p>
+      </div>
+    </section>
+
+    <!-- ĐIỂM NỔI BẬT -->
+    <section class="soft py-9">
+      <div class="container-custom grid md:grid-cols-3 gap-5">
+        <article class="feature-card panel rounded-2xl p-6">
+          <i class="fa-solid fa-seedling text-2xl mb-4"
+             style="color:var(--green)" aria-hidden="true"></i>
+          <h3 class="text-xl">Hương vị thân quen</h3>
+          <p class="muted text-sm leading-6 mt-3">
+            Vị cốm dịu thơm, nhân đậu xanh bùi, phù hợp thưởng thức cùng trà.
+          </p>
+        </article>
+
+        <article class="feature-card panel rounded-2xl p-6">
+          <i class="fa-solid fa-gift text-2xl mb-4"
+             style="color:var(--green)" aria-hidden="true"></i>
+          <h3 class="text-xl">Quà tặng chỉn chu</h3>
+          <p class="muted text-sm leading-6 mt-3">
+            Lựa chọn hộp bánh theo nhu cầu biếu tặng, lễ cưới và sum họp.
+          </p>
+        </article>
+
+        <article class="feature-card panel rounded-2xl p-6">
+          <i class="fa-solid fa-comments text-2xl mb-4"
+             style="color:var(--green)" aria-hidden="true"></i>
+          <h3 class="text-xl">Tư vấn tận tâm</h3>
+          <p class="muted text-sm leading-6 mt-3">
+            Hỗ trợ chọn loại bánh, quy cách và số lượng phù hợp từng dịp.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SẢN PHẨM -->
+    <section id="products" class="section container-custom">
+      <div class="flex flex-wrap justify-between items-end gap-5">
+        <div>
+          <p class="eyebrow mb-3">Chọn món bạn yêu thích</p>
+          <h2 class="section-title">Sản phẩm bán chạy</h2>
+        </div>
+
+        <p class="muted text-sm leading-6 max-w-xs">
+          Thêm bánh vào giỏ, chọn số lượng và chuẩn bị nội dung đặt hàng.
+        </p>
+      </div>
+
+      <div id="filters"
+           class="flex flex-wrap gap-2 my-8"
+           aria-label="Lọc sản phẩm theo danh mục"></div>
+
+      <div id="productGrid"
+           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <p id="emptyProducts" hidden class="text-center muted py-10">
+        Không tìm thấy sản phẩm phù hợp.
+      </p>
+
+      <p class="muted text-xs mt-6 leading-6">
+        Ảnh sản phẩm hiện là ảnh minh họa. Giá và quy cách cần được cửa hàng
+        xác nhận trước khi đưa website vào bán hàng.
+      </p>
+    </section>
+
+    <!-- GIỚI THIỆU -->
+    <section id="about" class="section soft">
+      <div class="container-custom grid md:grid-cols-2 gap-12 items-center">
+        <img
+          src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
+          alt="Ảnh ẩm thực minh họa từ Unsplash"
+          loading="lazy"
+          class="w-full h-[350px] rounded-3xl">
+
+        <div>
+          <p class="eyebrow mb-4">Bánh cốm Nguyên Ninh</p>
+          <h2 class="section-title">Giữ vị quen.<br>Gửi lòng thành.</h2>
+
+          <p class="muted leading-8 mt-5">
+            Một hộp bánh cốm, một lời hỏi thăm, một món quà mang theo vị Hà Nội.
+            Những điều giản dị ấy làm nên sự gần gũi trong mỗi lần trao tặng.
+          </p>
+
+          <p class="muted leading-8 mt-4">
+            Nguyên Ninh – 11 Hàng Than giới thiệu các lựa chọn bánh cốm,
+            mochi cốm, bánh xu xê và hộp bánh mix để bạn dễ dàng chọn món quà
+            phù hợp cho gia đình, bạn bè và những dịp đặc biệt.
+          </p>
+
+          <a href="#contact" class="btn mt-6">
+            Tư vấn chọn quà
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẢN HỒI -->
+    <section class="section container-custom">
+      <p class="eyebrow text-center mb-3">Góc chia sẻ</p>
+      <h2 class="section-title text-center">Niềm vui từ những món quà nhỏ</h2>
+
+      <p class="muted text-sm text-center mt-4">
+        Các phản hồi dưới đây là nội dung mẫu; thay bằng đánh giá thật.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-9">
+        <article class="panel rounded-3xl p-7">
+          <p style="color:var(--gold)" aria-label="5 sao">★★★★★</p>
+          <p class="leading-7 my-5">
+            “Bánh mềm, vị ngọt nhẹ. Hộp quà gọn gàng, phù hợp để mang biếu.”
+          </p>
+          <strong class="text-sm">Khách mua quà</strong>
+          <p class="muted text-xs mt-2">Phản hồi minh họa</p>
+        </article>
+
+        <article class="panel rounded-3xl p-7">
+          <p style="color:var(--gold)" aria-label="5 sao">★★★★★</p>
+          <p class="leading-7 my-5">
+            “Hộp mix có nhiều loại bánh, cả nhà có thể cùng thử và chia sẻ.”
+          </p>
+          <strong class="text-sm">Khách chọn hộp mix</strong>
+          <p class="muted text-xs mt-2">Phản hồi minh họa</p>
+        </article>
+
+        <article class="panel rounded-3xl p-7">
+          <p style="color:var(--gold)" aria-label="5 sao">★★★★★</p>
+          <p class="leading-7 my-5">
+            “Một món quà nhỏ rất hợp cho buổi trà chiều cùng người thân.”
+          </p>
+          <strong class="text-sm">Khách mua bánh</strong>
+          <p class="muted text-xs mt-2">Phản hồi minh họa</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section id="contact" class="section soft">
+      <div class="container-custom grid lg:grid-cols-2 gap-12">
+        <div>
+          <p class="eyebrow mb-4">Liên hệ Nguyên Ninh</p>
+          <h2 class="section-title">Chọn quà dễ hơn,<br>trao thương nhiều hơn.</h2>
+
+          <p class="muted leading-8 mt-5">
+            Bạn cần chọn bánh biếu tặng hoặc đặt số lượng lớn?
+            Hãy gọi cửa hàng hoặc chuẩn bị nội dung tư vấn bên cạnh.
+          </p>
+
+          <div class="panel rounded-2xl p-6 mt-7 space-y-4">
+            <p class="text-sm">
+              <i class="fa-solid fa-location-dot mr-2" aria-hidden="true"></i>
+              11 Hàng Than, Hà Nội
+            </p>
+
+            <p class="text-sm">
+              <i class="fa-solid fa-motorcycle mr-2" aria-hidden="true"></i>
+              Nhận đơn giao hàng trong Hà Nội
+            </p>
+
+            <div id="contactLinks" class="flex flex-wrap gap-3"></div>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=11+Hang+Than+Ha+Noi"
+               target="_blank" rel="noopener"
+               class="inline-block text-sm underline">
+              Xem địa chỉ trên bản đồ ↗
+            </a>
+          </div>
+        </div>
+
+        <form id="contactForm" class="panel rounded-3xl p-6 sm:p-8">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label>
+              Họ tên *
+              <input name="name"
+                     class="field"
+                     required minlength="2" maxlength="80"
+                     autocomplete="name"
+                     placeholder="Tên của bạn">
+            </label>
+
+            <label>
+              Số điện thoại *
+              <input name="phone"
+                     class="field"
+                     type="tel"
+                     required
+                     pattern="(?:\+84|0)[0-9]{9}"
+                     title="Nhập 0 và 9 chữ số, hoặc +84 và 9 chữ số"
+                     autocomplete="tel"
+                     placeholder="09xxxxxxxx">
+            </label>
+          </div>
+
+          <label class="block mt-5">
+            Email
+            <input name="email"
+                   class="field"
+                   type="email"
+                   autocomplete="email"
+                   placeholder="Không bắt buộc">
+          </label>
+
+          <label class="block mt-5">
+            Nội dung cần tư vấn *
+            <textarea name="message"
+                      class="field"
+                      rows="4"
+                      required minlength="10" maxlength="1500"
+                      placeholder="Loại bánh, số lượng, dịp sử dụng…"></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary w-full mt-5">
+            Tạo nội dung tư vấn
+            <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+          </button>
+
+          <p class="muted text-xs leading-6 mt-3">
+            Nội dung được tạo để bạn sao chép gửi cửa hàng, chưa gửi tự động.
+          </p>
+
+          <div id="contactResult" hidden class="mt-5">
+            <label>
+              Nội dung đã chuẩn bị
+              <textarea id="contactText"
+                        class="field"
+                        rows="6"
+                        readonly></textarea>
+            </label>
+
+            <button type="button" class="btn mt-3" id="copyContact">
+              Sao chép nội dung
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- CHÂN TRANG -->
+  <footer class="pt-14 pb-6">
+    <div class="container-custom grid md:grid-cols-3 gap-9">
+      <div>
+        <h2 class="serif text-3xl">Nguyên Ninh</h2>
+
+        <p class="muted text-sm leading-7 mt-4">
+          Hiệu bánh cốm Nguyên Ninh – 11 Hàng Than.<br>
+          Thức quà thân quen, trao gửi lòng thành.
+        </p>
+
+        <div id="footerLinks" class="flex flex-wrap gap-3 mt-5"></div>
+      </div>
+
+      <div>
+        <h3 class="text-xl mb-4">Khám phá</h3>
+
+        <nav class="flex flex-col gap-3 muted text-sm"
+             aria-label="Menu cuối trang">
+          <a href="#home">Trang chủ</a>
+          <a href="#products">Sản phẩm</a>
+          <a href="#about">Giới thiệu</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3 class="text-xl mb-4">Nhận tin từ Nguyên Ninh</h3>
+
+        <p class="muted text-sm leading-6 mb-4">
+          Để lại email quan tâm. Bản mẫu lưu email trên thiết bị của bạn.
+        </p>
+
+        <form id="newsletterForm" class="flex gap-2">
+          <label for="newsletterEmail" class="sr-only">Email nhận tin</label>
+
+          <input id="newsletterEmail"
+                 type="email"
+                 class="field !mt-0 min-w-0"
+                 required
+                 autocomplete="email"
+                 placeholder="Email của bạn">
+
+          <button type="submit"
+                  class="icon-btn btn-primary !w-12 !h-12"
+                  aria-label="Lưu email">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container-custom mt-10 pt-6 flex flex-wrap justify-between gap-3 text-xs muted"
+         style="border-top:1px solid var(--border)">
+      <p>© <span id="year"></span> Bánh cốm Nguyên Ninh.</p>
+      <p>11 Hàng Than · Hà Nội</p>
+    </div>
+  </footer>
+
+  <!-- CỬA SỔ CHI TIẾT SẢN PHẨM -->
+  <dialog id="detailDialog" aria-labelledby="detailTitle">
+    <button class="icon-btn float-right"
+            data-close="detailDialog"
+            aria-label="Đóng chi tiết">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div id="detailContent"></div>
+  </dialog>
+
+  <!-- CỬA SỔ GIỎ HÀNG -->
+  <dialog id="cartDialog" aria-labelledby="cartTitle">
+    <div class="flex items-center justify-between gap-3 mb-5">
+      <h2 id="cartTitle" class="text-3xl">Giỏ hàng của bạn</h2>
+
+      <button class="icon-btn"
+              data-close="cartDialog"
+              aria-label="Đóng giỏ hàng">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="flex justify-between font-bold text-lg py-5">
+      <span>Tạm tính</span>
+      <span id="cartTotal">0đ</span>
+    </div>
+
+    <p class="muted text-xs leading-6 mb-5">
+      Chưa gồm phí giao hàng. Cửa hàng xác nhận giá, phí giao hàng
+      và tình trạng sản phẩm khi tiếp nhận yêu cầu.
+    </p>
+
+    <form id="orderForm">
+      <label class="block">
+        Họ tên *
+        <input name="name"
+               class="field"
+               required minlength="2" maxlength="80"
+               autocomplete="name">
+      </label>
+
+      <label class="block mt-4">
+        Số điện thoại *
+        <input name="phone"
+               class="field"
+               type="tel"
+               required
+               pattern="(?:\+84|0)[0-9]{9}"
+               title="Nhập 0 và 9 chữ số, hoặc +84 và 9 chữ số"
+               autocomplete="tel">
+      </label>
+
+      <label class="block mt-4">
+        Hình thức nhận hàng
+        <select name="delivery" class="field">
+          <option value="ship">Giao trong Hà Nội</option>
+          <option value="pickup">Nhận tại 11 Hàng Than</option>
+        </select>
+      </label>
+
+      <label id="addressLabel" class="block mt-4">
+        Địa chỉ nhận hàng tại Hà Nội *
+        <input name="address"
+               class="field"
+               required minlength="8" maxlength="250"
+               autocomplete="street-address">
+      </label>
+
+      <label class="block mt-4">
+        Ghi chú
+        <textarea name="note"
+                  class="field"
+                  rows="2"
+                  maxlength="500"
+                  placeholder="Thời gian nhận, yêu cầu đóng gói…"></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary w-full mt-5">
+        Tạo nội dung đặt hàng
+      </button>
+    </form>
+
+    <div id="orderResult" hidden class="mt-5">
+      <label>
+        Nội dung đơn hàng
+        <textarea id="orderText"
+                  class="field"
+                  rows="9"
+                  readonly></textarea>
+      </label>
+
+      <p class="muted text-xs leading-6 mt-3">
+        Đơn chưa được gửi. Sao chép nội dung để gửi cho cửa hàng
+        hoặc gọi trực tiếp để xác nhận.
+      </p>
+
+      <button type="button"
+              id="copyOrder"
+              class="btn btn-primary mt-3">
+        Sao chép đơn hàng
+      </button>
+
+      <div id="orderLinks" class="flex flex-wrap gap-3 mt-3"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script>
+    "use strict";
+
+    // THÔNG TIN CỬA HÀNG
+    // Điền liên kết Facebook và Zalo thật nếu muốn hiển thị nút.
+    const STORE = {
+      phone: "0985868317",
+      facebook: "",
+      zalo: ""
+    };
+
+    // 4 ẢNH PHẦN ĐẦU TRANG
+    const HERO_IMAGES = [
+      {
+        src: "anh-bia-1.jpg",
+        alt: "Bánh cốm Nguyên Ninh – 11 Hàng Than, ảnh 1"
+      },
+      {
+        src: "anh-bia-2.jpg",
+        alt: "Bánh cốm Nguyên Ninh – 11 Hàng Than, ảnh 2"
+      },
+      {
+        src: "anh-bia-3.jpg",
+        alt: "Bánh cốm Nguyên Ninh – 11 Hàng Than, ảnh 3"
+      },
+      {
+        src: "anh-bia-4.jpg",
+        alt: "Bánh cốm Nguyên Ninh – 11 Hàng Than, ảnh 4"
+      }
+    ];
+
+    // SẢN PHẨM
+    // Thay image bằng tên ảnh thật, ví dụ: "banh-com.jpg".
+    // Đặt ảnh trong cùng thư mục với index.html.
+    // Giá hộp mix là giá minh họa, cần thay trước khi bán.
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Bánh cốm Nguyên Ninh",
+        category: "Bánh cốm",
+        price: 100000,
+        pack: "Xác nhận quy cách với cửa hàng",
+        image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85",
+        description: "Vỏ bánh dẻo thơm vị cốm, nhân đậu xanh bùi nhẹ. Thích hợp thưởng thức cùng trà hoặc chọn làm quà biếu.",
+        ingredients: "Cốm, đậu xanh, đường. Kiểm tra thành phần và thông tin dị ứng trên bao bì.",
+        badge: "Được yêu thích"
+      },
+      {
+        id: 2,
+        name: "Mochi cốm",
+        category: "Mochi & Xu xê",
+        price: 60000,
+        pack: "Hộp 10 bánh",
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85",
+        description: "Một lựa chọn mềm dẻo cho buổi trà chiều. Có thể kết hợp cùng các loại bánh khác trong hộp mix.",
+        ingredients: "Vui lòng kiểm tra thành phần và thông tin dị ứng trên bao bì.",
+        badge: "Trà chiều"
+      },
+      {
+        id: 3,
+        name: "Bánh xu xê",
+        category: "Mochi & Xu xê",
+        price: 60000,
+        pack: "Hộp 10 bánh",
+        image: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85",
+        description: "Món bánh truyền thống dành cho dịp lễ, biếu tặng và những ngày vui của gia đình.",
+        ingredients: "Vui lòng kiểm tra thành phần trên bao bì.",
+        badge: "Quà lễ"
+      },
+      {
+        id: 4,
+        name: "Bánh cốm to",
+        category: "Bánh cốm",
+        price: 80000,
+        pack: "Xác nhận quy cách với cửa hàng",
+        image: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=900&q=85",
+        description: "Lựa chọn bánh cốm cỡ lớn cho người yêu hương vị truyền thống. Liên hệ cửa hàng để xác nhận số lượng và quy cách.",
+        ingredients: "Cốm, đậu xanh, đường. Kiểm tra thông tin trên bao bì.",
+        badge: "Truyền thống"
+      },
+      {
+        id: 5,
+        name: "Hộp mix 3 loại",
+        category: "Hộp quà",
+        price: 120000,
+        pack: "Giá minh họa — cần xác nhận",
+        image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=85",
+        description: "Kết hợp bánh cốm, mochi cốm và bánh xu xê. Có thể tư vấn số lượng từng loại theo nhu cầu.",
+        ingredients: "Theo thành phần từng loại bánh trong hộp.",
+        badge: "Hộp quà"
+      },
+      {
+        id: 6,
+        name: "Hộp mix cốm & xu xê",
+        category: "Hộp quà",
+        price: 100000,
+        pack: "Giá minh họa — cần xác nhận",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85",
+        description: "Hai hương vị thân quen trong một hộp bánh. Phù hợp để chia sẻ cùng người thân hoặc làm quà biếu.",
+        ingredients: "Theo thành phần từng loại bánh trong hộp.",
+        badge: "Gợi ý quà"
+      }
+    ];
+
+    const $ = selector => document.querySelector(selector);
+    const money = value => value.toLocaleString("vi-VN") + "đ";
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[character]));
+    }
+
+    function readLocal(key, fallback) {
+      try {
+        return JSON.parse(localStorage.getItem(key)) ?? fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function saveLocal(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    let cart = readLocal("nguyen-ninh-cart", {});
+    let activeCategory = "Tất cả";
+    let toastTimer;
+    let currentHeroIndex = 0;
+
+    if (!cart || typeof cart !== "object" || Array.isArray(cart)) {
+      cart = {};
+    }
+
+    for (const id of Object.keys(cart)) {
+      if (
+        !PRODUCTS.some(product => product.id === Number(id)) ||
+        !Number.isInteger(cart[id]) ||
+        cart[id] < 1 ||
+        cart[id] > 99
+      ) {
+        delete cart[id];
+      }
+    }
+
+    // THÔNG BÁO
+    function toast(message) {
+      $("#toast").textContent = message;
+      $("#toast").hidden = false;
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        $("#toast").hidden = true;
+      }, 4500);
+    }
+
+    // SÁNG / TỐI
+    function setTheme(isDark) {
+      document.documentElement.classList.toggle("dark", isDark);
+
+      $("#themeToggle").setAttribute("aria-pressed", String(isDark));
+      $("#themeToggle").setAttribute(
+        "aria-label",
+        isDark ? "Bật chế độ sáng" : "Bật chế độ tối"
+      );
+
+      $("#themeToggle").innerHTML = isDark
+        ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
+        : '<i class="fa-regular fa-moon" aria-hidden="true"></i>';
+    }
+
+    setTheme(
+      readLocal(
+        "nguyen-ninh-dark",
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) === true
+    );
+
+    $("#themeToggle").addEventListener("click", () => {
+      const isDark = !document.documentElement.classList.contains("dark");
+      setTheme(isDark);
+      saveLocal("nguyen-ninh-dark", isDark);
+    });
+
+    // MENU DI ĐỘNG
+    function closeMenu() {
+      $("#mobileMenu").classList.remove("open");
+      $("#menuToggle").setAttribute("aria-expanded", "false");
+    }
+
+    $("#menuToggle").addEventListener("click", () => {
+      const isOpen = $("#mobileMenu").classList.toggle("open");
+      $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // TÌM KIẾM
+    $("#searchToggle").addEventListener("click", () => {
+      const isOpen = $("#searchPanel").hidden;
+
+      $("#searchPanel").hidden = !isOpen;
+      $("#searchToggle").setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        $("#searchInput").focus();
+      }
+    });
+
+    // THƯ VIỆN 4 ẢNH
+    const mainHeroImage = $("#heroMainImage");
+    const heroCounter = $("#heroImageCounter");
+
+    mainHeroImage.src = HERO_IMAGES[0].src;
+    mainHeroImage.alt = HERO_IMAGES[0].alt;
+
+    document.querySelectorAll(".hero-thumbnail").forEach(button => {
+      const initialIndex = Number(button.dataset.imageIndex);
+      const thumbnailImage = button.querySelector("img");
+
+      thumbnailImage.src = HERO_IMAGES[initialIndex].src;
+      thumbnailImage.alt = HERO_IMAGES[initialIndex].alt;
+
+      button.addEventListener("click", () => {
+        const selectedIndex = Number(button.dataset.imageIndex);
+        const previousIndex = currentHeroIndex;
+
+        currentHeroIndex = selectedIndex;
+
+        mainHeroImage.src = HERO_IMAGES[currentHeroIndex].src;
+        mainHeroImage.alt = HERO_IMAGES[currentHeroIndex].alt;
+
+        heroCounter.textContent =
+          `${currentHeroIndex + 1} / ${HERO_IMAGES.length}`;
+
+        button.dataset.imageIndex = previousIndex;
+        button.setAttribute(
+          "aria-label",
+          `Xem ảnh ${previousIndex + 1}`
+        );
+
+        thumbnailImage.src = HERO_IMAGES[previousIndex].src;
+        thumbnailImage.alt = HERO_IMAGES[previousIndex].alt;
+      });
+    });
+
+    // BỘ LỌC SẢN PHẨM
+    const categories = [
+      "Tất cả",
+      ...new Set(PRODUCTS.map(product => product.category))
+    ];
+
+    $("#filters").innerHTML = categories.map((category, index) => `
+      <button
+        type="button"
+        class="filter-btn ${index === 0 ? "active" : ""}"
+        data-category="${escapeHTML(category)}"
+        aria-pressed="${index === 0}">
+        ${escapeHTML(category)}
+      </button>
+    `).join("");
+
+    function renderProducts() {
+      const keyword = $("#searchInput")
+        .value.trim().toLocaleLowerCase("vi");
+
+      const filtered = PRODUCTS.filter(product => {
+        const matchesCategory =
+          activeCategory === "Tất cả" ||
+          product.category === activeCategory;
+
+        const matchesKeyword =
+          product.name.toLocaleLowerCase("vi").includes(keyword);
+
+        return matchesCategory && matchesKeyword;
+      });
+
+      $("#emptyProducts").hidden = filtered.length > 0;
+
+      $("#productGrid").innerHTML = filtered.map(product => `
+        <article class="product-card panel rounded-3xl overflow-hidden">
+          <div class="relative">
+            <img
+              src="${escapeHTML(product.image)}"
+              alt="Ảnh minh họa cho ${escapeHTML(product.name)}"
+              loading="lazy"
+              class="w-full h-64">
+
+            <span class="panel absolute top-4 left-4 rounded-full px-3 py-2 text-[10px]">
+              ${escapeHTML(product.badge)}
+            </span>
+          </div>
+
+          <div class="p-6">
+            <p class="eyebrow !text-[9px]">
+              ${escapeHTML(product.category)}
+            </p>
+
+            <h3 class="text-2xl mt-2">
+              ${escapeHTML(product.name)}
+            </h3>
+
+            <p class="muted text-xs leading-6 min-h-8 mt-3">
+              ${escapeHTML(product.pack)}
+            </p>
+
+            <div class="flex items-center justify-between gap-3 mt-4">
+              <strong class="text-xl">${money(product.price)}</strong>
+
+              <button type="button"
+                      data-detail="${product.id}"
+                      class="text-xs underline">
+                Xem chi tiết
+              </button>
+            </div>
+
+            <button type="button"
+                    data-add="${product.id}"
+                    class="btn btn-primary w-full mt-5">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              Thêm vào giỏ
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    $("#filters").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+
+      activeCategory = button.dataset.category;
+
+      document.querySelectorAll(".filter-btn").forEach(item => {
+        const isActive = item === button;
+
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+
+      renderProducts();
+    });
+
+    $("#searchInput").addEventListener("input", renderProducts);
+
+    // GIỎ HÀNG
+    function cartTotal() {
+      return PRODUCTS.reduce(
+        (total, product) =>
+          total + product.price * (cart[product.id] || 0),
+        0
+      );
+    }
+
+    function updateCart() {
+      saveLocal("nguyen-ninh-cart", cart);
+
+      const count = Object.values(cart).reduce(
+        (total, quantity) => total + quantity,
+        0
+      );
+
+      $("#cartCount").textContent = count;
+
+      $("#cartOpen").setAttribute(
+        "aria-label",
+        `Mở giỏ hàng, ${count} sản phẩm`
+      );
+
+      const items = PRODUCTS.filter(product => cart[product.id]);
+
+      $("#cartItems").innerHTML = items.length
+        ? items.map(product => `
+          <div class="flex items-center justify-between gap-3 py-4"
+               style="border-bottom:1px solid var(--border)">
+            <div class="min-w-0">
+              <strong class="text-sm">
+                ${escapeHTML(product.name)}
+              </strong>
+
+              <p class="muted text-xs mt-2">
+                ${money(product.price)}
+              </p>
+
+              <button type="button"
+                      data-remove="${product.id}"
+                      class="text-xs underline mt-2">
+                Xóa
+              </button>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                class="icon-btn"
+                data-step="-1"
+                data-id="${product.id}"
+                aria-label="Giảm số lượng ${escapeHTML(product.name)}">
+                −
+              </button>
+
+              <span>${cart[product.id]}</span>
+
+              <button
+                type="button"
+                class="icon-btn"
+                data-step="1"
+                data-id="${product.id}"
+                aria-label="Tăng số lượng ${escapeHTML(product.name)}">
+                +
+              </button>
+            </div>
+          </div>
+        `).join("")
+        : `
+          <p class="muted py-6">
+            Giỏ hàng đang trống. Hãy chọn món bạn thích.
+          </p>
+        `;
+
+      $("#cartTotal").textContent = money(cartTotal());
+      $("#orderForm").hidden = items.length === 0;
+      $("#orderResult").hidden = true;
+    }
+
+    function addToCart(id, quantity = 1) {
+      if (!PRODUCTS.some(product => product.id === id)) return;
+      if (!Number.isInteger(quantity) || quantity < 1) return;
+
+      const newQuantity = (cart[id] || 0) + quantity;
+
+      if (newQuantity > 99) {
+        toast("Tối đa 99 sản phẩm mỗi loại.");
+        return;
+      }
+
+      cart[id] = newQuantity;
+      updateCart();
+      toast("Đã thêm sản phẩm vào giỏ hàng.");
+    }
+
+    // CHI TIẾT SẢN PHẨM
+    function openDetail(id) {
+      const product = PRODUCTS.find(item => item.id === id);
+      if (!product) return;
+
+      $("#detailContent").innerHTML = `
+        <img
+          src="${escapeHTML(product.image)}"
+          alt="Ảnh minh họa cho ${escapeHTML(product.name)}"
+          class="w-full h-56 rounded-2xl mt-12">
+
+        <h2 id="detailTitle" class="text-3xl mt-5">
+          ${escapeHTML(product.name)}
+        </h2>
+
+        <p class="text-xl font-bold mt-3">
+          ${money(product.price)}
+        </p>
+
+        <p class="muted leading-7 mt-4">
+          ${escapeHTML(product.description)}
+        </p>
+
+        <div class="text-sm leading-7 mt-4">
+          <p>
+            <strong>Thành phần:</strong>
+            ${escapeHTML(product.ingredients)}
+          </p>
+
+          <p>
+            <strong>Quy cách:</strong>
+            ${escapeHTML(product.pack)}
+          </p>
+
+          <p>
+            <strong>Hạn sử dụng:</strong>
+            Theo thông tin trên bao bì; xác nhận với cửa hàng.
+          </p>
+        </div>
+
+        <label class="block mt-5">
+          Số lượng
+
+          <span class="flex items-center gap-3 mt-2">
+            <button type="button"
+                    id="detailMinus"
+                    class="icon-btn"
+                    aria-label="Giảm số lượng">
+              −
+            </button>
+
+            <input id="detailQuantity"
+                   type="number"
+                   min="1" max="99" step="1" value="1"
+                   required
+                   class="field !mt-0 !w-20 text-center">
+
+            <button type="button"
+                    id="detailPlus"
+                    class="icon-btn"
+                    aria-label="Tăng số lượng">
+              +
+            </button>
+          </span>
+        </label>
+
+        <button type="button"
+                id="detailAdd"
+                class="btn btn-primary w-full mt-5">
+          Thêm vào giỏ
+        </button>
+
+        <p class="muted text-xs mt-4">
+          Ảnh minh họa; thay bằng ảnh sản phẩm thật trước khi bán.
+        </p>
+      `;
+
+      const quantityInput = $("#detailQuantity");
+
+      function changeQuantity(step) {
+        const current = Number(quantityInput.value) || 1;
+
+        quantityInput.value =
+          Math.max(1, Math.min(99, Math.trunc(current) + step));
+      }
+
+      $("#detailMinus").onclick = () => changeQuantity(-1);
+      $("#detailPlus").onclick = () => changeQuantity(1);
+
+      $("#detailAdd").onclick = () => {
+        if (!quantityInput.reportValidity()) return;
+
+        addToCart(product.id, Number(quantityInput.value));
+      };
+
+      $("#detailDialog").showModal();
+    }
+
+    document.addEventListener("click", event => {
+      const addButton = event.target.closest("[data-add]");
+      const detailButton = event.target.closest("[data-detail]");
+      const closeButton = event.target.closest("[data-close]");
+
+      if (addButton) {
+        addToCart(Number(addButton.dataset.add));
+      }
+
+      if (detailButton) {
+        openDetail(Number(detailButton.dataset.detail));
+      }
+
+      if (closeButton) {
+        document.getElementById(closeButton.dataset.close).close();
+      }
+    });
+
+    $("#cartOpen").addEventListener("click", () => {
+      updateCart();
+      $("#cartDialog").showModal();
+    });
+
+    $("#cartItems").addEventListener("click", event => {
+      const removeButton = event.target.closest("[data-remove]");
+      const stepButton = event.target.closest("[data-step]");
+
+      if (removeButton) {
+        delete cart[removeButton.dataset.remove];
+        updateCart();
+      }
+
+      if (stepButton) {
+        const id = stepButton.dataset.id;
+        const next = cart[id] + Number(stepButton.dataset.step);
+
+        if (next > 99) {
+          toast("Tối đa 99 sản phẩm mỗi loại.");
+          return;
+        }
+
+        if (next <= 0) {
+          delete cart[id];
+        } else {
+          cart[id] = next;
+        }
+
+        updateCart();
+      }
+    });
+
+    // TẠO NỘI DUNG ĐƠN HÀNG
+    const orderForm = $("#orderForm");
+
+    orderForm.elements.delivery.addEventListener("change", () => {
+      const isShipping =
+        orderForm.elements.delivery.value === "ship";
+
+      $("#addressLabel").hidden = !isShipping;
+      orderForm.elements.address.required = isShipping;
+    });
+
+    orderForm.addEventListener("input", () => {
+      $("#orderResult").hidden = true;
+    });
+
+    orderForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!Object.keys(cart).length) {
+        toast("Hãy thêm sản phẩm vào giỏ trước.");
+        return;
+      }
+
+      const data = new FormData(orderForm);
+      const isShipping = data.get("delivery") === "ship";
+
+      const items = PRODUCTS
+        .filter(product => cart[product.id])
+        .map(product =>
+          `${product.name} × ${cart[product.id]}: ${
+            money(product.price * cart[product.id])
+          }`
+        );
+
+      const lines = [
+        "YÊU CẦU ĐẶT HÀNG",
+        "Bánh cốm Nguyên Ninh – 11 Hàng Than",
+        "",
+        `Họ tên: ${data.get("name").trim()}`,
+        `Số điện thoại: ${data.get("phone")}`,
+        `Nhận hàng: ${
+          isShipping ? "Giao trong Hà Nội" : "Nhận tại 11 Hàng Than"
+        }`
+      ];
+
+      if (isShipping) {
+        lines.push(`Địa chỉ: ${data.get("address").trim()}`);
+      }
+
+      lines.push(
+        "",
+        ...items,
+        "",
+        `Tạm tính: ${money(cartTotal())} (chưa phí giao hàng)`,
+        `Ghi chú: ${data.get("note").trim() || "Không"}`,
+        "",
+        "Vui lòng xác nhận giá, quy cách, phí giao hàng và tình trạng sản phẩm."
+      );
+
+      $("#orderText").value = lines.join("\n");
+      $("#orderResult").hidden = false;
+      $("#orderText").focus();
+
+      toast("Đã tạo nội dung đơn. Sao chép và gửi cho cửa hàng.");
+    });
+
+    // SAO CHÉP NỘI DUNG
+    async function copyText(selector) {
+      const textarea = $(selector);
+
+      try {
+        if (!navigator.clipboard) {
+          throw new Error("Clipboard unavailable");
+        }
+
+        await navigator.clipboard.writeText(textarea.value);
+
+        toast("Đã sao chép. Hãy gửi nội dung cho cửa hàng.");
+      } catch {
+        textarea.focus();
+        textarea.select();
+        textarea.setSelectionRange(0, textarea.value.length);
+
+        toast("Nhấn Ctrl+C hoặc chọn Sao chép trên điện thoại.");
+      }
+    }
+
+    $("#copyOrder").addEventListener("click", () => {
+      copyText("#orderText");
+    });
+
+    $("#copyContact").addEventListener("click", () => {
+      copyText("#contactText");
+    });
+
+    // FORM TƯ VẤN
+    $("#contactForm").addEventListener("input", () => {
+      $("#contactResult").hidden = true;
+    });
+
+    $("#contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const data = new FormData(event.target);
+
+      $("#contactText").value = [
+        "YÊU CẦU TƯ VẤN – NGUYÊN NINH",
+        `Họ tên: ${data.get("name").trim()}`,
+        `Điện thoại: ${data.get("phone")}`,
+        `Email: ${data.get("email").trim() || "Không cung cấp"}`,
+        `Nội dung: ${data.get("message").trim()}`
+      ].join("\n");
+
+      $("#contactResult").hidden = false;
+      $("#contactText").focus();
+
+      toast("Đã chuẩn bị nội dung. Sao chép để gửi cửa hàng.");
+    });
+
+    // EMAIL NHẬN TIN: LƯU CỤC BỘ
+    $("#newsletterForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const email = $("#newsletterEmail").value.trim();
+
+      const saved = saveLocal(
+        "nguyen-ninh-newsletter",
+        email
+      );
+
+      toast(
+        saved
+          ? "Đã lưu email trên thiết bị. Chưa đăng ký với cửa hàng."
+          : "Trình duyệt không cho phép lưu email."
+      );
+    });
+
+    // HIỂN THỊ LIÊN KẾT CỬA HÀNG
+    function addStoreLinks(selector) {
+      const container = $(selector);
+
+      if (STORE.phone.trim()) {
+        const phone = document.createElement("a");
+
+        phone.href = "tel:" + STORE.phone.replace(/[^\d+]/g, "");
+        phone.className = "btn";
+        phone.textContent = "Gọi: " + STORE.phone;
+
+        container.append(phone);
+      }
+
+      for (const [label, value] of [
+        ["Facebook", STORE.facebook],
+        ["Zalo", STORE.zalo]
+      ]) {
+        if (!value.trim()) continue;
+
+        try {
+          const url = new URL(value);
+
+          if (url.protocol !== "https:") continue;
+
+          const link = document.createElement("a");
+
+          link.href = url.href;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.className = "btn";
+          link.textContent = label;
+
+          container.append(link);
+        } catch {
+          // Bỏ qua liên kết cấu hình sai.
+        }
+      }
+    }
+
+    addStoreLinks("#contactLinks");
+    addStoreLinks("#footerLinks");
+    addStoreLinks("#orderLinks");
+
+    // ĐÓNG CỬA SỔ KHI BẤM RA NGOÀI
+    document.querySelectorAll("dialog").forEach(dialog => {
+      dialog.addEventListener("click", event => {
+        if (event.target !== dialog) return;
+
+        const rect = dialog.getBoundingClientRect();
+
+        if (
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom
+        ) {
+          dialog.close();
+        }
+      });
+    });
+
+    // PHÍM ESC
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeMenu();
+        $("#searchPanel").hidden = true;
+        $("#searchToggle").setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // THÔNG TIN KHI ẢNH KHÔNG TẢI ĐƯỢC
+    document.addEventListener("error", event => {
+      if (event.target instanceof HTMLImageElement) {
+        event.target.alt =
+          "Ảnh chưa tải được. Kiểm tra tên ảnh, đuôi ảnh và thư mục chứa ảnh.";
+      }
+    }, true);
+
+    // KHỞI TẠO
+    $("#year").textContent = new Date().getFullYear();
+
+    renderProducts();
+    updateCart();
+  </script>
+</body>
 </html>
