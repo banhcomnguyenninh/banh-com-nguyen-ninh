@@ -24,3 +24,6 @@ form.onsubmit=async e=>{e.preventDefault();if(sending)return;if(!db||!ready)retu
 if($('#product-search'))$('#product-search').oninput=renderProducts;
 if($('#menu-toggle'))$('#menu-toggle').onclick=()=>{const menu=$('#mobile-menu');menu.hidden=!menu.hidden;$('#menu-toggle').setAttribute('aria-expanded',String(!menu.hidden))};
 load();
+
+async function loadSiteBanner(){if(!db||!document.querySelector('#hero-image'))return;try{const {data,error}=await db.from('bc_settings').select('hero_image').eq('id','main').maybeSingle();if(!error&&data?.hero_image){const url=imageURL(data.hero_image);if(url)document.querySelector('#hero-image').src=url}}catch{ /* Giữ ảnh hiện tại khi chưa có banner được lưu. */ }}
+loadSiteBanner();
